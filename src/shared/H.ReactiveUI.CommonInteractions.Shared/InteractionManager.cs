@@ -234,11 +234,11 @@ public class InteractionManager
             context.SetOutput(Unit.Default);
         });
 #else
-        _ = Interactions.Message.RegisterHandler(static async context =>
+        _ = Interactions.Message.RegisterHandler(async context =>
         {
             var message = context.Input;
 
-            message = LocalizationConverter.Convert(message);
+            message = Localize(message);
 
             Trace.WriteLine($"Message: {message}");
             var dialog = new MessageDialog(message, "Message:");
@@ -247,11 +247,11 @@ public class InteractionManager
 
             _ = await dialog.ShowAsync();
         });
-        _ = Interactions.Warning.RegisterHandler(static async context =>
+        _ = Interactions.Warning.RegisterHandler(async context =>
         {
             var warning = context.Input;
 
-            warning = LocalizationConverter.Convert(warning);
+            warning = Localize(warning);
 
             Trace.WriteLine($"Warning: {warning}");
             var dialog = new MessageDialog(warning, "Warning:");
@@ -271,12 +271,12 @@ public class InteractionManager
 
             await dialog.ShowAsync();
         });
-        _ = Interactions.Question.RegisterHandler(static async context =>
+        _ = Interactions.Question.RegisterHandler(async context =>
         {
             var question = context.Input;
 
-            var message = LocalizationConverter.Convert(question.Message);
-            var title = LocalizationConverter.Convert(question.Title);
+            var message = Localize(question.Message);
+            var title = Localize(question.Title);
             var body = message;
             if (!string.IsNullOrWhiteSpace(question.AdditionalData))
             {
@@ -314,7 +314,7 @@ public class InteractionManager
                 return;
             }
 
-            var model = await file.ToFileAsync();
+            var model = await file.ToFileAsync().ConfigureAwait(false);
 
             context.SetOutput(model);
         });
@@ -331,7 +331,7 @@ public class InteractionManager
             var files = await picker.PickMultipleFilesAsync();
 
             var models = await Task.WhenAll(files
-                .Select(static file => file.ToFileAsync()));
+                .Select(static file => file.ToFileAsync())).ConfigureAwait(false);
 
             context.SetOutput(models);
         });
@@ -408,7 +408,11 @@ public class InteractionManager
         {
             var url = context.Input;
 
-            _ = await Launcher.LaunchUriAsync(new Uri(url));
+            _ = await Launcher.LaunchUriAsync(new Uri(url))
+#if Uno
+                .ConfigureAwait(false)
+#endif
+                ;
 
             context.SetOutput(Unit.Default);
         });
