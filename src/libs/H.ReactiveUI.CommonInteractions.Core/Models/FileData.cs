@@ -1,6 +1,6 @@
-﻿namespace H.ReactiveUI.CommonInteractions;
+﻿namespace H.ReactiveUI;
 
-public record FileViewModel(
+public record FileData(
     string FileName,
     string Extension,
     byte[] Bytes)
@@ -8,7 +8,7 @@ public record FileViewModel(
     public string FileNameWithExtension => $"{FileName}{Extension}";
     public bool IsEmpty => !Bytes.Any();
 
-    public FileViewModel()
+    public FileData()
         : this(string.Empty, string.Empty, Array.Empty<byte>())
     {
     }

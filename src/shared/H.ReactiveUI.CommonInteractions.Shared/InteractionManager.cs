@@ -17,7 +17,7 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 #endif
 
-namespace H.ReactiveUI.CommonInteractions;
+namespace H.ReactiveUI;
 
 public class InteractionManager
 {
@@ -47,7 +47,7 @@ public class InteractionManager
     public void Register()
     {
 #if WPF
-        _ = Interactions.Message.RegisterHandler(context =>
+        _ = MessageInteractions.Message.RegisterHandler(context =>
         {
             var message = context.Input;
 
@@ -62,7 +62,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.Warning.RegisterHandler(context =>
+        _ = MessageInteractions.Warning.RegisterHandler(context =>
         {
             var warning = context.Input;
 
@@ -77,7 +77,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.Exception.RegisterHandler(static context =>
+        _ = MessageInteractions.Exception.RegisterHandler(static context =>
         {
             var exception = context.Input;
 
@@ -90,7 +90,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.Question.RegisterHandler(context =>
+        _ = MessageInteractions.Question.RegisterHandler(context =>
         {
             var question = context.Input;
 
@@ -114,7 +114,7 @@ public class InteractionManager
 
             context.SetOutput(result == MessageBoxResult.Yes);
         });
-        _ = Interactions.OpenFile.RegisterHandler(context =>
+        _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
             var (extensions, filterName) = context.Input;
 
@@ -140,7 +140,7 @@ public class InteractionManager
 
             context.SetOutput(model);
         });
-        _ = Interactions.OpenFiles.RegisterHandler(context =>
+        _ = FileInteractions.OpenFiles.RegisterHandler(context =>
         {
             var (extensions, filterName) = context.Input;
 
@@ -158,7 +158,7 @@ public class InteractionManager
             };
             if (dialog.ShowDialog() != true)
             {
-                context.SetOutput(Array.Empty<FileViewModel>());
+                context.SetOutput(Array.Empty<FileData>());
                 return;
             }
 
@@ -169,7 +169,7 @@ public class InteractionManager
 
             context.SetOutput(models);
         });
-        _ = Interactions.SaveFile.RegisterHandler(static context =>
+        _ = FileInteractions.SaveFile.RegisterHandler(static context =>
         {
             var (fileName, extension, bytes) = context.Input;
 
@@ -191,7 +191,7 @@ public class InteractionManager
 
             context.SetOutput(path);
         });
-        _ = Interactions.LaunchPath.RegisterHandler(static context =>
+        _ = FileInteractions.LaunchPath.RegisterHandler(static context =>
         {
             var path = context.Input;
 
@@ -202,7 +202,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.LaunchInTemp.RegisterHandler(async static context =>
+        _ = FileInteractions.LaunchInTemp.RegisterHandler(async static context =>
         {
             var (fileName, extension, bytes) = context.Input;
 
@@ -217,11 +217,11 @@ public class InteractionManager
             _ = Directory.CreateDirectory(folder);
             File.WriteAllBytes(path, bytes);
 
-            _ = await Interactions.LaunchPath.Handle(path);
+            _ = await FileInteractions.LaunchPath.Handle(path);
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.LaunchFolder.RegisterHandler(static context =>
+        _ = FileInteractions.LaunchFolder.RegisterHandler(static context =>
         {
             var path = context.Input;
 
@@ -232,7 +232,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.OpenUrl.RegisterHandler(static context =>
+        _ = WebInteractions.OpenUrl.RegisterHandler(static context =>
         {
             var url = context.Input;
 
@@ -244,7 +244,7 @@ public class InteractionManager
             context.SetOutput(Unit.Default);
         });
 #else
-        _ = Interactions.Message.RegisterHandler(async context =>
+        _ = MessageInteractions.Message.RegisterHandler(async context =>
         {
             var message = context.Input;
 
@@ -257,7 +257,7 @@ public class InteractionManager
 
             _ = await dialog.ShowAsync();
         });
-        _ = Interactions.Warning.RegisterHandler(async context =>
+        _ = MessageInteractions.Warning.RegisterHandler(async context =>
         {
             var warning = context.Input;
 
@@ -270,7 +270,7 @@ public class InteractionManager
 
             await dialog.ShowAsync();
         });
-        _ = Interactions.Exception.RegisterHandler(static async context =>
+        _ = MessageInteractions.Exception.RegisterHandler(static async context =>
         {
             var exception = context.Input;
 
@@ -281,7 +281,7 @@ public class InteractionManager
 
             await dialog.ShowAsync();
         });
-        _ = Interactions.Question.RegisterHandler(async context =>
+        _ = MessageInteractions.Question.RegisterHandler(async context =>
         {
             var question = context.Input;
 
@@ -307,7 +307,7 @@ public class InteractionManager
 
             context.SetOutput(result == ContentDialogResult.Primary);
         });
-        _ = Interactions.OpenFile.RegisterHandler(static async context =>
+        _ = FileInteractions.OpenFile.RegisterHandler(static async context =>
         {
             var (extensions, filterName) = context.Input;
 
@@ -328,7 +328,7 @@ public class InteractionManager
 
             context.SetOutput(model);
         });
-        _ = Interactions.OpenFiles.RegisterHandler(static async context =>
+        _ = FileInteractions.OpenFiles.RegisterHandler(static async context =>
         {
             var (extensions, filterName) = context.Input;
 
@@ -345,7 +345,7 @@ public class InteractionManager
 
             context.SetOutput(models);
         });
-        _ = Interactions.SaveFile.RegisterHandler(async context =>
+        _ = FileInteractions.SaveFile.RegisterHandler(async context =>
         {
             var (fileName, extension, bytes) = context.Input;
 
@@ -375,7 +375,7 @@ public class InteractionManager
 
             context.SetOutput(file.Path);
         });
-        _ = Interactions.LaunchPath.RegisterHandler(async context =>
+        _ = FileInteractions.LaunchPath.RegisterHandler(async context =>
         {
             var path = context.Input;
 
@@ -387,7 +387,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.LaunchInTemp.RegisterHandler(async static context =>
+        _ = FileInteractions.LaunchInTemp.RegisterHandler(async static context =>
         {
             var (fileName, extension, bytes) = context.Input;
 
@@ -404,7 +404,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.LaunchFolder.RegisterHandler(static async context =>
+        _ = FileInteractions.LaunchFolder.RegisterHandler(static async context =>
         {
             var path = context.Input;
 
@@ -414,7 +414,7 @@ public class InteractionManager
 
             context.SetOutput(Unit.Default);
         });
-        _ = Interactions.OpenUrl.RegisterHandler(static async context =>
+        _ = WebInteractions.OpenUrl.RegisterHandler(static async context =>
         {
             var url = context.Input;
 

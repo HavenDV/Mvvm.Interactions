@@ -1,11 +1,11 @@
-﻿namespace H.ReactiveUI.CommonInteractions;
+﻿namespace H.ReactiveUI;
 
-public class QuestionViewModel
+public class QuestionData
 {
     #region Properties
 
-    public string Message { get; } = $"{nameof(QuestionViewModel)}.DefaultMessage";
-    public string Title { get; } = $"{nameof(QuestionViewModel)}.DefaultTitle";
+    public string Message { get; } = string.Empty;
+    public string Title { get; } = string.Empty;
 
     /// <summary>
     /// This data will not be localized and will be shown as is.
@@ -16,7 +16,7 @@ public class QuestionViewModel
 
     #region Constructors
 
-    public QuestionViewModel(
+    public QuestionData(
         string message,
         string? title = null,
         string? additionalData = null)

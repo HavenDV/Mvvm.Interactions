@@ -10,6 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IOExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\IOExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
   </ItemGroup>
 </Project>

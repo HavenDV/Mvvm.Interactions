@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace H.ReactiveUI.CommonInteractions.Apps.Wpf;
+namespace H.ReactiveUI.Apps.Wpf;
 
 public partial class App : Application
 {

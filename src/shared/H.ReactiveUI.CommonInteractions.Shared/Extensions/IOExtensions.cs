@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Windows.Storage;
 #endif
 
-namespace H.ReactiveUI.CommonInteractions;
+namespace H.ReactiveUI;
 
 public static class IOExtensions
 {
 #if WPF
-    public static FileViewModel ToFile(
+    public static FileData ToFile(
         this string path)
     {
         path = path ?? throw new ArgumentNullException(nameof(path));
@@ -23,7 +23,7 @@ public static class IOExtensions
             File.ReadAllBytes(path));
     }
 #else
-    public static async Task<FileViewModel> ToFileAsync(
+    public static async Task<FileData> ToFileAsync(
         this StorageFile file,
         CancellationToken cancellationToken = default)
     {
