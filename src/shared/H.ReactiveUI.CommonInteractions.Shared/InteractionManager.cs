@@ -23,18 +23,24 @@ public class InteractionManager
 {
     #region Properties
 
+    private Func<string, string>? LocalizationFunc { get; }
+
 #if !WPF
     private Dictionary<string, StorageFile> StorageFiles { get; } = new();
 #endif
 
     #endregion
 
-    private Func<string, string>? LocalizationFunc { get; }
+    #region Constructors
 
     public InteractionManager(Func<string, string>? localizationFunc = null)
     {
         LocalizationFunc = localizationFunc;
     }
+
+    #endregion
+
+    #region Methods
 
     private string Localize(string value) => LocalizationFunc?.Invoke(value) ?? value;
 
@@ -421,5 +427,7 @@ public class InteractionManager
             context.SetOutput(Unit.Default);
         });
 #endif
+
+        #endregion
     }
 }
