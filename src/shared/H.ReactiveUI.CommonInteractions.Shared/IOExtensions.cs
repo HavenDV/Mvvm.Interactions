@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-#if WPF_APP
+#if WPF
 #else
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace H.ReactiveUI.CommonInteractions;
 
 public static class IOExtensions
 {
-#if WPF_APP
+#if WPF
     public static FileViewModel ToFile(
         this string path)
     {
