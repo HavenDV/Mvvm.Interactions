@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
   </ItemGroup>
-  
+
   <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
 
 </Project>

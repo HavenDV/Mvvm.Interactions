@@ -3,9 +3,13 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>ba613475-621f-4787-b5c6-77758e53450b</SharedGUID>
+    <SharedGUID>f497b163-e46e-4ea6-9e41-bb0c25ca6272</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>H.ReactiveUI.CommonInteractions.Shared</Import_RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IOExtensions.cs" />
+  </ItemGroup>
 </Project>
