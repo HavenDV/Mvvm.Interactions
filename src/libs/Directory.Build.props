@@ -12,8 +12,8 @@
   </PropertyGroup>
   
   <PropertyGroup Label="NuGet">
-    <Description>Adds support for dynamic columns to DataGrid</Description>
-    <PackageTags>datagrid, dynamic, columns, uwp, uno, wpf</PackageTags>
+    <Description>Common Interactions(like open/save file) for WPF/UWP/Uno platform</Description>
+    <PackageTags>reactiveui, common, interactions, openfile, savefile, openfiledialog, savefiledialog, uwp, uno, wpf</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
