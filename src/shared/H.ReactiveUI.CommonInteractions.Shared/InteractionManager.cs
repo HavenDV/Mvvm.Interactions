@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reactive;
-#if WPF_APP
+#if WPF
 using System.Reactive.Linq;
 using System.Windows;
 using Microsoft.Win32;
@@ -21,9 +21,13 @@ namespace H.ReactiveUI.CommonInteractions;
 
 public class InteractionManager
 {
-#if !WPF_APP
+    #region Properties
+
+#if !WPF
     private Dictionary<string, StorageFile> StorageFiles { get; } = new();
 #endif
+
+    #endregion
 
     private Func<string, string>? LocalizationFunc { get; }
 
@@ -36,7 +40,7 @@ public class InteractionManager
 
     public void Register()
     {
-#if WPF_APP
+#if WPF
         _ = Interactions.Message.RegisterHandler(context =>
         {
             var message = context.Input;
