@@ -1,0 +1,19 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+	<!--;net6.0-maccatalyst;net6.0-android;net6.0-ios;net6.0-macos-->
+    <TargetFrameworks>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworks>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.UI" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
+  </ItemGroup>
+  
+  <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
+
+</Project>

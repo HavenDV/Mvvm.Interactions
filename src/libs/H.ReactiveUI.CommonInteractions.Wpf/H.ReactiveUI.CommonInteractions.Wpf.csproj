@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net4.0;net4.5;net5.0-windows;net6.0-windows</TargetFrameworks>
+	<UseWPF>true</UseWPF>
+    <RootNamespace>H.ReactiveUI.CommonInteractions</RootNamespace>
+    <DefineConstants>$(DefineConstants);WPF_APP</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
+  </ItemGroup>
+  
+</Project>
