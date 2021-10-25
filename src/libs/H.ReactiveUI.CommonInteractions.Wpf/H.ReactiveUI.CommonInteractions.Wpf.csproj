@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net4.6.1;net5.0-windows;net6.0-windows</TargetFrameworks>
 	<UseWPF>true</UseWPF>
-    <DefineConstants>$(DefineConstants);WPF_APP</DefineConstants>
-	<NoWarn>$(NoWarn);CA1014;CA5394</NoWarn>
+    <DefineConstants>$(DefineConstants);WPF</DefineConstants>
+	<NoWarn>$(NoWarn);CA1014;CA5394;CS8002</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

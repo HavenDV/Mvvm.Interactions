@@ -4,7 +4,6 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>net6.0-windows;net4.8</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
