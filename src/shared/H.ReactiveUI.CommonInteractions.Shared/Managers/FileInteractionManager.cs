@@ -125,6 +125,14 @@ public class FileInteractionManager
 
             context.SetOutput(path);
         });
+        _ = FileInteractions.SaveOpenFile.RegisterHandler(context =>
+        {
+            var arguments = context.Input;
+
+            File.WriteAllBytes(arguments.FullPath, arguments.Bytes);
+
+            context.SetOutput(arguments.FullPath);
+        });
         _ = FileInteractions.LaunchPath.RegisterHandler(static context =>
         {
             var path = context.Input;
@@ -241,6 +249,24 @@ public class FileInteractionManager
             }
 
             StorageFiles[file.Path] = file;
+
+            context.SetOutput(file.Path);
+        });
+        _ = FileInteractions.SaveOpenFile.RegisterHandler(async context =>
+        {
+            var arguments = context.Input;
+
+            if (!StorageFiles.TryGetValue(arguments.FullPath, out var file))
+            {
+                context.SetOutput(null);
+                return;
+            }
+
+            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(false))
+            using (var writer = new BinaryWriter(stream))
+            {
+                writer.Write(arguments.Bytes);
+            }
 
             context.SetOutput(file.Path);
         });
