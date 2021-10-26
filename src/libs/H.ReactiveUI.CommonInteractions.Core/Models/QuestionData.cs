@@ -17,6 +17,10 @@ public class QuestionData
 
     #region Constructors
 
+    public QuestionData()
+    {
+    }
+
     public QuestionData(string message)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));
