@@ -210,7 +210,7 @@ public class InteractionManager
         });
         _ = FileInteractions.LaunchInTemp.RegisterHandler(async static context =>
         {
-            var (fileName, extension, bytes) = context.Input;
+            var file = context.Input;
 
             var folder = Path.Combine(
                 Path.GetTempPath(),
@@ -218,10 +218,10 @@ public class InteractionManager
                 $"{new Random().Next()}");
             var path = Path.Combine(
                 folder,
-                $"{fileName}{extension}");
+                file.FileName);
 
             _ = Directory.CreateDirectory(folder);
-            File.WriteAllBytes(path, bytes);
+            File.WriteAllBytes(path, file.Bytes);
 
             _ = await FileInteractions.LaunchPath.Handle(path);
 
@@ -402,18 +402,18 @@ public class InteractionManager
         });
         _ = FileInteractions.LaunchInTemp.RegisterHandler(async static context =>
         {
-            var (fileName, extension, bytes) = context.Input;
+            var file = context.Input;
 
-            var file = await ApplicationData.Current.TemporaryFolder
-                .CreateFileAsync($"{fileName}{extension}", CreationCollisionOption.ReplaceExisting);
+            var storageFile = await ApplicationData.Current.TemporaryFolder
+                .CreateFileAsync(file.FileName, CreationCollisionOption.ReplaceExisting);
 
-            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(true))
+            using (var stream = await storageFile.OpenStreamForWriteAsync().ConfigureAwait(true))
             using (var writer = new BinaryWriter(stream))
             {
-                writer.Write(bytes);
+                writer.Write(file.Bytes);
             }
 
-            _ = await Launcher.LaunchFileAsync(file);
+            _ = await Launcher.LaunchFileAsync(storageFile);
 
             context.SetOutput(Unit.Default);
         });

@@ -1,9 +1,6 @@
-﻿using System;
+﻿#if WPF
 using System.IO;
-#if WPF
 #else
-using System.Threading;
-using System.Threading.Tasks;
 using Windows.Storage;
 #endif
 
@@ -17,10 +14,10 @@ public static class IOExtensions
     {
         path = path ?? throw new ArgumentNullException(nameof(path));
 
-        return new(
-            Path.GetFileNameWithoutExtension(path),
-            Path.GetExtension(path),
-            File.ReadAllBytes(path));
+        return new FileData(path)
+        {
+            Bytes = File.ReadAllBytes(path),
+        };
     }
 #else
     public static async Task<FileData> ToFileAsync(
@@ -40,11 +37,11 @@ public static class IOExtensions
         }
 
         var path = file.Name;
-
-        return new(
-            Path.GetFileNameWithoutExtension(path),
-            Path.GetExtension(path),
-            bytes);
+        
+        return new FileData(path)
+        {
+            Bytes = bytes,
+        };
     }
 #endif
 }
