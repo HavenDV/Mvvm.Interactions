@@ -114,7 +114,8 @@ public static class DragAndDropExtensions
 #endif
 
             if (sender is UIElement element &&
-                GetDragFilesEnterCommand(element) is ICommand command)
+                GetDragFilesEnterCommand(element) is ICommand command &&
+                files.Any())
             {
                 command.Execute(files.ToArray());
             }
@@ -185,7 +186,8 @@ public static class DragAndDropExtensions
             var text = await args.DataView.GetTextAsync();
 #endif
             if (sender is UIElement element &&
-                GetDragTextEnterCommand(element) is ICommand command)
+                GetDragTextEnterCommand(element) is ICommand command &&
+                text != null)
             {
                 command.Execute(text);
             }
@@ -341,7 +343,8 @@ public static class DragAndDropExtensions
                 .Select(static file => file.ToFileAsync())).ConfigureAwait(true));
 #endif
             if (sender is UIElement element &&
-                GetDropFilesCommand(element) is ICommand command)
+                GetDropFilesCommand(element) is ICommand command &&
+                files.Any())
             {
                 command.Execute(files.ToArray());
             }
@@ -412,7 +415,8 @@ public static class DragAndDropExtensions
             var text = await args.DataView.GetTextAsync();
 #endif
             if (sender is UIElement element &&
-                GetDropTextCommand(element) is ICommand command)
+                GetDropTextCommand(element) is ICommand command &&
+                text != null)
             {
                 command.Execute(text);
             }
