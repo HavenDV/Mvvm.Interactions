@@ -4,7 +4,6 @@
     <TargetFrameworks>uap10.0.19041</TargetFrameworks>
     <SignAssembly>false</SignAssembly>
 	<DefineConstants>$(DefineConstants);UWP</DefineConstants>
-	<NoWarn>$(NoWarn);CA1014</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

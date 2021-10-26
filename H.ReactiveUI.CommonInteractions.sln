@@ -17,6 +17,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9972D12E-4770-4883-AE5D-98412271DE83}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		src\CLSCompliantFalse.cs = src\CLSCompliantFalse.cs
 		src\Directory.Build.props = src\Directory.Build.props
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		global.json = global.json

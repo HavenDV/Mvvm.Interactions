@@ -6,6 +6,10 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup Label="CLSCompliant">
+    <Compile Include="$(SolutionDir)src\CLSCompliantFalse.cs" />
+  </ItemGroup>
+
   <PropertyGroup Label="Signing">
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)src\key.snk</AssemblyOriginatorKeyFile>
