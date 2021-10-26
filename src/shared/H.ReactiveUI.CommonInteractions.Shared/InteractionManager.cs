@@ -116,16 +116,16 @@ public class InteractionManager
         });
         _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
-            var (fileName, extensions, filterName) = context.Input;
+            var arguments = context.Input;
 
-            var wildcards = extensions
+            var wildcards = arguments.Extensions
                 .Select(static extension => $"*{extension}")
                 .ToArray();
-            var filter = $@"{Localize(filterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
+            var filter = $@"{Localize(arguments.FilterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
 
             var dialog = new OpenFileDialog
             {
-                FileName = fileName,
+                FileName = arguments.SuggestedFileName,
                 CheckFileExists = true,
                 CheckPathExists = true,
                 Filter = filter,
@@ -143,12 +143,12 @@ public class InteractionManager
         });
         _ = FileInteractions.OpenFiles.RegisterHandler(context =>
         {
-            var (fileName, extensions, filterName) = context.Input;
+            var arguments = context.Input;
 
-            var wildcards = extensions
+            var wildcards = arguments.Extensions
                 .Select(static extension => $"*{extension}")
                 .ToArray();
-            var filter = $@"{Localize(filterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
+            var filter = $@"{Localize(arguments.FilterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
 
             var dialog = new OpenFileDialog
             {
@@ -315,10 +315,10 @@ public class InteractionManager
         });
         _ = FileInteractions.OpenFile.RegisterHandler(static async context =>
         {
-            var (fileName, extensions, filterName) = context.Input;
+            var arguments = context.Input;
 
             var picker = new FileOpenPicker();
-            foreach (var extension in extensions)
+            foreach (var extension in arguments.Extensions)
             {
                 picker.FileTypeFilter.Add(extension);
             }
@@ -336,10 +336,10 @@ public class InteractionManager
         });
         _ = FileInteractions.OpenFiles.RegisterHandler(static async context =>
         {
-            var (fileName, extensions, filterName) = context.Input;
+            var arguments = context.Input;
 
             var picker = new FileOpenPicker();
-            foreach (var extension in extensions)
+            foreach (var extension in arguments.Extensions)
             {
                 picker.FileTypeFilter.Add(extension);
             }

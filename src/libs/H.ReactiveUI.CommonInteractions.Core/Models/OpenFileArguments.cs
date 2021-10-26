@@ -1,6 +1,8 @@
 ﻿namespace H.ReactiveUI;
 
-public readonly record struct OpenFileArguments(
-    string FileName,
-    string[] Extensions,
-    string FilterName);
+public class OpenFileArguments
+{
+    public string SuggestedFileName { get; init; } = string.Empty;
+    public string[] Extensions { get; init; } = Array.Empty<string>();
+    public string FilterName { get; init; } = string.Empty;
+}
