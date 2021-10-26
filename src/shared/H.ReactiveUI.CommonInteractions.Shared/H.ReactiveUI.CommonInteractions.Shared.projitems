@@ -9,10 +9,8 @@
     <Import_RootNamespace>H.ReactiveUI.CommonInteractions.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DragAndDropExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\IOExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
   </ItemGroup>
 </Project>

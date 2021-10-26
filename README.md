@@ -25,6 +25,28 @@ Install-Package H.ReactiveUI.CommonInteractions.Uwp
 
 ## Usage
 
+### DragAndDropExtensions
+```
+// WPF
+xmlns:h="clr-namespace:H.ReactiveUI;assembly=H.ReactiveUI.CommonInteractions.Wpf" 
+// UWP/Uno
+xmlns:h="using:H.ReactiveUI"
+```
+```xml
+<Element
+    AllowDrop="True"
+    h:DragEnterCommand="{Binding DragEnter}"
+    h:DragLeaveCommand="{Binding DragLeave}"
+    h:DropFilesCommand="{Binding DropFiles}"
+    h:DropTextCommand="{Binding DropText}"
+    >
+```
+
+Additional arguments:
+DragEnterCommand - `List<name>` - List of file names.
+DragLeaveCommand - `null`.
+DropFilesCommand - `List<FileData>` - List of file datas.
+DropTextCommand - `string` - Text.
 
 ## Contacts
 * [mail](mailto:havendv@gmail.com)
