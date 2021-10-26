@@ -4,6 +4,8 @@ namespace H.ReactiveUI;
 
 public class FileData
 {
+    #region Properties
+
     public string FullPath { get; init; } = string.Empty;
     public string FileName { get; init; } = string.Empty;
     public string Extension { get; init; } = string.Empty;
@@ -21,6 +23,10 @@ public class FileData
         init => Bytes = Encoding.UTF8.GetBytes(value);
     }
 
+    #endregion
+
+    #region Constructors
+
     public FileData()
     {
     }
@@ -32,4 +38,6 @@ public class FileData
         Extension = Path.GetExtension(FullPath);
         FileNameWithoutExtension = Path.GetFileNameWithoutExtension(FullPath);
     }
+
+    #endregion
 }

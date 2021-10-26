@@ -4,26 +4,22 @@ public class QuestionData
 {
     #region Properties
 
-    public string Message { get; } = string.Empty;
-    public string Title { get; } = string.Empty;
+    public string Message { get; init; } = string.Empty;
+
+    public string Title { get; init; } = "Question:";
 
     /// <summary>
     /// This data will not be localized and will be shown as is.
     /// </summary>
-    public string AdditionalData { get; } = string.Empty;
+    public string AdditionalData { get; init; } = string.Empty;
 
     #endregion
 
     #region Constructors
 
-    public QuestionData(
-        string message,
-        string? title = null,
-        string? additionalData = null)
+    public QuestionData(string message)
     {
-        Message = message ?? throw new System.ArgumentNullException(nameof(message));
-        Title = title ?? string.Empty;
-        AdditionalData = additionalData ?? string.Empty;
+        Message = message ?? throw new ArgumentNullException(nameof(message));
     }
 
     #endregion
