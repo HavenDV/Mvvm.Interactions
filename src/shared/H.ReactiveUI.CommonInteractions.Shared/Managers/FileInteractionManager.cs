@@ -175,7 +175,7 @@ public class FileInteractionManager
             context.SetOutput(Unit.Default);
         });
 #else
-        _ = FileInteractions.OpenFile.RegisterHandler(static async context =>
+        _ = FileInteractions.OpenFile.RegisterHandler(async context =>
         {
             var arguments = context.Input;
 
@@ -192,11 +192,13 @@ public class FileInteractionManager
                 return;
             }
 
+            StorageFiles[file.Path] = file;
+
             var model = await file.ToFileAsync().ConfigureAwait(false);
 
             context.SetOutput(model);
         });
-        _ = FileInteractions.OpenFiles.RegisterHandler(static async context =>
+        _ = FileInteractions.OpenFiles.RegisterHandler(async context =>
         {
             var arguments = context.Input;
 
@@ -211,6 +213,11 @@ public class FileInteractionManager
             {
                 context.SetOutput(Array.Empty<FileData>());
                 return;
+            }
+
+            foreach (var file in files)
+            {
+                StorageFiles[file.Path] = file;
             }
 
             var models = await Task.WhenAll(files
