@@ -36,7 +36,7 @@ public static class IOExtensions
             bytes = memoryStream.ToArray();
         }
 
-        var path = file.Name;
+        var path = file.Path;
         
         return new FileData(path)
         {
