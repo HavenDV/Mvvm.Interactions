@@ -61,10 +61,10 @@ xmlns:h="using:H.ReactiveUI"
 ```
 
 Command arguments:
-DragFilesEnterCommand - `List<string>` - List of file names.  
-DragTextEnterCommand - `string` - List of file names.  
+DragFilesEnterCommand - `FileData[]` - Array of file names.  
+DragTextEnterCommand - `string` - Text.  
 DragLeaveCommand - `null`.  
-DropFilesCommand - `List<FileData>` - List of file datas.  
+DropFilesCommand - `FileData[]` - Array of file datas.  
 DropTextCommand - `string` - Text.  
 
 ## Contacts
