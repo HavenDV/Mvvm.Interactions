@@ -26,20 +26,21 @@ Install-Package H.ReactiveUI.CommonInteractions.Uwp
 ## Usage
 ### FileInteractions
 ```cs
-await FileInteractions.OpenFile.Handle(
-    new OpenFileArguments(
-        SuggestedFileName = "my",
-        Extensions = new[] { ".txt" },
-        FilterName = "My txt files",
-    ));
+var data = await FileInteractions.OpenFile.Handle(new OpenFileArguments
+{
+    SuggestedFileName = "my.txt",
+    Extensions = new[] { ".txt" },
+    FilterName = "My txt files",
+});
+var text = data.Text;
 
-await FileInteractions.SaveFile.Handle(
-    new SaveFileArguments(
-        SuggestedFileName = "my",
-        Extension = ".txt",
-        FilterName = "My txt files",
-        BytesFunc = () => Task.FromResult(bytes), // It will be invoked if the user selects something.
-    ));
+var fileName = await FileInteractions.SaveFile.Handle(new SaveFileArguments
+{
+    SuggestedFileName = "my.txt",
+    Extension = ".txt",
+    FilterName = "My txt files",
+    BytesFunc = () => Task.FromResult(Encoding.UTF8.GetBytes(text)),
+});
 ```
 
 
