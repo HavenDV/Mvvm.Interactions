@@ -13,32 +13,29 @@ public static class WebInteractionManager
 
     public static void Register()
     {
-#if WPF
-        _ = WebInteractions.OpenUrl.RegisterHandler(static context =>
+        _ = WebInteractions.OpenUrl.RegisterHandler(
+#if !WPF
+        async
+#endif
+        static context =>
         {
             var url = context.Input;
 
+#if WPF
             _ = Process.Start(new ProcessStartInfo(url)
             {
                 UseShellExecute = true,
             });
-
-            context.SetOutput(Unit.Default);
-        });
 #else
-        _ = WebInteractions.OpenUrl.RegisterHandler(static async context =>
-        {
-            var url = context.Input;
-
             _ = await Launcher.LaunchUriAsync(new Uri(url))
-#if Uno
+    #if Uno
                 .ConfigureAwait(false)
-#endif
+    #endif
                 ;
+#endif
 
             context.SetOutput(Unit.Default);
         });
-#endif
     }
 
     #endregion
