@@ -24,6 +24,25 @@ Install-Package H.ReactiveUI.CommonInteractions.Uwp
 ```
 
 ## Usage
+Add to your App constructors:
+```cs
+
+public sealed partial class App
+{
+    private InteractionManager InteractionManager { get; } = new();
+
+    public App()
+    {
+        InteractionManager.Register();
+
+        // Not necessary. Displays unhandled exceptions using MessageInteractions.Exception.
+        // InteractionManager.CatchUnhandledExceptions();
+
+        // your code
+    }
+}
+```
+
 ### FileInteractions
 ```cs
 var data = await FileInteractions.OpenFile.Handle(new OpenFileArguments
