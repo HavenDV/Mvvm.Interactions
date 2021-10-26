@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Signing">
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>$(SolutionDir)src\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   
