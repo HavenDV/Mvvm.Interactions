@@ -24,6 +24,24 @@ Install-Package H.ReactiveUI.CommonInteractions.Uwp
 ```
 
 ## Usage
+### FileInteractions
+```cs
+await FileInteractions.OpenFile.Handle(
+    new OpenFileArguments(
+        SuggestedFileName = "my",
+        Extensions = new[] { ".txt" },
+        FilterName = "My txt files",
+    ));
+
+await FileInteractions.SaveFile.Handle(
+    new SaveFileArguments(
+        SuggestedFileName = "my",
+        Extension = ".txt",
+        FilterName = "My txt files",
+        BytesFunc = () => Task.FromResult(bytes), // It will be invoked if the user selects something.
+    ));
+```
+
 
 ### DragAndDropExtensions
 ```
@@ -43,10 +61,10 @@ xmlns:h="using:H.ReactiveUI"
 ```
 
 Additional arguments:
-DragEnterCommand - `List<name>` - List of file names.
-DragLeaveCommand - `null`.
-DropFilesCommand - `List<FileData>` - List of file datas.
-DropTextCommand - `string` - Text.
+DragEnterCommand - `List<name>` - List of file names.  
+DragLeaveCommand - `null`.  
+DropFilesCommand - `List<FileData>` - List of file datas.  
+DropTextCommand - `string` - Text.  
 
 ## Contacts
 * [mail](mailto:havendv@gmail.com)
