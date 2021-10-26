@@ -172,15 +172,15 @@ public class InteractionManager
         });
         _ = FileInteractions.SaveFile.RegisterHandler(async static context =>
         {
-            var (fileName, extension, filterName, bytesFunc) = context.Input;
+            var arguments = context.Input;
 
-            var wildcards = new[] { $"*{extension}" };
-            var filter = $@"{filterName} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
+            var wildcards = new[] { $"*{arguments.Extension}" };
+            var filter = $@"{arguments.FilterName} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
 
             var dialog = new SaveFileDialog
             {
-                FileName = fileName,
-                DefaultExt = extension,
+                FileName = arguments.SuggestedFileName,
+                DefaultExt = arguments.Extension,
                 AddExtension = true,
                 Filter = filter,
             };
@@ -190,7 +190,9 @@ public class InteractionManager
                 return;
             }
 
-            var bytes = await bytesFunc().ConfigureAwait(false);
+            var bytes = arguments.BytesFunc == null
+                ? arguments.Bytes
+                : await arguments.BytesFunc().ConfigureAwait(false);
             var path = dialog.FileName;
 
             File.WriteAllBytes(path, bytes);
@@ -358,15 +360,15 @@ public class InteractionManager
         });
         _ = FileInteractions.SaveFile.RegisterHandler(async context =>
         {
-            var (fileName, extension, filterName, bytesTask) = context.Input;
+            var arguments = context.Input;
 
             var picker = new FileSavePicker
             {
                 SuggestedStartLocation = PickerLocationId.Downloads,
-                SuggestedFileName = fileName,
+                SuggestedFileName = arguments.SuggestedFileName,
                 FileTypeChoices =
                 {
-                    { extension, new List<string> { extension } },
+                    { arguments.Extension, new List<string> { arguments.Extension } },
                 },
             };
             var file = await picker.PickSaveFileAsync();
@@ -376,7 +378,9 @@ public class InteractionManager
                 return;
             }
 
-            var bytes = await bytesTask().ConfigureAwait(false);
+            var bytes = arguments.BytesFunc == null
+                ? arguments.Bytes
+                : await arguments.BytesFunc().ConfigureAwait(false);
 
             using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(false))
             using (var writer = new BinaryWriter(stream))
