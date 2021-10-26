@@ -118,7 +118,7 @@ public class FileInteractionManager
 
             var bytes = arguments.BytesFunc == null
                 ? arguments.Bytes
-                : await arguments.BytesFunc().ConfigureAwait(false);
+                : await arguments.BytesFunc().ConfigureAwait(true);
             var path = dialog.FileName;
 
             File.WriteAllBytes(path, bytes);
@@ -194,7 +194,7 @@ public class FileInteractionManager
 
             StorageFiles[file.Path] = file;
 
-            var model = await file.ToFileAsync().ConfigureAwait(false);
+            var model = await file.ToFileAsync().ConfigureAwait(true);
 
             context.SetOutput(model);
         });
@@ -221,7 +221,7 @@ public class FileInteractionManager
             }
 
             var models = await Task.WhenAll(files
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(false);
+                .Select(static file => file.ToFileAsync())).ConfigureAwait(true);
 
             context.SetOutput(models);
         });
@@ -247,9 +247,9 @@ public class FileInteractionManager
 
             var bytes = arguments.BytesFunc == null
                 ? arguments.Bytes
-                : await arguments.BytesFunc().ConfigureAwait(false);
+                : await arguments.BytesFunc().ConfigureAwait(true);
 
-            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(false))
+            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(true))
             using (var writer = new BinaryWriter(stream))
             {
                 writer.Write(bytes);
@@ -269,7 +269,7 @@ public class FileInteractionManager
                 return;
             }
 
-            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(false))
+            using (var stream = await file.OpenStreamForWriteAsync().ConfigureAwait(true))
             using (var writer = new BinaryWriter(stream))
             {
                 writer.Write(arguments.Bytes);

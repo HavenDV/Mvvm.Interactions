@@ -18,7 +18,7 @@ public class SaveFileArguments
     public Func<Task<string>> TextFunc
     {
         get => () => Task.FromResult(string.Empty);
-        init => BytesFunc = async () => Encoding.UTF8.GetBytes(await value().ConfigureAwait(false));
+        init => BytesFunc = async () => Encoding.UTF8.GetBytes(await value().ConfigureAwait(true));
     }
 
     /// <summary>

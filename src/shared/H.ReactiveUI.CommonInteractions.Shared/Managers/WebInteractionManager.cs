@@ -29,7 +29,7 @@ public static class WebInteractionManager
 #else
             _ = await Launcher.LaunchUriAsync(new Uri(url))
     #if Uno
-                .ConfigureAwait(false)
+                .ConfigureAwait(true)
     #endif
                 ;
 #endif

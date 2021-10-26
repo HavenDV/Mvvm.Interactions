@@ -106,7 +106,7 @@ public static class DragAndDropExtensions
             var folderFiles = await Task.WhenAll(items
                 .OfType<StorageFolder>()
                 .Select(async static folder => await folder.GetFilesAsync(
-                    CommonFileQuery.OrderByName))).ConfigureAwait(false);
+                    CommonFileQuery.OrderByName))).ConfigureAwait(true);
 
             files.AddRange(folderFiles
                 .SelectMany(static files => files)
@@ -329,16 +329,16 @@ public static class DragAndDropExtensions
 
             files.AddRange(await Task.WhenAll(items
                 .OfType<StorageFile>()
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(false));
+                .Select(static file => file.ToFileAsync())).ConfigureAwait(true));
 
             var folderFiles = await Task.WhenAll(items
                 .OfType<StorageFolder>()
                 .Select(async static folder => await folder.GetFilesAsync(
-                    CommonFileQuery.OrderByName))).ConfigureAwait(false);
+                    CommonFileQuery.OrderByName))).ConfigureAwait(true);
 
             files.AddRange(await Task.WhenAll(folderFiles
                 .SelectMany(static files => files)
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(false));
+                .Select(static file => file.ToFileAsync())).ConfigureAwait(true));
 #endif
             if (sender is UIElement element &&
                 GetDropFilesCommand(element) is ICommand command)

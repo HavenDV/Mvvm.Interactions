@@ -27,11 +27,11 @@ public static class IOExtensions
         file = file ?? throw new ArgumentNullException(nameof(file));
 
         byte[] bytes;
-        using (var stream = await file.OpenStreamForReadAsync().ConfigureAwait(false))
+        using (var stream = await file.OpenStreamForReadAsync().ConfigureAwait(true))
         using (var memoryStream = new MemoryStream())
         {
             await stream.CopyToAsync(
-                memoryStream, 81920, cancellationToken).ConfigureAwait(false);
+                memoryStream, 81920, cancellationToken).ConfigureAwait(true);
 
             bytes = memoryStream.ToArray();
         }
