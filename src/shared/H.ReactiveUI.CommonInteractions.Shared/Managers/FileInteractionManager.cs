@@ -19,7 +19,7 @@ public class FileInteractionManager
     private Func<string, string>? LocalizationFunc { get; }
 
 #if !WPF
-    private Dictionary<string, StorageFile> StorageFiles { get; } = new();
+    public static Dictionary<string, StorageFile> StorageFiles { get; } = new();
 #endif
 
     #endregion

@@ -183,11 +183,10 @@ public static class DragAndDropExtensions
 #endif
         {
 #if !WPF
-            var text = await args.DataView.GetTextAsync();
+            var text = await args.DataView.GetTextAsync() ?? string.Empty;
 #endif
             if (sender is UIElement element &&
-                GetDragTextEnterCommand(element) is ICommand command &&
-                text != null)
+                GetDragTextEnterCommand(element) is ICommand command)
             {
                 command.Execute(text);
             }
@@ -314,9 +313,8 @@ public static class DragAndDropExtensions
         if (args.DataView.Contains(StandardDataFormats.StorageItems))
 #endif
         {
-            var files = new List<FileData>();
 #if WPF
-            files.AddRange(paths
+            var files = paths
                 .SelectMany(static path =>
                 {
                     return Directory.Exists(path)
@@ -325,22 +323,30 @@ public static class DragAndDropExtensions
                             .Select(static path => path.ToFile())
                             .ToArray()
                         : new[] { path.ToFile() };
-                }));
+                })
+                .ToList();
 #else
             var items = await args.DataView.GetStorageItemsAsync();
 
-            files.AddRange(await Task.WhenAll(items
+            var storageFiles = items
                 .OfType<StorageFile>()
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(true));
+                .ToList();
+            var folderFiles = await Task.WhenAll(
+                items
+                    .OfType<StorageFolder>()
+                    .Select(async static folder => await folder.GetFilesAsync(CommonFileQuery.OrderByName)))
+                .ConfigureAwait(true);
 
-            var folderFiles = await Task.WhenAll(items
-                .OfType<StorageFolder>()
-                .Select(async static folder => await folder.GetFilesAsync(
-                    CommonFileQuery.OrderByName))).ConfigureAwait(true);
+            storageFiles.AddRange(folderFiles
+                .SelectMany(static files => files));
 
-            files.AddRange(await Task.WhenAll(folderFiles
-                .SelectMany(static files => files)
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(true));
+            foreach (var storageFile in storageFiles)
+            {
+                FileInteractionManager.StorageFiles[storageFile.Path] = storageFile;
+            }
+
+            var files = await Task.WhenAll(storageFiles
+                .Select(static file => file.ToFileAsync())).ConfigureAwait(true);
 #endif
             if (sender is UIElement element &&
                 GetDropFilesCommand(element) is ICommand command &&
@@ -412,11 +418,10 @@ public static class DragAndDropExtensions
 #endif
         {
 #if !WPF
-            var text = await args.DataView.GetTextAsync();
+            var text = await args.DataView.GetTextAsync() ?? string.Empty;
 #endif
             if (sender is UIElement element &&
-                GetDropTextCommand(element) is ICommand command &&
-                text != null)
+                GetDropTextCommand(element) is ICommand command)
             {
                 command.Execute(text);
             }
