@@ -15,33 +15,33 @@ namespace H.ReactiveUI;
 
 public static class DragAndDropExtensions
 {
-    #region DragEnterCommand
+    #region DragFilesEnterCommand
 
-    public static readonly DependencyProperty DragEnterCommandProperty =
+    public static readonly DependencyProperty DragFilesEnterCommandProperty =
         DependencyProperty.RegisterAttached(
-            nameof(DragEnterCommandProperty).Replace("Property", string.Empty),
+            nameof(DragFilesEnterCommandProperty).Replace("Property", string.Empty),
             typeof(ICommand),
             typeof(DragAndDropExtensions),
-            new PropertyMetadata(null, OnDragEnterCommandChanged));
+            new PropertyMetadata(null, OnDragFilesEnterCommandChanged));
 
 #if WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
-    public static ICommand? GetDragEnterCommand(DependencyObject element)
+    public static ICommand? GetDragFilesEnterCommand(DependencyObject element)
     {
         element = element ?? throw new ArgumentNullException(nameof(element));
 
-        return (ICommand?)element.GetValue(DragEnterCommandProperty);
+        return (ICommand?)element.GetValue(DragFilesEnterCommandProperty);
     }
 
-    public static void SetDragEnterCommand(DependencyObject element, ICommand? value)
+    public static void SetDragFilesEnterCommand(DependencyObject element, ICommand? value)
     {
         element = element ?? throw new ArgumentNullException(nameof(element));
 
-        element.SetValue(DragEnterCommandProperty, value);
+        element.SetValue(DragFilesEnterCommandProperty, value);
     }
 
-    private static void OnDragEnterCommandChanged(
+    private static void OnDragFilesEnterCommandChanged(
         DependencyObject element,
         DependencyPropertyChangedEventArgs args)
     {
@@ -51,19 +51,19 @@ public static class DragAndDropExtensions
         }
         if (args.OldValue is ICommand oldCommand)
         {
-            uiElement.DragEnter -= OnDragEnter;
+            uiElement.DragEnter -= OnDragFilesEnter;
         }
         if (args.NewValue is ICommand command)
         {
-            uiElement.DragEnter += OnDragEnter;
+            uiElement.DragEnter += OnDragFilesEnter;
         }
     }
 
     // Android requires full type name.
 #if WPF
-    private static void OnDragEnter(object sender, DragEventArgs args)
+    private static void OnDragFilesEnter(object sender, DragEventArgs args)
 #else
-    private async static void OnDragEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
+    private async static void OnDragFilesEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
 #endif
     {
         var names = new List<string>();
@@ -103,9 +103,80 @@ public static class DragAndDropExtensions
 #endif
 
         if (sender is UIElement element &&
-            GetDragEnterCommand(element) is ICommand command)
+            GetDragFilesEnterCommand(element) is ICommand command)
         {
             command.Execute(names);
+        }
+    }
+
+    #endregion
+
+    #region DragTextEnterCommand
+
+    public static readonly DependencyProperty DragTextEnterCommandProperty =
+        DependencyProperty.RegisterAttached(
+            nameof(DragTextEnterCommandProperty).Replace("Property", string.Empty),
+            typeof(ICommand),
+            typeof(DragAndDropExtensions),
+            new PropertyMetadata(null, OnDragTextEnterCommandChanged));
+
+#if WPF
+    [AttachedPropertyBrowsableForType(typeof(UIElement))]
+#endif
+    public static ICommand? GetDragTextEnterCommand(DependencyObject element)
+    {
+        element = element ?? throw new ArgumentNullException(nameof(element));
+
+        return (ICommand?)element.GetValue(DragTextEnterCommandProperty);
+    }
+
+    public static void SetDragTextEnterCommand(DependencyObject element, ICommand? value)
+    {
+        element = element ?? throw new ArgumentNullException(nameof(element));
+
+        element.SetValue(DragTextEnterCommandProperty, value);
+    }
+
+    private static void OnDragTextEnterCommandChanged(
+        DependencyObject element,
+        DependencyPropertyChangedEventArgs args)
+    {
+        if (element is not UIElement uiElement)
+        {
+            throw new ArgumentException($"Element should be {nameof(UIElement)}.");
+        }
+        if (args.OldValue is ICommand oldCommand)
+        {
+            uiElement.DragEnter -= OnDragTextEnter;
+        }
+        if (args.NewValue is ICommand command)
+        {
+            uiElement.DragEnter += OnDragTextEnter;
+        }
+    }
+
+    // Android requires full type name.
+#if WPF
+    private static void OnDragTextEnter(object sender, DragEventArgs args)
+#else
+    private async static void OnDragTextEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
+#endif
+    {
+#if WPF
+        if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
+            args.Data.GetData(DataFormats.UnicodeText, true) is string text)
+#else
+        if (args.DataView.Contains(StandardDataFormats.Text))
+#endif
+        {
+#if !WPF
+            var text = await args.DataView.GetTextAsync();
+#endif
+            if (sender is UIElement element &&
+                GetDragTextEnterCommand(element) is ICommand command)
+            {
+                command.Execute(text);
+            }
         }
     }
 
