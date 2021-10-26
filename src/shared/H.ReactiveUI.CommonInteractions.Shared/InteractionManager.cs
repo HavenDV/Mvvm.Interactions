@@ -1,20 +1,13 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reactive;
+﻿using System.Reactive;
 #if WPF
+using System.IO;
+using System.Diagnostics;
 using System.Reactive.Linq;
-using System.Windows;
 using Microsoft.Win32;
 #else
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
-using Windows.UI.Popups;
-using Windows.UI.Xaml.Controls;
 #endif
 
 namespace H.ReactiveUI;
@@ -24,6 +17,7 @@ public class InteractionManager
     #region Properties
 
     private Func<string, string>? LocalizationFunc { get; }
+    private MessageInteractionManager MessageInteractionManager { get; }
 
 #if !WPF
     private Dictionary<string, StorageFile> StorageFiles { get; } = new();
@@ -36,6 +30,7 @@ public class InteractionManager
     public InteractionManager(Func<string, string>? localizationFunc = null)
     {
         LocalizationFunc = localizationFunc;
+        MessageInteractionManager = new MessageInteractionManager(localizationFunc);
     }
 
     #endregion
@@ -46,74 +41,8 @@ public class InteractionManager
 
     public void Register()
     {
+        MessageInteractionManager.Register();
 #if WPF
-        _ = MessageInteractions.Message.RegisterHandler(context =>
-        {
-            var message = context.Input;
-
-            message = Localize(message);
-
-            Trace.WriteLine($"Message: {message}");
-            _ = MessageBox.Show(
-                message,
-                "Message:",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
-
-            context.SetOutput(Unit.Default);
-        });
-        _ = MessageInteractions.Warning.RegisterHandler(context =>
-        {
-            var warning = context.Input;
-
-            warning = Localize(warning);
-
-            Trace.WriteLine($"Warning: {warning}");
-            _ = MessageBox.Show(
-                warning,
-                "Warning:",
-                MessageBoxButton.OK,
-                MessageBoxImage.Warning);
-
-            context.SetOutput(Unit.Default);
-        });
-        _ = MessageInteractions.Exception.RegisterHandler(static context =>
-        {
-            var exception = context.Input;
-
-            Trace.WriteLine($"Exception: {exception}");
-            _ = MessageBox.Show(
-                $"{exception}",
-                "Exception:",
-                MessageBoxButton.OK,
-                MessageBoxImage.Error);
-
-            context.SetOutput(Unit.Default);
-        });
-        _ = MessageInteractions.Question.RegisterHandler(context =>
-        {
-            var question = context.Input;
-
-            var message = Localize(question.Message);
-            var title = Localize(question.Title);
-            var body = message;
-            if (!string.IsNullOrWhiteSpace(question.AdditionalData))
-            {
-                body += Environment.NewLine + question.AdditionalData;
-            }
-
-            Trace.WriteLine($@"Question: {title}
-{body}");
-
-            var result = MessageBox.Show(
-                body,
-                title,
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question,
-                MessageBoxResult.No);
-
-            context.SetOutput(result == MessageBoxResult.Yes);
-        });
         _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
             var arguments = context.Input;
@@ -252,69 +181,6 @@ public class InteractionManager
             context.SetOutput(Unit.Default);
         });
 #else
-        _ = MessageInteractions.Message.RegisterHandler(async context =>
-        {
-            var message = context.Input;
-
-            message = Localize(message);
-
-            Trace.WriteLine($"Message: {message}");
-            var dialog = new MessageDialog(message, "Message:");
-
-            context.SetOutput(Unit.Default);
-
-            _ = await dialog.ShowAsync();
-        });
-        _ = MessageInteractions.Warning.RegisterHandler(async context =>
-        {
-            var warning = context.Input;
-
-            warning = Localize(warning);
-
-            Trace.WriteLine($"Warning: {warning}");
-            var dialog = new MessageDialog(warning, "Warning:");
-
-            context.SetOutput(Unit.Default);
-
-            await dialog.ShowAsync();
-        });
-        _ = MessageInteractions.Exception.RegisterHandler(static async context =>
-        {
-            var exception = context.Input;
-
-            Trace.WriteLine($"Exception: {exception}");
-            var dialog = new MessageDialog($"{exception}", "Exception:");
-
-            context.SetOutput(Unit.Default);
-
-            await dialog.ShowAsync();
-        });
-        _ = MessageInteractions.Question.RegisterHandler(async context =>
-        {
-            var question = context.Input;
-
-            var message = Localize(question.Message);
-            var title = Localize(question.Title);
-            var body = message;
-            if (!string.IsNullOrWhiteSpace(question.AdditionalData))
-            {
-                body += Environment.NewLine + question.AdditionalData;
-            }
-
-            Trace.WriteLine($@"Question: {title}
-{body}");
-
-            var dialog = new ContentDialog
-            {
-                Title = title,
-                Content = body,
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No",
-            };
-            var result = await dialog.ShowAsync();
-
-            context.SetOutput(result == ContentDialogResult.Primary);
-        });
         _ = FileInteractions.OpenFile.RegisterHandler(static async context =>
         {
             var arguments = context.Input;
