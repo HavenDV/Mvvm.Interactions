@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\IOExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\WebInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\MessageInteractionManager.cs" />
   </ItemGroup>
 </Project>
