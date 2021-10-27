@@ -1,16 +1,20 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>uap10.0.19041</TargetFrameworks>
-    <SignAssembly>false</SignAssembly>
-	<DefineConstants>$(DefineConstants);UWP</DefineConstants>
-	<NoWarn>$(NoWarn);CA1822</NoWarn>
+    <TargetFrameworks>uap10.0.18362</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);HAS_UWP</DefineConstants>
+    <NoWarn>$(NoWarn);CA1822</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup Label="GlobalUsings">
+    <Using Include="Windows.UI.Xaml" />
+    <Using Include="Windows.UI.Xaml.Controls" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
   </ItemGroup>
 
   <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
-  
+
 </Project>

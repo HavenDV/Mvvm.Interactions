@@ -1,4 +1,4 @@
-﻿#if WPF
+﻿#if HAS_WPF
 using System.IO;
 #else
 using Windows.Storage;
@@ -8,7 +8,7 @@ namespace H.ReactiveUI;
 
 public static class IOExtensions
 {
-#if WPF
+#if HAS_WPF
     public static FileData ToFile(
         this string path)
     {

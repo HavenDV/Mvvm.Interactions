@@ -1,5 +1,5 @@
 ﻿using System.Reactive;
-#if WPF
+#if HAS_WPF
 using System.IO;
 using System.Diagnostics;
 using System.Reactive.Linq;
@@ -18,7 +18,7 @@ public class FileInteractionManager
 
     private Func<string, string>? LocalizationFunc { get; }
 
-#if !WPF
+#if !HAS_WPF
     public static Dictionary<string, StorageFile> StorageFiles { get; } = new();
 #endif
 
@@ -39,7 +39,7 @@ public class FileInteractionManager
 
     public void Register()
     {
-#if WPF
+#if HAS_WPF
         _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
             var arguments = context.Input;

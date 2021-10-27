@@ -1,10 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Reactive;
-#if WPF
-using System.Windows;
+#if HAS_WPF
 #else
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Controls;
 #endif
 
 namespace H.ReactiveUI;
@@ -33,7 +31,7 @@ public class MessageInteractionManager
     public void Register()
     {
         _ = MessageInteractions.Message.RegisterHandler(
-#if !WPF
+#if !HAS_WPF
         async
 #endif
         context =>
@@ -44,7 +42,7 @@ public class MessageInteractionManager
 
             Trace.WriteLine($"Message: {message}");
 
-#if WPF
+#if HAS_WPF
             _ = MessageBox.Show(
                 message,
                 "Message:",
@@ -56,13 +54,13 @@ public class MessageInteractionManager
 
             context.SetOutput(Unit.Default);
 
-#if !WPF
+#if !HAS_WPF
             _ = await dialog.ShowAsync();
 #endif
         });
 
         _ = MessageInteractions.Warning.RegisterHandler(
-#if !WPF
+#if !HAS_WPF
         async
 #endif
         context =>
@@ -73,7 +71,7 @@ public class MessageInteractionManager
 
             Trace.WriteLine($"Warning: {warning}");
 
-#if WPF
+#if HAS_WPF
             _ = MessageBox.Show(
                 warning,
                 "Warning:",
@@ -85,13 +83,13 @@ public class MessageInteractionManager
 
             context.SetOutput(Unit.Default);
 
-#if !WPF
+#if !HAS_WPF
             _ = await dialog.ShowAsync();
 #endif
         });
 
         _ = MessageInteractions.Exception.RegisterHandler(
-#if !WPF
+#if !HAS_WPF
         async
 #endif
         static context =>
@@ -100,7 +98,7 @@ public class MessageInteractionManager
 
             Trace.WriteLine($"Exception: {exception}");
 
-#if WPF
+#if HAS_WPF
             _ = MessageBox.Show(
                 $"{exception}",
                 "Exception:",
@@ -112,13 +110,13 @@ public class MessageInteractionManager
 
             context.SetOutput(Unit.Default);
 
-#if !WPF
+#if !HAS_WPF
             _ = await dialog.ShowAsync();
 #endif
         });
 
         _ = MessageInteractions.Question.RegisterHandler(
-#if !WPF
+#if !HAS_WPF
         async
 #endif
         context =>
@@ -136,7 +134,7 @@ public class MessageInteractionManager
             Trace.WriteLine($@"Question: {title}
 {body}");
 
-#if WPF
+#if HAS_WPF
             var result = MessageBox.Show(
                 body,
                 title,

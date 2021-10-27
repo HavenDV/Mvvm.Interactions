@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net4.6.1</TargetFrameworks>
     <RootNamespace>H.ReactiveUI.CommonInteractions</RootNamespace>
-	<NoWarn>$(NoWarn);CA1819;CA1014;CS8002</NoWarn>
+    <NoWarn>$(NoWarn);CA1819;CA1014;CS8002</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
     <Using Include="System.Reactive.Linq" />
     <Using Include="ReactiveUI" />
   </ItemGroup>
-	
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net4.6.1' ">
     <Reference Include="System.Net.Http" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />

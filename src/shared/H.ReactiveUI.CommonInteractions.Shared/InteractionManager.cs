@@ -1,10 +1,4 @@
-﻿#if WPF
-using System.Windows;
-#else
-using Windows.UI.Xaml;
-#endif
-
-namespace H.ReactiveUI;
+﻿namespace H.ReactiveUI;
 
 public class InteractionManager
 {
@@ -38,7 +32,7 @@ public class InteractionManager
     {
         application = application ?? throw new ArgumentNullException(nameof(application));
 
-#if WPF
+#if HAS_WPF
         application.DispatcherUnhandledException += static (sender, args) =>
 #else
         application.UnhandledException += static (sender, args) =>

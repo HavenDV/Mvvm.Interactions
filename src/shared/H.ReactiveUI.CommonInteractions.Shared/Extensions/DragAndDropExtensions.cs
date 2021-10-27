@@ -1,12 +1,10 @@
 ﻿using System.Windows.Input;
-#if WPF
+#if HAS_WPF
 using System.IO;
-using System.Windows;
 #else
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
 using Windows.Storage.Search;
-using Windows.UI.Xaml;
 #endif
 
 #nullable enable
@@ -24,7 +22,7 @@ public static class DragAndDropExtensions
             typeof(DragAndDropExtensions),
             new PropertyMetadata(null, OnDragFilesEnterCommandChanged));
 
-#if WPF
+#if HAS_WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
     public static ICommand? GetDragFilesEnterCommand(DependencyObject element)
@@ -60,13 +58,13 @@ public static class DragAndDropExtensions
     }
 
     // Android requires full type name.
-#if WPF
+#if HAS_WPF
     private static void OnDragFilesEnter(object sender, DragEventArgs args)
 #else
     private async static void OnDragFilesEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
 #endif
     {
-#if !WPF
+#if !HAS_WPF
         args.AcceptedOperation = DataPackageOperation.Copy;
 
         if (args.DragUIOverride != null)
@@ -77,7 +75,7 @@ public static class DragAndDropExtensions
         }
 #endif
 
-#if WPF
+#if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.FileDrop) &&
             args.Data.GetData(DataFormats.FileDrop) is string[] paths)
 #else
@@ -85,7 +83,7 @@ public static class DragAndDropExtensions
 #endif
         {
             var files = new List<FileData>();
-#if WPF
+#if HAS_WPF
             files.AddRange(paths
                 .SelectMany(static path =>
                 {
@@ -133,7 +131,7 @@ public static class DragAndDropExtensions
             typeof(DragAndDropExtensions),
             new PropertyMetadata(null, OnDragTextEnterCommandChanged));
 
-#if WPF
+#if HAS_WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
     public static ICommand? GetDragTextEnterCommand(DependencyObject element)
@@ -169,20 +167,20 @@ public static class DragAndDropExtensions
     }
 
     // Android requires full type name.
-#if WPF
+#if HAS_WPF
     private static void OnDragTextEnter(object sender, DragEventArgs args)
 #else
     private async static void OnDragTextEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
 #endif
     {
-#if WPF
+#if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
             args.Data.GetData(DataFormats.UnicodeText, true) is string text)
 #else
         if (args.DataView.Contains(StandardDataFormats.Text))
 #endif
         {
-#if !WPF
+#if !HAS_WPF
             var text = await args.DataView.GetTextAsync() ?? string.Empty;
 #endif
             if (sender is UIElement element &&
@@ -204,7 +202,7 @@ public static class DragAndDropExtensions
             typeof(DragAndDropExtensions),
             new PropertyMetadata(null, OnDragLeaveCommandChanged));
 
-#if WPF
+#if HAS_WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
     public static ICommand? GetDragLeaveCommand(DependencyObject element)
@@ -240,7 +238,7 @@ public static class DragAndDropExtensions
     }
 
     // Android requires full type name.
-#if WPF
+#if HAS_WPF
     private static void OnDragLeave(object sender, DragEventArgs args)
 #else
     private static void OnDragLeave(object sender, Windows.UI.Xaml.DragEventArgs args)
@@ -264,7 +262,7 @@ public static class DragAndDropExtensions
             typeof(DragAndDropExtensions),
             new PropertyMetadata(null, OnDropFilesCommandChanged));
 
-#if WPF
+#if HAS_WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
     public static ICommand? GetDropFilesCommand(DependencyObject element)
@@ -300,20 +298,20 @@ public static class DragAndDropExtensions
     }
 
     // Android requires full type name.
-#if WPF
+#if HAS_WPF
     private static void OnDropFiles(object sender, DragEventArgs args)
 #else
     private static async void OnDropFiles(object sender, Windows.UI.Xaml.DragEventArgs args)
 #endif
     {
-#if WPF
+#if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.FileDrop) &&
             args.Data.GetData(DataFormats.FileDrop) is string[] paths)
 #else
         if (args.DataView.Contains(StandardDataFormats.StorageItems))
 #endif
         {
-#if WPF
+#if HAS_WPF
             var files = paths
                 .SelectMany(static path =>
                 {
@@ -368,7 +366,7 @@ public static class DragAndDropExtensions
             typeof(DragAndDropExtensions),
             new PropertyMetadata(null, OnDropTextCommandChanged));
 
-#if WPF
+#if HAS_WPF
     [AttachedPropertyBrowsableForType(typeof(UIElement))]
 #endif
     public static ICommand? GetDropTextCommand(DependencyObject element)
@@ -404,20 +402,20 @@ public static class DragAndDropExtensions
     }
 
     // Android requires full type name.
-#if WPF
+#if HAS_WPF
     private static void OnDropText(object sender, DragEventArgs args)
 #else
     private static async void OnDropText(object sender, Windows.UI.Xaml.DragEventArgs args)
 #endif
     {
-#if WPF
+#if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
             args.Data.GetData(DataFormats.UnicodeText, true) is string text)
 #else
         if (args.DataView.Contains(StandardDataFormats.Text))
 #endif
         {
-#if !WPF
+#if !HAS_WPF
             var text = await args.DataView.GetTextAsync() ?? string.Empty;
 #endif
             if (sender is UIElement element &&

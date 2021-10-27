@@ -1,5 +1,5 @@
 ﻿using System.Reactive;
-#if WPF
+#if HAS_WPF
 using System.Diagnostics;
 #else
 using Windows.System;
@@ -14,21 +14,21 @@ public static class WebInteractionManager
     public static void Register()
     {
         _ = WebInteractions.OpenUrl.RegisterHandler(
-#if !WPF
+#if !HAS_WPF
         async
 #endif
         static context =>
         {
             var url = context.Input;
 
-#if WPF
+#if HAS_WPF
             _ = Process.Start(new ProcessStartInfo(url)
             {
                 UseShellExecute = true,
             });
 #else
             _ = await Launcher.LaunchUriAsync(new Uri(url))
-    #if Uno
+    #if HAS_UNO
                 .ConfigureAwait(true)
     #endif
                 ;
