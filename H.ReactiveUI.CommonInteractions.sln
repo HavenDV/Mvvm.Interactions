@@ -35,10 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteract
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.ReactiveUI.CommonInteractions.Shared", "src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.shproj", "{F497B163-E46E-4EA6-9E41-BB0C25CA6272}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteractions.Uno.WinUI", "src\libs\H.ReactiveUI.CommonInteractions.Uno.WinUI\H.ReactiveUI.CommonInteractions.Uno.WinUI.csproj", "{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
+		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
 	EndGlobalSection
@@ -67,6 +70,10 @@ Global
 		{8C2D2DDA-890B-4F6F-938F-9CFDF82AAC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C2D2DDA-890B-4F6F-938F-9CFDF82AAC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C2D2DDA-890B-4F6F-938F-9CFDF82AAC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +85,7 @@ Global
 		{F5EB3A73-1D93-42F7-9757-26B486D74592} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{8C2D2DDA-890B-4F6F-938F-9CFDF82AAC0F} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{F497B163-E46E-4EA6-9E41-BB0C25CA6272} = {2CEE2766-3A6D-4891-9416-01E4FAC0B243}
+		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}

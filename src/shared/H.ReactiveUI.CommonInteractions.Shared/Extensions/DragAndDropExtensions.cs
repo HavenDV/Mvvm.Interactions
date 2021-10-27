@@ -57,12 +57,11 @@ public static class DragAndDropExtensions
         }
     }
 
-    // Android requires full type name.
-#if HAS_WPF
-    private static void OnDragFilesEnter(object sender, DragEventArgs args)
-#else
-    private async static void OnDragFilesEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
+    private static
+#if !HAS_WPF
+    async
 #endif
+    void OnDragFilesEnter(object sender, DragEventArgs args)
     {
 #if !HAS_WPF
         args.AcceptedOperation = DataPackageOperation.Copy;
@@ -166,12 +165,11 @@ public static class DragAndDropExtensions
         }
     }
 
-    // Android requires full type name.
-#if HAS_WPF
-    private static void OnDragTextEnter(object sender, DragEventArgs args)
-#else
-    private async static void OnDragTextEnter(object sender, Windows.UI.Xaml.DragEventArgs args)
+    private static
+#if !HAS_WPF
+    async
 #endif
+    void OnDragTextEnter(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
@@ -237,12 +235,7 @@ public static class DragAndDropExtensions
         }
     }
 
-    // Android requires full type name.
-#if HAS_WPF
     private static void OnDragLeave(object sender, DragEventArgs args)
-#else
-    private static void OnDragLeave(object sender, Windows.UI.Xaml.DragEventArgs args)
-#endif
     {
         if (sender is UIElement element &&
             GetDragLeaveCommand(element) is ICommand command)
@@ -297,12 +290,11 @@ public static class DragAndDropExtensions
         }
     }
 
-    // Android requires full type name.
-#if HAS_WPF
-    private static void OnDropFiles(object sender, DragEventArgs args)
-#else
-    private static async void OnDropFiles(object sender, Windows.UI.Xaml.DragEventArgs args)
+    private static
+#if !HAS_WPF
+    async
 #endif
+    void OnDropFiles(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.FileDrop) &&
@@ -401,12 +393,11 @@ public static class DragAndDropExtensions
         }
     }
 
-    // Android requires full type name.
-#if HAS_WPF
-    private static void OnDropText(object sender, DragEventArgs args)
-#else
-    private static async void OnDropText(object sender, Windows.UI.Xaml.DragEventArgs args)
+    private static
+#if !HAS_WPF
+    async
 #endif
+    void OnDropText(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
