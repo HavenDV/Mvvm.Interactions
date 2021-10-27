@@ -8,5 +8,7 @@ jobs:
     with:
       os: windows-2022
       use-msbuild: true
+      # workloads: android ios maccatalyst macos
+      windows-sdk-version: 18362
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
