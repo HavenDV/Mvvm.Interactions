@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0-windows10.0.18362;net6.0-windows10.0.18362.0</TargetFrameworks>
+    <UseWinUI>true</UseWinUI>
+    <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
+    <NoWarn>$(NoWarn);CA1822</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Label="GlobalUsings">
+    <Using Include="Microsoft.UI.Xaml" />
+    <Using Include="Microsoft.UI.Xaml.Controls" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
+
+</Project>
