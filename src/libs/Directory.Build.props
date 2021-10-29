@@ -17,6 +17,10 @@
   
   <PropertyGroup Label="NuGet">
     <Description>Common Interactions(like open/save file) for WPF/UWP/Uno platform</Description>
+    <Description>
+$(Description)
+$(PACKAGE_RELEASE_NOTES)
+    </Description>
     <PackageTags>reactiveui, common, interactions, openfile, savefile, openfiledialog, savefiledialog, uwp, uno, wpf</PackageTags>
   </PropertyGroup>
 
