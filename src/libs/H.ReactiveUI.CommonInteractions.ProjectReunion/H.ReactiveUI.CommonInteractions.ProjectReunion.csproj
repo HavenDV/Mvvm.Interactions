@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows10.0.18362;net6.0-windows10.0.18362.0</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows10.0.18362.0;net6.0-windows10.0.18362.0</TargetFrameworks>
     <UseWinUI>true</UseWinUI>
     <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
     <NoWarn>$(NoWarn);CA1822</NoWarn>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.5" />
+    <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.3" />
   </ItemGroup>
 
   <ItemGroup>
