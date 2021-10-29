@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows10.0.18362;net6.0-windows10.0.18362.0</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows10.0.17763.0;net6.0-windows10.0.17763.0</TargetFrameworks>
     <UseWinUI>true</UseWinUI>
     <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
     <NoWarn>$(NoWarn);CA1822</NoWarn>
@@ -13,14 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-experimental1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-preview3" />
   </ItemGroup>
 
   <!-- Workaround for https://github.com/microsoft/WindowsAppSDK/issues/1217 -->
-  <Target Name="FixBinPlaceBootstrapDll" BeforeTargets="BinPlaceBootstrapDll" >
-    <PropertyGroup>
-      <_WindowsAppSDKFoundationPlatform>x86</_WindowsAppSDKFoundationPlatform>
-    </PropertyGroup>
+  <Target Name="FixReferenceCopyLocalPaths" BeforeTargets="ResolvePackageAssets">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="$(PkgMicrosoft_WindowsAppSDK)\build\..\runtimes\lib\native\AnyCPU\Microsoft.WindowsAppRuntime.Bootstrap.dll"/>
+    </ItemGroup>
   </Target>
 
   <ItemGroup>
