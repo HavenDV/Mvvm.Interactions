@@ -10,5 +10,6 @@ jobs:
       use-msbuild: true
       # workloads: android ios maccatalyst macos
       windows-sdk-version: 18362
+      windows-sdk-version2: 16299
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
