@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Data;
 
 #nullable enable
 
-namespace Ratbuddyssey.Converters;
+namespace H.ReactiveUI.Converters;
 
 public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
 {
@@ -79,6 +79,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
         {
             return Affinity;
         }
+
         if (ConvertBackFunc != null &&
             fromType == typeof(TTo) &&
             toType == typeof(TFrom))
@@ -98,17 +99,20 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
                 result = null;
                 return true;
             }
+
             if (from is TFrom fromCasted)
             {
                 result = ConvertFunc(fromCasted, conversionHint);
                 return true;
             }
+
             if (typeof(TFrom).IsEnum)
             {
                 result = ConvertFunc((TFrom)from, conversionHint);
                 return true;
             }
         }
+
         if (ConvertBackFunc != null &&
             toType == typeof(TFrom))
         {
@@ -117,11 +121,13 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
                 result = null;
                 return true;
             }
+
             if (from is TTo toCasted)
             {
                 result = ConvertBackFunc(toCasted, conversionHint);
                 return true;
             }
+
             if (typeof(TTo).IsEnum)
             {
                 result = ConvertBackFunc((TTo)from, conversionHint);
