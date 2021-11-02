@@ -12,9 +12,6 @@
     </UserControl.DataContext>
 
     <StackPanel>
-        <Button
-            Content="OpenUrl"
-            Command="{Binding OpenUrl}"
-            />
+        <Button Content="OpenUrl" Command="{Binding OpenUrl}"/>
     </StackPanel>
 </UserControl>

@@ -4,15 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:H.ReactiveUI.Apps.ViewModels;assembly=H.ReactiveUI.Apps.Core"
     mc:Ignorable="d"
     >
+    <UserControl.DataContext>
+        <viewModels:FileInteractionsViewModel/>
+    </UserControl.DataContext>
+    
     <StackPanel>
-        <Button Content="OpenFile"/>
-        <Button Content="OpenFiles"/>
-        <Button Content="SaveFile"/>
-        <Button Content="SaveOpenFile"/>
-        <Button Content="LaunchPath"/>
-        <Button Content="LaunchInTemp"/>
-        <Button Content="LaunchFolder"/>
+        <Button Content="OpenFile" Command="{Binding OpenFile}"/>
+        <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
+        <Button Content="SaveFile" Command="{Binding SaveFile}"/>
+        <Button Content="SaveOpenFile" Command="{Binding SaveOpenFile}"/>
+        <Button Content="LaunchPath" Command="{Binding LaunchPath}"/>
+        <Button Content="LaunchInTemp" Command="{Binding LaunchInTemp}"/>
+        <Button Content="LaunchFolder" Command="{Binding LaunchFolder}"/>
     </StackPanel>
 </UserControl>
