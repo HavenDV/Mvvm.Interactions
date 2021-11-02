@@ -7,26 +7,19 @@ using Windows.UI.Popups;
 
 namespace H.ReactiveUI;
 
-public class MessageInteractionManager
+public partial class MessageInteractionManager : BaseManager
 {
-    #region Properties
-
-    private Func<string, string>? LocalizationFunc { get; }
-
-    #endregion
-
     #region Constructors
 
-    public MessageInteractionManager(Func<string, string>? localizationFunc = null)
+    public MessageInteractionManager(
+        Func<string, string>? localizationFunc = null) :
+        base(localizationFunc)
     {
-        LocalizationFunc = localizationFunc;
     }
 
     #endregion
 
     #region Methods
-
-    private string Localize(string value) => LocalizationFunc?.Invoke(value) ?? value;
 
     public void Register()
     {

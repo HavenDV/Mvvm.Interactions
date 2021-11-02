@@ -6,6 +6,7 @@ public class InteractionManager
 
     private MessageInteractionManager MessageInteractionManager { get; }
     private FileInteractionManager FileInteractionManager { get; }
+    private WebInteractionManager WebInteractionManager { get; }
 
     #endregion
 
@@ -15,6 +16,7 @@ public class InteractionManager
     {
         MessageInteractionManager = new MessageInteractionManager(localizationFunc);
         FileInteractionManager = new FileInteractionManager(localizationFunc);
+        WebInteractionManager = new WebInteractionManager(localizationFunc);
     }
 
     #endregion

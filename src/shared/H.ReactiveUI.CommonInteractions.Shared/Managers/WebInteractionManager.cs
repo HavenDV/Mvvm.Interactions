@@ -7,11 +7,23 @@ using Windows.System;
 
 namespace H.ReactiveUI;
 
-public static class WebInteractionManager
+public partial class WebInteractionManager : BaseManager
 {
+    #region Constructors
+
+    public WebInteractionManager(
+        Func<string, string>? localizationFunc = null) :
+        base(localizationFunc)
+    {
+    }
+
+    #endregion
+
     #region Methods
 
-    public static void Register()
+#pragma warning disable CA1822 // Mark members as static
+    public void Register()
+#pragma warning restore CA1822 // Mark members as static
     {
         _ = WebInteractions.OpenUrl.RegisterHandler(
 #if !HAS_WPF
