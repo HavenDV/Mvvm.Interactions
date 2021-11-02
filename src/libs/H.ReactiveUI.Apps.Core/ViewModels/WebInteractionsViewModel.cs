@@ -1,7 +1,4 @@
-﻿using ReactiveUI;
-using System.Reactive;
-
-namespace H.ReactiveUI.Apps.ViewModels;
+﻿namespace H.ReactiveUI.Apps.ViewModels;
 
 public class WebInteractionsViewModel
 {

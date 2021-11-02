@@ -5,6 +5,11 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <ItemGroup Label="GlobalUsings">
+    <Using Include="ReactiveUI" />
+    <Using Include="System.Reactive" />
+  </ItemGroup>
+
   <ItemGroup>
     <Using Remove="System.Net.Http" />
   </ItemGroup>
