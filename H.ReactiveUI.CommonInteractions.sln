@@ -41,12 +41,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteractions.WindowsAppSDK", "src\libs\H.ReactiveUI.CommonInteractions.WindowsAppSDK\H.ReactiveUI.CommonInteractions.WindowsAppSDK.csproj", "{18E22AD2-4B13-4CB0-AD15-904500C3B8AF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.ReactiveUI.Apps.Shared", "src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.shproj", "{B2C9A032-9670-421E-A413-7C7F504F5B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.ReactiveUI.Apps.Core", "src\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj", "{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{18e22ad2-4b13-4cb0-ad15-904500c3b8af}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
+		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{e98422ff-ae0a-476f-aa0b-9bcbb16849e3}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
@@ -88,6 +93,10 @@ Global
 		{18E22AD2-4B13-4CB0-AD15-904500C3B8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18E22AD2-4B13-4CB0-AD15-904500C3B8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18E22AD2-4B13-4CB0-AD15-904500C3B8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +111,8 @@ Global
 		{A7ED566D-2E7E-4A3C-8A91-874B4DFAB115} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{E98422FF-AE0A-476F-AA0B-9BCBB16849E3} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{18E22AD2-4B13-4CB0-AD15-904500C3B8AF} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
+		{B2C9A032-9670-421E-A413-7C7F504F5B55} = {2CEE2766-3A6D-4891-9416-01E4FAC0B243}
+		{AF16B87D-AE3F-44AF-8AB6-3C50CAFC7813} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}
