@@ -4,9 +4,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:H.ReactiveUI.Apps.ViewModels;assembly=H.ReactiveUI.Apps.Core"
     mc:Ignorable="d"
     >
+    <UserControl.DataContext>
+        <viewModels:WebInteractionsViewModel/>
+    </UserControl.DataContext>
+
     <StackPanel>
-        <Button Content="OpenUrl"/>
+        <Button
+            Content="OpenUrl"
+            Command="{Binding OpenUrl}"
+            />
     </StackPanel>
 </UserControl>

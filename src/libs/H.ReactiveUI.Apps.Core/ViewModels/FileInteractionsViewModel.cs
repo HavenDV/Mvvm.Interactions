@@ -1,4 +1,4 @@
-﻿namespace H.ReactiveUI.Apps.Core.ViewModels;
+﻿namespace H.ReactiveUI.Apps.ViewModels;
 
 public class FileInteractionsViewModel
 {
