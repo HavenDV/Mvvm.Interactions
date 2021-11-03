@@ -5,7 +5,11 @@
   <PropertyGroup Label="Common">
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
-
+  
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  
   <ItemGroup Label="CLSCompliant">
     <Compile Include="$(SolutionDir)src\CLSCompliantFalse.cs" />
   </ItemGroup>
