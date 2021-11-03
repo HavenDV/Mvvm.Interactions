@@ -11,23 +11,33 @@ public partial class FileInteractionManager
 {
     #region Methods
 
+    private string ToFilter(string filterName, params string[] extensions)
+    {
+        if (!extensions.Any())
+        {
+            return string.Empty;
+        }
+
+        var wildcards = extensions
+            .Select(static extension => $"*{extension}")
+            .ToArray();
+        var filter = $@"{Localize(filterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
+
+        return filter;
+    }
+
     public void Register()
     {
         _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
             var arguments = context.Input;
 
-            var wildcards = arguments.Extensions
-                .Select(static extension => $"*{extension}")
-                .ToArray();
-            var filter = $@"{Localize(arguments.FilterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
-
             var dialog = new OpenFileDialog
             {
-                FileName = arguments.SuggestedFileName,
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = filter,
+                Filter = ToFilter(arguments.FilterName, arguments.Extensions),
+                FileName = arguments.SuggestedFileName,
             };
             if (dialog.ShowDialog() != true)
             {
@@ -44,16 +54,11 @@ public partial class FileInteractionManager
         {
             var arguments = context.Input;
 
-            var wildcards = arguments.Extensions
-                .Select(static extension => $"*{extension}")
-                .ToArray();
-            var filter = $@"{Localize(arguments.FilterName)} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
-
             var dialog = new OpenFileDialog
             {
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = filter,
+                Filter = ToFilter(arguments.FilterName, arguments.Extensions),
                 Multiselect = true,
             };
             if (dialog.ShowDialog() != true)
@@ -69,19 +74,16 @@ public partial class FileInteractionManager
 
             context.SetOutput(models);
         });
-        _ = FileInteractions.SaveFile.RegisterHandler(async static context =>
+        _ = FileInteractions.SaveFile.RegisterHandler(async context =>
         {
             var arguments = context.Input;
-
-            var wildcards = new[] { $"*{arguments.Extension}" };
-            var filter = $@"{arguments.FilterName} ({string.Join(", ", wildcards)})|{string.Join(";", wildcards)}";
 
             var dialog = new SaveFileDialog
             {
                 FileName = arguments.SuggestedFileName,
                 DefaultExt = arguments.Extension,
                 AddExtension = true,
-                Filter = filter,
+                Filter = ToFilter(arguments.FilterName, arguments.Extension),
             };
             if (dialog.ShowDialog() != true)
             {
