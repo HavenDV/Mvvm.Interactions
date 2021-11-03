@@ -33,7 +33,7 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Current File:"/>
-                    <TextBlock Text="{Binding Name}" d:Text="None"/>
+                    <TextBlock Text="{Binding SelectedFile.FileName}" d:Text="None"/>
                 </StackPanel>
                 <TextBox
                     TextWrapping="Wrap"

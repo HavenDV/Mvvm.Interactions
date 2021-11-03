@@ -5,7 +5,7 @@ public class FileInteractionsViewModel : ReactiveObject
     #region Properties
 
     [Reactive]
-    public string Name { get; set; } = "None";
+    public FileData? SelectedFile { get; set; }
 
     [Reactive]
     public string Content { get; set; } = string.Empty;
@@ -16,10 +16,10 @@ public class FileInteractionsViewModel : ReactiveObject
 
     #region Commands
 
-    public ReactiveCommand<Unit, FileData?> OpenFile { get; }
-    public ReactiveCommand<Unit, FileData[]> OpenFiles { get; }
-    public ReactiveCommand<Unit, string?> SaveFile { get; }
-    public ReactiveCommand<Unit, string?> SaveOpenFile { get; }
+    public ReactiveCommand<Unit, Unit> OpenFile { get; }
+    public ReactiveCommand<Unit, Unit> OpenFiles { get; }
+    public ReactiveCommand<Unit, Unit> SaveFile { get; }
+    public ReactiveCommand<Unit, Unit> SaveOpenFile { get; }
 
     public ReactiveCommand<Unit, Unit> LaunchInTemp { get; }
     public ReactiveCommand<Unit, Unit> LaunchPath { get; }
@@ -37,14 +37,44 @@ public class FileInteractionsViewModel : ReactiveObject
 
     public FileInteractionsViewModel()
     {
-        OpenFile = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.OpenFile.Handle(new OpenFileArguments()));
-        OpenFiles = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.OpenFiles.Handle(new OpenFileArguments()));
-        SaveFile = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.SaveFile.Handle(new SaveFileArguments()));
-        SaveOpenFile = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.SaveOpenFile.Handle(new SaveOpenFileArguments()));
+        OpenFile = ReactiveCommand.CreateFromTask(async () =>
+        {
+            var file = await FileInteractions.OpenFile.Handle(new OpenFileArguments());
+            if (file == null)
+            {
+                return;
+            }
+
+            SelectedFile = file;
+            Content = file.Text;
+        });
+        OpenFiles = ReactiveCommand.CreateFromTask(async () =>
+        {
+            var files = await FileInteractions.OpenFiles.Handle(new OpenFileArguments());
+            if (!files.Any())
+            {
+                return;
+            }
+
+            SelectedFile = files.First();
+            Content = SelectedFile.Text;
+        });
+        SaveFile = ReactiveCommand.CreateFromTask(async () =>
+        {
+            if (SelectedFile == null)
+            {
+                return;
+            }
+
+            var _ = await FileInteractions.SaveFile.Handle(new SaveFileArguments
+            {
+                Text = Content,
+            });
+        });
+        SaveOpenFile = ReactiveCommand.CreateFromTask(async () =>
+        {
+            var _ = await FileInteractions.SaveOpenFile.Handle(new SaveOpenFileArguments());
+        });
 
         LaunchInTemp = ReactiveCommand.CreateFromObservable(() =>
             FileInteractions.LaunchInTemp.Handle(new FileData()));
@@ -72,6 +102,9 @@ public class FileInteractionsViewModel : ReactiveObject
         DropFiles = ReactiveCommand.Create<FileData[]>(files =>
         {
             PreviewDropViewModel.IsVisible = false;
+
+            SelectedFile = files.First();
+            Content = SelectedFile.Text;
         });
         DropText = ReactiveCommand.Create<string>(text =>
         {

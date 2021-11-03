@@ -8,6 +8,7 @@
   <ItemGroup Label="GlobalUsings">
     <Using Include="ReactiveUI" />
     <Using Include="System.Reactive" />
+    <Using Include="System.Reactive.Linq" />
     <Using Include="ReactiveUI.Fody.Helpers" />
   </ItemGroup>
 
