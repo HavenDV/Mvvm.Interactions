@@ -73,10 +73,11 @@ xmlns:h="using:H.ReactiveUI"
 ```xml
 <Element
     AllowDrop="True"
-    h:DragEnterCommand="{Binding DragEnter}"
-    h:DragLeaveCommand="{Binding DragLeave}"
-    h:DropFilesCommand="{Binding DropFiles}"
-    h:DropTextCommand="{Binding DropText}"
+    h:DragAndDropExtensions.DragFilesEnterCommand="{Binding DragFilesEnter}"
+    h:DragAndDropExtensions.DragTextEnterCommand="{Binding DragTextEnter}"
+    h:DragAndDropExtensions.DragLeaveCommand="{Binding DragLeave}"
+    h:DragAndDropExtensions.DropFilesCommand="{Binding DropFiles}"
+    h:DragAndDropExtensions.DropTextCommand="{Binding DropText}"
     >
 ```
 

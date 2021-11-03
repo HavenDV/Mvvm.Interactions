@@ -5,19 +5,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:H.ReactiveUI.Apps.ViewModels;assembly=H.ReactiveUI.Apps.Core"
+    xmlns:h="clr-namespace:H.ReactiveUI;assembly=H.ReactiveUI.CommonInteractions.Wpf"
     mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=viewModels:FileInteractionsViewModel, IsDesignTimeCreatable=True}"
+    AllowDrop="True"
+    h:DragAndDropExtensions.DragFilesEnterCommand="{Binding DragFilesEnter}"
+    h:DragAndDropExtensions.DragTextEnterCommand="{Binding DragTextEnter}"
+    h:DragAndDropExtensions.DragLeaveCommand="{Binding DragLeave}"
+    h:DragAndDropExtensions.DropFilesCommand="{Binding DropFiles}"
+    h:DragAndDropExtensions.DropTextCommand="{Binding DropText}"
     >
     <UserControl.DataContext>
         <viewModels:FileInteractionsViewModel/>
     </UserControl.DataContext>
-    
-    <StackPanel>
-        <Button Content="OpenFile" Command="{Binding OpenFile}"/>
-        <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
-        <Button Content="SaveFile" Command="{Binding SaveFile}"/>
-        <Button Content="SaveOpenFile" Command="{Binding SaveOpenFile}"/>
-        <Button Content="LaunchPath" Command="{Binding LaunchPath}"/>
-        <Button Content="LaunchInTemp" Command="{Binding LaunchInTemp}"/>
-        <Button Content="LaunchFolder" Command="{Binding LaunchFolder}"/>
+
+    <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <Button Content="OpenFile" Command="{Binding OpenFile}"/>
+            <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
+            <Button Content="SaveFile" Command="{Binding SaveFile}"/>
+            <Button Content="SaveOpenFile" Command="{Binding SaveOpenFile}"/>
+            <Button Content="LaunchPath" Command="{Binding LaunchPath}"/>
+            <Button Content="LaunchInTemp" Command="{Binding LaunchInTemp}"/>
+            <Button Content="LaunchFolder" Command="{Binding LaunchFolder}"/>
+        </StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Current File:"/>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+            <TextBox
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                Width="400"
+                Height="400"
+                Text="{Binding Content, Mode=TwoWay}"
+                />
+        </StackPanel>
     </StackPanel>
 </UserControl>
