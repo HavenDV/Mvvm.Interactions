@@ -6,11 +6,6 @@
     <NoWarn>$(NoWarn);CA1822</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup Label="GlobalUsings">
-    <Using Include="Windows.UI.Xaml" />
-    <Using Include="Windows.UI.Xaml.Controls" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
   </ItemGroup>

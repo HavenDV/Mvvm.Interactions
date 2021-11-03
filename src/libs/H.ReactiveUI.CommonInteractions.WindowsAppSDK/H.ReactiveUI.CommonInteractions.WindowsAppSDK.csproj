@@ -7,11 +7,6 @@
     <NoWarn>$(NoWarn);CA1822</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup Label="GlobalUsings">
-    <Using Include="Microsoft.UI.Xaml" />
-    <Using Include="Microsoft.UI.Xaml.Controls" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-preview3" />
   </ItemGroup>
