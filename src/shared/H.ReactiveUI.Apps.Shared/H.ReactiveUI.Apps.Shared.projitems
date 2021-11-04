@@ -9,5 +9,8 @@
     <Import_RootNamespace>H.ReactiveUI.Apps.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.xaml.cs" />
   </ItemGroup>
 </Project>
