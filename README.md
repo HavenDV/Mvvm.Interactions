@@ -7,7 +7,7 @@
 [![Requirements](https://img.shields.io/badge/Requirements-.NET%20Framework%204.5-blue.svg)](https://github.com/microsoft/dotnet/blob/master/releases/net45/README.md)
 [![Build Status](https://github.com/HavenDV/H.ReactiveUI.CommonInteractions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/HavenDV/H.ReactiveUI.CommonInteractions/actions/workflows/dotnet.yml)
 
-Common Interactions(like open/save file) for WPF/UWP/Uno platform.
+Common ReactiveUI MVVM Level Interactions(like open/save file) for WPF/UWP/Uno platform.
 
 ### NuGet
 
@@ -82,10 +82,10 @@ xmlns:h="using:H.ReactiveUI"
 ```
 
 Command arguments:
-DragFilesEnterCommand - `FileData[]` - Array of file names.  
+DragFilesEnterCommand - `FileData[]` - Array of files.  
 DragTextEnterCommand - `string` - Text.  
 DragLeaveCommand - `null`.  
-DropFilesCommand - `FileData[]` - Array of file datas.  
+DropFilesCommand - `FileData[]` - Array of files.  
 DropTextCommand - `string` - Text.  
 
 ## Contacts
