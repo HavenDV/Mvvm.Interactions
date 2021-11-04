@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>net6.0-windows;net4.8</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <DefineConstants>$(DefineConstants);HAS_WPF</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,5 +15,7 @@
     <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
     <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Wpf\H.ReactiveUI.CommonInteractions.Wpf.csproj" />
   </ItemGroup>
+
+  <Import Project="..\..\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -11,6 +11,10 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\FileInteractionsView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MessageInteractionsView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PreviewDropView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\WebInteractionsView.xaml.cs" />
   </ItemGroup>
 </Project>
