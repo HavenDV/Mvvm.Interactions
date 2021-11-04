@@ -17,7 +17,11 @@ public partial class FileInteractionManager
             var arguments = context.Input;
 
             var picker = new FileOpenPicker();
-            foreach (var extension in arguments.Extensions)
+            var extensions = arguments.Extensions.Any()
+                ? arguments.Extensions
+                : new[] { "*" };
+
+            foreach (var extension in extensions)
             {
                 picker.FileTypeFilter.Add(extension);
             }
@@ -36,7 +40,11 @@ public partial class FileInteractionManager
             var arguments = context.Input;
 
             var picker = new FileOpenPicker();
-            foreach (var extension in arguments.Extensions)
+            var extensions = arguments.Extensions.Any()
+                ? arguments.Extensions
+                : new[] { "*" };
+
+            foreach (var extension in extensions)
             {
                 picker.FileTypeFilter.Add(extension);
             }
