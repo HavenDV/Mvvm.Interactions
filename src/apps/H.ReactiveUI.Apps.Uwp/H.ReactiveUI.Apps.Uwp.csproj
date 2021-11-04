@@ -13,13 +13,8 @@
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.0-prerelease.210927001</Version>
     </PackageReference>
-    <PackageReference Include="ReactiveMarbles.ObservableEvents.SourceGenerator">
-      <Version>1.1.4</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="ReactiveUI.Uwp">
-      <Version>16.3.5</Version>
+      <Version>16.3.10</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
       <Version>3.11.0-dev.487</Version>

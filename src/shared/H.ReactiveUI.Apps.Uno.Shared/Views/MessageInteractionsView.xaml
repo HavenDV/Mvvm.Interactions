@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="H.ReactiveUI.Apps.Views.MessageInteractionsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:H.ReactiveUI.Apps.ViewModels"
+    mc:Ignorable="d"
+    >
+    <UserControl.DataContext>
+        <viewModels:MessageInteractionsViewModel/>
+    </UserControl.DataContext>
+    
+    <StackPanel>
+        <Button Content="Message" Command="{Binding Message}"/>
+        <Button Content="Warning" Command="{Binding Warning}"/>
+        <Button Content="Exception" Command="{Binding Exception}"/>
+        <Button Content="Question" Command="{Binding Question}"/>
+    </StackPanel>
+</UserControl>

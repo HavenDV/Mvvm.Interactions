@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI.WinUI" Version="16.3.5" />
+    <PackageReference Include="ReactiveUI.WinUI" Version="16.3.10" />
     <PackageReference Include="Uno.WinUI" Version="3.12.0-dev.2" />
   </ItemGroup>
 

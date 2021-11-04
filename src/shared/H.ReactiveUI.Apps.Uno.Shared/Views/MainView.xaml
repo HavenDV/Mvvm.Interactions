@@ -6,5 +6,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:views="using:H.ReactiveUI.Apps.Views"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     >
+    <muxc:TabView IsAddTabButtonVisible="False">
+        <muxc:TabViewItem Header="File" IsClosable="False">
+            <views:FileInteractionsView/>
+        </muxc:TabViewItem>
+        <muxc:TabViewItem Header="Message" IsClosable="False">
+            <views:MessageInteractionsView/>
+        </muxc:TabViewItem>
+        <muxc:TabViewItem Header="Web" IsClosable="False">
+            <views:WebInteractionsView/>
+        </muxc:TabViewItem>
+    </muxc:TabView>
 </Page>
