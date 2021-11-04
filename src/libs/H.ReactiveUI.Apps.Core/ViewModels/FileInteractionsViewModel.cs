@@ -70,7 +70,7 @@ public class FileInteractionsViewModel : ReactiveObject
             .Select(static x => x != null));
         SaveFileAs = ReactiveCommand.CreateFromTask(async () =>
         {
-            var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments());
+            var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments(".txt"));
             if (file == null)
             {
                 return;
