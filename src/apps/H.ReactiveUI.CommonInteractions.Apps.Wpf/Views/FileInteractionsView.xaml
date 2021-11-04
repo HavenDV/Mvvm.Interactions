@@ -26,9 +26,7 @@
                 <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
                 <Button Content="SaveFile" Command="{Binding SaveFile}"/>
                 <Button Content="SaveOpenFile" Command="{Binding SaveOpenFile}"/>
-                <Button Content="LaunchPath" Command="{Binding LaunchPath}"/>
-                <Button Content="LaunchInTemp" Command="{Binding LaunchInTemp}"/>
-                <Button Content="LaunchFolder" Command="{Binding LaunchFolder}"/>
+                <Button Content="CreateTemporaryFileAndLaunch" Command="{Binding CreateTemporaryFileAndLaunch}"/>
             </StackPanel>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">

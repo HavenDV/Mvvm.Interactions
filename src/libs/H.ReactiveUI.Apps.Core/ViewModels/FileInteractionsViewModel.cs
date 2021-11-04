@@ -19,11 +19,9 @@ public class FileInteractionsViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> OpenFile { get; }
     public ReactiveCommand<Unit, Unit> OpenFiles { get; }
     public ReactiveCommand<Unit, Unit> SaveFile { get; }
-    public ReactiveCommand<Unit, Unit> SaveOpenFile { get; }
+    public ReactiveCommand<Unit, Unit> SaveFileAs { get; }
 
-    public ReactiveCommand<Unit, Unit> LaunchInTemp { get; }
-    public ReactiveCommand<Unit, Unit> LaunchPath { get; }
-    public ReactiveCommand<Unit, Unit> LaunchFolder { get; }
+    public ReactiveCommand<Unit, Unit> CreateTemporaryFileAndLaunch { get; }
 
     public ReactiveCommand<FileData[], Unit> DragFilesEnter { get; }
     public ReactiveCommand<string, Unit> DragTextEnter { get; }
@@ -46,7 +44,7 @@ public class FileInteractionsViewModel : ReactiveObject
             }
 
             SelectedFile = file;
-            Content = file.Text;
+            Content = await SelectedFile.ReadTextAsync().ConfigureAwait(true);
         });
         OpenFiles = ReactiveCommand.CreateFromTask(async () =>
         {
@@ -57,7 +55,7 @@ public class FileInteractionsViewModel : ReactiveObject
             }
 
             SelectedFile = files.First();
-            Content = SelectedFile.Text;
+            Content = await SelectedFile.ReadTextAsync().ConfigureAwait(true);
         });
         SaveFile = ReactiveCommand.CreateFromTask(async () =>
         {
@@ -66,22 +64,29 @@ public class FileInteractionsViewModel : ReactiveObject
                 return;
             }
 
-            var _ = await FileInteractions.SaveFile.Handle(new SaveFileArguments
-            {
-                Text = Content,
-            });
-        });
-        SaveOpenFile = ReactiveCommand.CreateFromTask(async () =>
+            await SelectedFile.WriteTextAsync(Content).ConfigureAwait(false);
+        }, this
+            .WhenAnyValue(static x => x.SelectedFile)
+            .Select(static x => x != null));
+        SaveFileAs = ReactiveCommand.CreateFromTask(async () =>
         {
-            var _ = await FileInteractions.SaveOpenFile.Handle(new SaveOpenFileArguments());
+            var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments());
+            if (file == null)
+            {
+                return;
+            }
+
+            SelectedFile = file;
+            await SelectedFile.WriteTextAsync(Content).ConfigureAwait(false);
         });
 
-        LaunchInTemp = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.LaunchInTemp.Handle(new FileData()));
-        LaunchPath = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.LaunchPath.Handle("Are you sure?"));
-        LaunchFolder = ReactiveCommand.CreateFromObservable(() =>
-            FileInteractions.LaunchFolder.Handle("Are you sure?"));
+        CreateTemporaryFileAndLaunch = ReactiveCommand.CreateFromTask(async () =>
+        {
+            var file = await FileInteractions.CreateTemporaryFile.Handle("TemporaryFile.txt");
+            await file.WriteTextAsync(Content).ConfigureAwait(false);
+
+            await file.LaunchAsync().ConfigureAwait(false);
+        });
 
         DragFilesEnter = ReactiveCommand.Create<FileData[]>(files =>
         {
@@ -99,12 +104,12 @@ public class FileInteractionsViewModel : ReactiveObject
         {
             PreviewDropViewModel.IsVisible = false;
         });
-        DropFiles = ReactiveCommand.Create<FileData[]>(files =>
+        DropFiles = ReactiveCommand.CreateFromTask<FileData[]>(async files =>
         {
             PreviewDropViewModel.IsVisible = false;
 
             SelectedFile = files.First();
-            Content = SelectedFile.Text;
+            Content = await SelectedFile.ReadTextAsync().ConfigureAwait(true);
         });
         DropText = ReactiveCommand.Create<string>(text =>
         {

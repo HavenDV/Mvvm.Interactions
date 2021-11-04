@@ -310,11 +310,11 @@ public static class DragAndDropExtensions
                     return Directory.Exists(path)
                         ? Directory
                             .EnumerateFiles(path, "*", SearchOption.AllDirectories)
-                            .Select(static path => path.ToFile())
+                            .Select(static path => (FileData)new SystemIOApiFileData(path))
                             .ToArray()
-                        : new[] { path.ToFile() };
+                        : new[] { (FileData)new SystemIOApiFileData(path) };
                 })
-                .ToList();
+                .ToArray();
 #else
             var items = await args.DataView.GetStorageItemsAsync();
 
@@ -330,19 +330,15 @@ public static class DragAndDropExtensions
             storageFiles.AddRange(folderFiles
                 .SelectMany(static files => files));
 
-            foreach (var storageFile in storageFiles)
-            {
-                FileInteractionManager.StorageFiles[storageFile.Path] = storageFile;
-            }
-
-            var files = await Task.WhenAll(storageFiles
-                .Select(static file => file.ToFileAsync())).ConfigureAwait(true);
+            var files = storageFiles
+                .Select(static file => (FileData)new StorageApiFileData(file))
+                .ToArray();
 #endif
             if (sender is UIElement element &&
                 GetDropFilesCommand(element) is ICommand command &&
                 files.Any())
             {
-                command.Execute(files.ToArray());
+                command.Execute(files);
             }
         }
     }

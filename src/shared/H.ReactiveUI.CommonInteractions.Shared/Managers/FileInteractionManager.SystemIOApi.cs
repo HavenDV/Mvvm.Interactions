@@ -46,9 +46,8 @@ public partial class FileInteractionManager
             }
 
             var path = dialog.FileName;
-            var model = path.ToFile();
 
-            context.SetOutput(model);
+            context.SetOutput(new SystemIOApiFileData(path));
         });
         _ = FileInteractions.OpenFiles.RegisterHandler(context =>
         {
@@ -68,13 +67,13 @@ public partial class FileInteractionManager
             }
 
             var paths = dialog.FileNames;
-            var models = paths
-                .Select(static path => path.ToFile())
+            var files = paths
+                .Select(static path => (FileData)new SystemIOApiFileData(path))
                 .ToArray();
 
-            context.SetOutput(models);
+            context.SetOutput(files);
         });
-        _ = FileInteractions.SaveFile.RegisterHandler(async context =>
+        _ = FileInteractions.SaveFile.RegisterHandler(context =>
         {
             var arguments = context.Input;
 
@@ -91,53 +90,32 @@ public partial class FileInteractionManager
                 return;
             }
 
-            var bytes = arguments.BytesFunc == null
-                ? arguments.Bytes
-                : await arguments.BytesFunc().ConfigureAwait(true);
             var path = dialog.FileName;
 
-            File.WriteAllBytes(path, bytes);
-
-            context.SetOutput(path);
+            context.SetOutput(new SystemIOApiFileData(path));
         });
-        _ = FileInteractions.SaveOpenFile.RegisterHandler(context =>
+
+        _ = FileInteractions.CreateTemporaryFile.RegisterHandler(static context =>
         {
-            var arguments = context.Input;
-
-            File.WriteAllBytes(arguments.FullPath, arguments.Bytes);
-
-            context.SetOutput(arguments.FullPath);
-        });
-        _ = FileInteractions.LaunchPath.RegisterHandler(static context =>
-        {
-            var path = context.Input;
-
-            _ = Process.Start(new ProcessStartInfo(path)
-            {
-                UseShellExecute = true,
-            });
-
-            context.SetOutput(Unit.Default);
-        });
-        _ = FileInteractions.LaunchInTemp.RegisterHandler(async static context =>
-        {
-            var file = context.Input;
+            var fileName = context.Input;
 
             var folder = Path.Combine(
                 Path.GetTempPath(),
                 "H.ReactiveUI.CommonInteractions",
                 $"{new Random().Next()}");
-            var path = Path.Combine(
-                folder,
-                file.FileName);
+            var path = Path.Combine(folder, fileName);
 
             _ = Directory.CreateDirectory(folder);
-            File.WriteAllBytes(path, file.Bytes);
 
-            _ = await FileInteractions.LaunchPath.Handle(path);
-
-            context.SetOutput(Unit.Default);
+            context.SetOutput(new SystemIOApiFileData(path));
         });
+        _ = FileInteractions.OpenPath.RegisterHandler(static context =>
+        {
+            var path = context.Input;
+
+            context.SetOutput(new SystemIOApiFileData(path));
+        });
+
         _ = FileInteractions.LaunchFolder.RegisterHandler(static context =>
         {
             var path = context.Input;

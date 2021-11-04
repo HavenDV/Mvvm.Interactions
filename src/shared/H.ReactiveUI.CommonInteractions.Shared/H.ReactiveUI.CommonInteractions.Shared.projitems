@@ -14,12 +14,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DragAndDropExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions\IOExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\BaseManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.Other.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.Wpf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.StorageApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.SystemIOApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\MessageInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StorageApiFileData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SystemIOApiFileData.cs" />
   </ItemGroup>
 </Project>
