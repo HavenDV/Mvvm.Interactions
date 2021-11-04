@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
-    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
     <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.WindowsAppSDK\H.ReactiveUI.CommonInteractions.WindowsAppSDK.csproj" />
   </ItemGroup>
 

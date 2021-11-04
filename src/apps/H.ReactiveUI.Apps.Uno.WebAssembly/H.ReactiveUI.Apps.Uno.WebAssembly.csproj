@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <NoWarn>$(NoWarn);NU1701;CS8669;UXAML0002;CS1030;Uno0001</NoWarn>
+    <!--<DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>-->
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="WebAssembly">
+    <!-- Enable when will work -->
+    <!--<UnoXamlResourcesTrimming Condition=" '$(Configuration)' == 'Release' ">true</UnoXamlResourcesTrimming>-->
+    <!--<WasmShellMonoRuntimeExecutionMode Condition=" '$(Configuration)' == 'Release' ">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
+
+    <MonoRuntimeDebuggerEnabled Condition=" '$(Configuration)' == 'Debug' ">true</MonoRuntimeDebuggerEnabled>
+    <WasmShellILLinkerEnabled Condition=" '$(Configuration)' == 'Debug' ">false</WasmShellILLinkerEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <LinkerDescriptor Include="LinkerConfig.xml" />
+    <EmbeddedResource Include="WasmCSS\Fonts.css" />
+    <EmbeddedResource Include="WasmScripts\AppManifest.js" />
+    <UpToDateCheckInput Include="..\..\shared\H.ReactiveUI.Apps.Uno.Shared\**\*.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
+    <PackageReference Include="Uno.UI.WebAssembly" Version="3.12.0-dev.2" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="3.12.0-dev.2" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="3.0.0" />
+    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.0.0" />
+    <PackageReference Include="Uno.Extensions.Logging.WebAssembly.Console" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
+    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Uno\H.ReactiveUI.CommonInteractions.Uno.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
+  
+</Project>
