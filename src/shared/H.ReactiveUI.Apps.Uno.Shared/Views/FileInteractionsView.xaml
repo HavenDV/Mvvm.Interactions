@@ -43,9 +43,8 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- https://github.com/unoplatform/uno/issues/7404
         <views:PreviewDropView
             DataContext="{Binding PreviewDropViewModel}"
-            />-->
+            />
     </Grid>
 </UserControl>
