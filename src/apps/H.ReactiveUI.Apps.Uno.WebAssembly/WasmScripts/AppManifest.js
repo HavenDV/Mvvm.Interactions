@@ -2,6 +2,6 @@
 
     splashScreenImage: "Assets/SplashScreen.scale-200.png",
     splashScreenColor: "#000",
-    displayName: "Ratbuddyssey"
+    displayName: "H.ReactiveUI.Apps.Uno"
 
 }

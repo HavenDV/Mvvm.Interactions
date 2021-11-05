@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
+    <PackageReference Include="ReactiveUI.Uno" Version="16.3.10" />
     <PackageReference Include="Uno.UI.WebAssembly" Version="3.12.0-dev.2" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="3.12.0-dev.2" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="3.0.0" />

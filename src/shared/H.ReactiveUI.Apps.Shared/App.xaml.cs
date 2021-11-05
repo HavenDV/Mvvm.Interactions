@@ -11,7 +11,6 @@ public sealed partial class App
 {
     #region Properties
 
-    //public IHost Host { get; }
     private InteractionManager InteractionManager { get; } = new();
 
     #endregion
@@ -23,16 +22,6 @@ public sealed partial class App
         InteractionManager.Register();
         InteractionManager.CatchUnhandledExceptions(this);
 
-//        Host = Initialization.HostBuilder
-//            .Create()
-//            .AddViews()
-//            .AddConverters()
-//            .AddPlatformSpecificLoggers()
-//#if __WASM__
-//            .RemoveFileWatchers()
-//#endif
-//            .Build();
-
 #if !HAS_WPF
         InitializeComponent();
 #endif
@@ -41,18 +30,6 @@ public sealed partial class App
     #endregion
 
     #region Event Handlers
-
-    //private IViewFor GetView<T>(out T viewModel) where T : notnull
-    //{
-    //    viewModel = Host.Services.GetRequiredService<T>();
-    //    var view = Host.Services
-    //        .GetRequiredService<IViewLocator>()
-    //        .ResolveView(viewModel) ??
-    //        throw new InvalidOperationException("View is null.");
-
-    //    view.ViewModel = viewModel;
-    //    return view;
-    //}
 
 #if !HAS_WPF
 
