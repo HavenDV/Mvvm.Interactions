@@ -37,6 +37,7 @@ public sealed partial class App
     {
 #if HAS_WINUI
         var window = new Window();
+        MessageInteractionManager.Window = window;
 #else
         var window = Window.Current;
 #endif

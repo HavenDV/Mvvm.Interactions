@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Reactive;
+using Windows.Foundation.Metadata;
 #if HAS_WPF
 #else
 using Windows.UI.Popups;
@@ -9,6 +10,12 @@ namespace H.ReactiveUI;
 
 public partial class MessageInteractionManager : BaseManager
 {
+    #region Static properties
+
+    public static Window? Window { get; set; }
+
+    #endregion
+
     #region Constructors
 
     public MessageInteractionManager(
@@ -155,6 +162,12 @@ public partial class MessageInteractionManager : BaseManager
                 PrimaryButtonText = "Yes",
                 CloseButtonText = "No",
             };
+#if HAS_WINUI
+            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+            {
+                dialog.XamlRoot = Window?.Content.XamlRoot;
+            }
+#endif
 
             var result = await dialog.ShowAsync();
             var output = result == ContentDialogResult.Primary;

@@ -62,6 +62,19 @@ var fileName = await FileInteractions.SaveFile.Handle(new SaveFileArguments
 });
 ```
 
+### MessageInteractions
+
+WinUI requires a window to display the ContentDialog, so you'll need to set it explicitly in your App.OnLaunched:
+```cs
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    {
+#if HAS_WINUI
+        var window = new Window();
+        MessageInteractionManager.Window = window;
+#endif
+    }
+```
+
 
 ### DragAndDropExtensions
 ```
