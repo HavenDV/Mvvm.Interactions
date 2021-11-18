@@ -42,7 +42,11 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
 #else
-            var dialog = new MessageDialog(message, "Message:");
+            var dialog = new MessageDialog(message, "Message:")
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
 #endif
 
             context.SetOutput(Unit.Default);
@@ -71,7 +75,11 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxButton.OK,
                 MessageBoxImage.Warning);
 #else
-            var dialog = new MessageDialog(warning, "Warning:");
+            var dialog = new MessageDialog(warning, "Warning:")
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
 #endif
 
             context.SetOutput(Unit.Default);
@@ -98,7 +106,11 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
 #else
-            var dialog = new MessageDialog($"{exception}", "Exception:");
+            var dialog = new MessageDialog($"{exception}", "Exception:")
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
 #endif
 
             context.SetOutput(Unit.Default);

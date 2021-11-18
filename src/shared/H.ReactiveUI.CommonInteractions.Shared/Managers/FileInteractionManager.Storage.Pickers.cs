@@ -16,7 +16,12 @@ public partial class FileInteractionManager
         {
             var arguments = context.Input;
 
-            var picker = new FileOpenPicker();
+            var picker = new FileOpenPicker()
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
+
             var extensions = arguments.Extensions.Any()
                 ? arguments.Extensions
                 : new[] { "*" };
@@ -39,7 +44,11 @@ public partial class FileInteractionManager
         {
             var arguments = context.Input;
 
-            var picker = new FileOpenPicker();
+            var picker = new FileOpenPicker()
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
             var extensions = arguments.Extensions.Any()
                 ? arguments.Extensions
                 : new[] { "*" };
@@ -74,7 +83,11 @@ public partial class FileInteractionManager
                 {
                     { arguments.Extension, new List<string> { arguments.Extension } },
                 },
-            };
+            }
+#if HAS_WINUI
+                .Initialize()
+#endif
+                ;
             var file = await picker.PickSaveFileAsync();
             if (file == null)
             {
@@ -116,6 +129,6 @@ public partial class FileInteractionManager
 
     }
 
-    #endregion
+#endregion
 }
 #endif

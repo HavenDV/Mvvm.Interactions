@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\MessageInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\WinRTObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\StorageApiFileData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SystemIOApiFileData.cs" />
   </ItemGroup>
