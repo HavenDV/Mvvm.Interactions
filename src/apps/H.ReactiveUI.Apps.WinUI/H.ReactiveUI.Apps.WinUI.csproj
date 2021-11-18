@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
-    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.WindowsAppSDK\H.ReactiveUI.CommonInteractions.WindowsAppSDK.csproj" />
+    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.WinUI\H.ReactiveUI.CommonInteractions.WinUI.csproj" />
   </ItemGroup>
 
   <Import Project="..\..\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />

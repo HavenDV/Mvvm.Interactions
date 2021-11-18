@@ -6,9 +6,9 @@ namespace Microsoft.WindowsAppSDK.Runtime.Fix;
 public class Version
 {
     public const ushort Major = 0;
-    public const ushort Minor = 297;
-    public const ushort Build = 2018;
+    public const ushort Minor = 319;
+    public const ushort Build = 455;
     public const ushort Revision = 0;
-    public const ulong UInt64 = 0x0000012907E20000;
-    public const string DotQuadString = "0.297.2018.0";
+    public const ulong UInt64 = 0x0000013F01C70000;
+    public const string DotQuadString = "0.319.455.0";
 }
