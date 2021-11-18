@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.WinUI", "src\apps\H.ReactiveUI.Apps.WinUI\H.ReactiveUI.Apps.WinUI.csproj", "{5ADE7D1E-2C8F-44BA-B8D1-721E272D3181}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.WinUI.WebAssembly", "src\apps\H.ReactiveUI.Apps.Uno.WinUI.WebAssembly\H.ReactiveUI.Apps.Uno.WinUI.WebAssembly.csproj", "{987B672A-D426-4D4D-BE23-9ECBFF313371}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
@@ -64,6 +66,8 @@ Global
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{74ccd32d-dbcd-43c6-9de1-7148d09b4ecf}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{8512a823-1085-4b42-841c-2bdaf0da3ed3}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{8512a823-1085-4b42-841c-2bdaf0da3ed3}*SharedItemsImports = 5
+		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{987b672a-d426-4d4d-be23-9ecbff313371}*SharedItemsImports = 5
+		src\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{987b672a-d426-4d4d-be23-9ecbff313371}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
@@ -296,6 +300,26 @@ Global
 		{5ADE7D1E-2C8F-44BA-B8D1-721E272D3181}.Release|x64.Build.0 = Release|x64
 		{5ADE7D1E-2C8F-44BA-B8D1-721E272D3181}.Release|x86.ActiveCfg = Release|x86
 		{5ADE7D1E-2C8F-44BA-B8D1-721E272D3181}.Release|x86.Build.0 = Release|x86
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|ARM.Build.0 = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|arm64.Build.0 = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|x64.Build.0 = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Debug|x86.Build.0 = Debug|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|ARM.ActiveCfg = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|ARM.Build.0 = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|arm64.ActiveCfg = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|arm64.Build.0 = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|x64.ActiveCfg = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|x64.Build.0 = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|x86.ActiveCfg = Release|Any CPU
+		{987B672A-D426-4D4D-BE23-9ECBFF313371}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -315,6 +339,7 @@ Global
 		{3922FCCF-2823-4288-9E3C-7E86ACBED214} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{74CCD32D-DBCD-43C6-9DE1-7148D09B4ECF} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{5ADE7D1E-2C8F-44BA-B8D1-721E272D3181} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
+		{987B672A-D426-4D4D-BE23-9ECBFF313371} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}
