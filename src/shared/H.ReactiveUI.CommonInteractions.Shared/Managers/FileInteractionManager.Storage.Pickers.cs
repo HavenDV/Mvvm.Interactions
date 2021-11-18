@@ -17,7 +17,7 @@ public partial class FileInteractionManager
             var arguments = context.Input;
 
             var picker = new FileOpenPicker()
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;
@@ -45,7 +45,7 @@ public partial class FileInteractionManager
             var arguments = context.Input;
 
             var picker = new FileOpenPicker()
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;
@@ -84,7 +84,7 @@ public partial class FileInteractionManager
                     { arguments.Extension, new List<string> { arguments.Extension } },
                 },
             }
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;

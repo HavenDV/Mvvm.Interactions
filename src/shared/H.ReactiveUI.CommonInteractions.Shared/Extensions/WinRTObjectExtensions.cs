@@ -1,4 +1,4 @@
-﻿#if HAS_WINUI
+﻿#if HAS_WINUI && !HAS_UNO
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using WinRT;

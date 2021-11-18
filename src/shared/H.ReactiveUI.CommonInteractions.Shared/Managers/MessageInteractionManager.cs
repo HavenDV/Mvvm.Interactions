@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Reactive;
-using Windows.Foundation.Metadata;
 #if HAS_WPF
 #else
 using Windows.UI.Popups;
+using Windows.Foundation.Metadata;
 #endif
 
 namespace H.ReactiveUI;
@@ -50,7 +50,7 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxImage.Information);
 #else
             var dialog = new MessageDialog(message, "Message:")
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;
@@ -83,7 +83,7 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxImage.Warning);
 #else
             var dialog = new MessageDialog(warning, "Warning:")
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;
@@ -114,7 +114,7 @@ public partial class MessageInteractionManager : BaseManager
                 MessageBoxImage.Error);
 #else
             var dialog = new MessageDialog($"{exception}", "Exception:")
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
                 .Initialize()
 #endif
                 ;
