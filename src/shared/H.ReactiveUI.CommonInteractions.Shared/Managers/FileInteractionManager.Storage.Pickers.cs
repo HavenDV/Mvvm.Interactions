@@ -98,14 +98,30 @@ public partial class FileInteractionManager
             context.SetOutput(new StorageApiFileData(file));
         });
 
-        _ = FileInteractions.CreateTemporaryFile.RegisterHandler(async static context =>
+        _ = FileInteractions.CreateTemporaryFile.RegisterHandler(
+#if !HAS_WINUI
+        async
+#endif
+        static context =>
         {
             var fileName = context.Input;
 
+#if HAS_WINUI
+            var folder = Path.Combine(
+                Path.GetTempPath(),
+                "H.ReactiveUI.CommonInteractions",
+                $"{new Random().Next()}");
+            var path = Path.Combine(folder, fileName);
+
+            _ = Directory.CreateDirectory(folder);
+
+            context.SetOutput(new SystemIOApiFileData(path));
+#else
             var file = await ApplicationData.Current.TemporaryFolder
                 .CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
 
             context.SetOutput(new StorageApiFileData(file));
+#endif
         });
 
         _ = FileInteractions.OpenPath.RegisterHandler(async context =>

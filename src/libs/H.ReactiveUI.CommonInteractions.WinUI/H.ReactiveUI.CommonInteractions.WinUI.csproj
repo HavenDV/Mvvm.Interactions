@@ -4,7 +4,7 @@
     <TargetFrameworks>net5.0-windows10.0.17763.0;net6.0-windows10.0.17763.0</TargetFrameworks>
     <UseWinUI>true</UseWinUI>
     <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
-    <NoWarn>$(NoWarn);CA1822</NoWarn>
+    <NoWarn>$(NoWarn);CA1822;CA5394</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,4 @@
-﻿#if HAS_WPF
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 
 namespace H.ReactiveUI.CommonInteractions.Models;
 
@@ -51,4 +49,3 @@ public class SystemIOApiFileData : FileData
 
     #endregion
 }
-#endif
