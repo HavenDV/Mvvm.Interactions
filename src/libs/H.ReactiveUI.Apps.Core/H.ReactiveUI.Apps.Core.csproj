@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="ReactiveUI.Fody" Version="17.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

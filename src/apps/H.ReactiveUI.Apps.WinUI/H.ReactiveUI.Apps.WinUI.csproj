@@ -8,6 +8,7 @@
     <UseWinUI>true</UseWinUI>
     <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
     <WindowsPackageType>None</WindowsPackageType>
+    <NoWarn>$(NoWarn);CS8785</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
