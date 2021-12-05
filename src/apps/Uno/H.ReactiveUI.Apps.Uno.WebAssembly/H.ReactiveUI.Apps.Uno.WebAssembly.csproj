@@ -4,17 +4,19 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <NoWarn>$(NoWarn);NU1701;CS8669;UXAML0002;CS1030;Uno0001</NoWarn>
-    <!--<DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>-->
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-  
-  <PropertyGroup Label="WebAssembly">
-    <!-- Enable when will work -->
-    <!--<UnoXamlResourcesTrimming Condition=" '$(Configuration)' == 'Release' ">true</UnoXamlResourcesTrimming>-->
-    <!--<WasmShellMonoRuntimeExecutionMode Condition=" '$(Configuration)' == 'Release' ">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
 
-    <MonoRuntimeDebuggerEnabled Condition=" '$(Configuration)' == 'Debug' ">true</MonoRuntimeDebuggerEnabled>
-    <WasmShellILLinkerEnabled Condition=" '$(Configuration)' == 'Debug' ">false</WasmShellILLinkerEnabled>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG</DefineConstants>
+    <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <!--
+		IL Linking is disabled in Debug configuration.
+		When building in Release, see https://platform.uno/docs/articles/features/using-il-linker-webassembly.html
+		-->
+    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
   </PropertyGroup>
 
   <ItemGroup>
