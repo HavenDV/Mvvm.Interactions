@@ -45,34 +45,46 @@ public sealed partial class App
 
 ### FileInteractions
 ```cs
-var data = await FileInteractions.OpenFile.Handle(new OpenFileArguments
+// Open
+var file = await FileInteractions.OpenFile.Handle(new OpenFileArguments
 {
     SuggestedFileName = "my.txt",
     Extensions = new[] { ".txt" },
     FilterName = "My txt files",
 });
-var text = data.Text;
+if (file == null)
+{
+    return;
+}
+var text = await file.ReadTextAsync().ConfigureAwait(true);
 
-var fileName = await FileInteractions.SaveFile.Handle(new SaveFileArguments
+// Save (you need to save file from previuos step)
+await file.WriteTextAsync(text).ConfigureAwait(false);
+
+// Save As
+var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments(".txt")
 {
     SuggestedFileName = "my.txt",
-    Extension = ".txt",
     FilterName = "My txt files",
-    BytesFunc = () => Task.FromResult(Encoding.UTF8.GetBytes(text)),
 });
+if (file == null)
+{
+    return;
+}
+await file.WriteTextAsync(text).ConfigureAwait(false);
 ```
 
 ### MessageInteractions
 
 WinUI requires a window to display the ContentDialog, so you'll need to set it explicitly in your App.OnLaunched:
 ```cs
-    protected override void OnLaunched(LaunchActivatedEventArgs args)
-    {
+protected override void OnLaunched(LaunchActivatedEventArgs args)
+{
 #if HAS_WINUI
-        var window = new Window();
-        MessageInteractionManager.Window = window;
+    var window = new Window();
+    MessageInteractionManager.Window = window;
 #endif
-    }
+}
 ```
 
 
