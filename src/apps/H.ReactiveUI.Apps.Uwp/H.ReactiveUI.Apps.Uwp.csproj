@@ -14,10 +14,10 @@
       <Version>2.8.0-prerelease.210927001</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Uwp">
-      <Version>16.3.10</Version>
+      <Version>17.1.4</Version>
     </PackageReference>
     <PackageReference Include="Uno.UI">
-      <Version>3.11.0-dev.487</Version>
+      <Version>4.1.0-dev.32</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>
