@@ -37,7 +37,12 @@ public class FileInteractionsViewModel : ReactiveObject
     {
         OpenFile = ReactiveCommand.CreateFromTask(async () =>
         {
-            var file = await FileInteractions.OpenFile.Handle(new OpenFileArguments());
+            var file = await FileInteractions.OpenFile.Handle(new OpenFileArguments
+            {
+                //Extensions = new[] { ".txt" },
+                //FilterName = "Txt files",
+                //SuggestedFileName = "text",
+            });
             if (file == null)
             {
                 return;
@@ -48,7 +53,12 @@ public class FileInteractionsViewModel : ReactiveObject
         });
         OpenFiles = ReactiveCommand.CreateFromTask(async () =>
         {
-            var files = await FileInteractions.OpenFiles.Handle(new OpenFileArguments());
+            var files = await FileInteractions.OpenFiles.Handle(new OpenFileArguments
+            {
+                //Extensions = new[] { ".txt" },
+                //FilterName = "Txt files",
+                //SuggestedFileName = "text",
+            });
             if (!files.Any())
             {
                 return;
@@ -70,7 +80,11 @@ public class FileInteractionsViewModel : ReactiveObject
             .Select(static x => x != null));
         SaveFileAs = ReactiveCommand.CreateFromTask(async () =>
         {
-            var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments(".txt"));
+            var file = await FileInteractions.SaveFile.Handle(new SaveFileArguments(".txt")
+            {
+                //FilterName = "Txt files",
+                //SuggestedFileName = "text",
+            });
             if (file == null)
             {
                 return;

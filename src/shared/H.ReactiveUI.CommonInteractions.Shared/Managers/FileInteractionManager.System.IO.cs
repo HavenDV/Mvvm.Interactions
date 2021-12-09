@@ -55,6 +55,15 @@ public partial class FileInteractionManager
             var dialog = new OpenFileDialog
             {
 #if HAS_AVALONIA
+                Filters =
+                {
+                    new FileDialogFilter
+                    {
+                        Extensions = arguments.Extensions.ToList(),
+                        Name = arguments.FilterName,
+                    }
+                },
+                InitialFileName = arguments.SuggestedFileName,
 #else
                 CheckFileExists = true,
                 CheckPathExists = true,
@@ -95,6 +104,16 @@ public partial class FileInteractionManager
             var dialog = new OpenFileDialog
             {
 #if HAS_AVALONIA
+                Filters =
+                {
+                    new FileDialogFilter
+                    {
+                        Extensions = arguments.Extensions.ToList(),
+                        Name = arguments.FilterName,
+                    }
+                },
+                InitialFileName = arguments.SuggestedFileName,
+                AllowMultiple = true,
 #else
                 CheckFileExists = true,
                 CheckPathExists = true,
@@ -137,6 +156,16 @@ public partial class FileInteractionManager
             var dialog = new SaveFileDialog
             {
 #if HAS_AVALONIA
+                InitialFileName = arguments.SuggestedFileName,
+                DefaultExtension = arguments.Extension,
+                Filters =
+                {
+                    new FileDialogFilter
+                    {
+                        Extensions = new List<string>{ arguments.Extension },
+                        Name = arguments.FilterName,
+                    }
+                },
 #else
                 FileName = arguments.SuggestedFileName,
                 DefaultExt = arguments.Extension,

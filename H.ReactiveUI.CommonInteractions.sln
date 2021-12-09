@@ -81,8 +81,10 @@ Global
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{74ccd32d-dbcd-43c6-9de1-7148d09b4ecf}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{7545c573-8ba5-409a-b42e-fba9405dd902}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{7545c573-8ba5-409a-b42e-fba9405dd902}*SharedItemsImports = 5
+		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
+		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
