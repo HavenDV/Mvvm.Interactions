@@ -26,7 +26,9 @@ public class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            var view = new MainView();
             desktop.MainWindow = new MainView();
+            FileInteractionManager.Window = view;
         }
 
         base.OnFrameworkInitializationCompleted();
