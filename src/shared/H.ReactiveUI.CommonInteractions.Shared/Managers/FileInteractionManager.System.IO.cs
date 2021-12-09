@@ -1,14 +1,28 @@
-﻿#if HAS_WPF
+﻿#if HAS_WPF || HAS_AVALONIA
 using System.Reactive;
-using System.IO;
 using System.Diagnostics;
 using System.Reactive.Linq;
+#if !HAS_AVALONIA
+using System.IO;
 using Microsoft.Win32;
+#endif
 
 namespace H.ReactiveUI;
 
 public partial class FileInteractionManager
 {
+    #region Static properties
+
+#if HAS_AVALONIA
+    public static Window? Window { get; set; }
+
+    public static Window RequiredWindow =>
+        Window ??
+        throw new InvalidOperationException("FileInteractionManager.Window is null and required.");
+#endif
+
+    #endregion
+
     #region Methods
 
     private string ToFilter(string filterName, params string[] extensions)
@@ -26,19 +40,39 @@ public partial class FileInteractionManager
         return filter;
     }
 
+#pragma warning disable CA1822 // Mark members as static
     public void Register()
+#pragma warning restore CA1822 // Mark members as static
     {
-        _ = FileInteractions.OpenFile.RegisterHandler(context =>
+        _ = FileInteractions.OpenFile.RegisterHandler(
+#if HAS_AVALONIA
+        async
+#endif
+        context =>
         {
             var arguments = context.Input;
 
             var dialog = new OpenFileDialog
             {
+#if HAS_AVALONIA
+#else
                 CheckFileExists = true,
                 CheckPathExists = true,
                 Filter = ToFilter(arguments.FilterName, arguments.Extensions),
                 FileName = arguments.SuggestedFileName,
+#endif
             };
+
+#if HAS_AVALONIA
+            var paths = await dialog.ShowAsync(RequiredWindow).ConfigureAwait(true);
+            if (paths == null || !paths.Any())
+            {
+                context.SetOutput(null);
+                return;
+            }
+
+            var path = paths.First();
+#else
             if (dialog.ShowDialog() != true)
             {
                 context.SetOutput(null);
@@ -46,20 +80,37 @@ public partial class FileInteractionManager
             }
 
             var path = dialog.FileName;
+#endif
 
             context.SetOutput(new SystemIOApiFileData(path));
         });
-        _ = FileInteractions.OpenFiles.RegisterHandler(context =>
+        _ = FileInteractions.OpenFiles.RegisterHandler(
+#if HAS_AVALONIA
+        async
+#endif
+        context =>
         {
             var arguments = context.Input;
 
             var dialog = new OpenFileDialog
             {
+#if HAS_AVALONIA
+#else
                 CheckFileExists = true,
                 CheckPathExists = true,
                 Filter = ToFilter(arguments.FilterName, arguments.Extensions),
                 Multiselect = true,
+#endif
             };
+
+#if HAS_AVALONIA
+            var paths = await dialog.ShowAsync(RequiredWindow).ConfigureAwait(true);
+            if (paths == null || !paths.Any())
+            {
+                context.SetOutput(Array.Empty<FileData>());
+                return;
+            }
+#else
             if (dialog.ShowDialog() != true)
             {
                 context.SetOutput(Array.Empty<FileData>());
@@ -67,23 +118,41 @@ public partial class FileInteractionManager
             }
 
             var paths = dialog.FileNames;
+#endif
+
             var files = paths
                 .Select(static path => (FileData)new SystemIOApiFileData(path))
                 .ToArray();
 
             context.SetOutput(files);
         });
-        _ = FileInteractions.SaveFile.RegisterHandler(context =>
+        _ = FileInteractions.SaveFile.RegisterHandler(
+#if HAS_AVALONIA
+        async
+#endif
+        context =>
         {
             var arguments = context.Input;
 
             var dialog = new SaveFileDialog
             {
+#if HAS_AVALONIA
+#else
                 FileName = arguments.SuggestedFileName,
                 DefaultExt = arguments.Extension,
                 AddExtension = true,
                 Filter = ToFilter(arguments.FilterName, arguments.Extension),
+#endif
             };
+
+#if HAS_AVALONIA
+            var path = await dialog.ShowAsync(RequiredWindow).ConfigureAwait(true);
+            if (path == null || string.IsNullOrWhiteSpace(path))
+            {
+                context.SetOutput(null);
+                return;
+            }
+#else
             if (dialog.ShowDialog() != true)
             {
                 context.SetOutput(null);
@@ -91,6 +160,7 @@ public partial class FileInteractionManager
             }
 
             var path = dialog.FileName;
+#endif
 
             context.SetOutput(new SystemIOApiFileData(path));
         });
@@ -130,6 +200,6 @@ public partial class FileInteractionManager
     }
 
 
-    #endregion
+#endregion
 }
 #endif

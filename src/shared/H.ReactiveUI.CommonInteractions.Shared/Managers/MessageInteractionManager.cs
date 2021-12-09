@@ -16,7 +16,9 @@ public partial class MessageInteractionManager : BaseManager
 {
     #region Static properties
 
+#if HAS_WINUI
     public static Window? Window { get; set; }
+#endif
 
     #endregion
 
