@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);HAS_AVALONIA</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup Label="Assets">
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
+    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Avalonia\H.ReactiveUI.CommonInteractions.Avalonia.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\PreviewDropView.axaml.cs">
+      <DependentUpon>PreviewDropView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainView.axaml.cs">
+      <DependentUpon>MainView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FileInteractionsView.axaml.cs">
+      <DependentUpon>FileInteractionsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MessageInteractionsView.axaml.cs">
+      <DependentUpon>MessageInteractionsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WebInteractionsView.axaml.cs">
+      <DependentUpon>WebInteractionsView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

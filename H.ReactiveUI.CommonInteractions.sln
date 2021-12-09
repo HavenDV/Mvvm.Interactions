@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.WinUI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.CommonInteractions.Avalonia", "src\libs\H.ReactiveUI.CommonInteractions.Avalonia\H.ReactiveUI.CommonInteractions.Avalonia.csproj", "{612C6672-9991-4DAA-AE72-1FD2194528CD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Avalonia", "src\apps\H.ReactiveUI.Apps.Avalonia\H.ReactiveUI.Apps.Avalonia.csproj", "{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
@@ -79,10 +81,8 @@ Global
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{74ccd32d-dbcd-43c6-9de1-7148d09b4ecf}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{7545c573-8ba5-409a-b42e-fba9405dd902}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{7545c573-8ba5-409a-b42e-fba9405dd902}*SharedItemsImports = 5
-		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
 		src\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
 		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
-		src\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -391,6 +391,26 @@ Global
 		{612C6672-9991-4DAA-AE72-1FD2194528CD}.Release|x64.Build.0 = Release|Any CPU
 		{612C6672-9991-4DAA-AE72-1FD2194528CD}.Release|x86.ActiveCfg = Release|Any CPU
 		{612C6672-9991-4DAA-AE72-1FD2194528CD}.Release|x86.Build.0 = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|arm64.Build.0 = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|x64.Build.0 = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Debug|x86.Build.0 = Debug|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|ARM.Build.0 = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|arm64.ActiveCfg = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|arm64.Build.0 = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|x64.ActiveCfg = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|x64.Build.0 = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|x86.ActiveCfg = Release|Any CPU
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -415,6 +435,7 @@ Global
 		{6B35FBD6-6B80-4F85-8609-694A04CA0C6A} = {99694D77-7912-4D17-B7A3-884261832E5A}
 		{6FD546C7-28A0-475D-9D7F-00E2AD2CB7BF} = {99694D77-7912-4D17-B7A3-884261832E5A}
 		{612C6672-9991-4DAA-AE72-1FD2194528CD} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
+		{6387DC6C-53BE-4FF0-AA76-E98730D8FA83} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}
