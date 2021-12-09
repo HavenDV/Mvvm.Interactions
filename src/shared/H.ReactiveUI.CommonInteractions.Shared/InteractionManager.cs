@@ -30,10 +30,17 @@ public class InteractionManager
         WebInteractionManager.Register();
     }
 
+    /// <summary>
+    /// Unsupported platforms:<br/>
+    /// Avalonia - https://github.com/AvaloniaUI/Avalonia/issues/5290
+    /// </summary>
+    /// <param name="application"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public static void CatchUnhandledExceptions(Application application)
     {
         application = application ?? throw new ArgumentNullException(nameof(application));
 
+#if !HAS_AVALONIA
 #if HAS_WPF
         application.DispatcherUnhandledException += static (sender, args) =>
 #else
@@ -46,6 +53,7 @@ public class InteractionManager
                 .Handle(args.Exception)
                 .Subscribe();
         };
+#endif
     }
 
     #endregion

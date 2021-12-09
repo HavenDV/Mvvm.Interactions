@@ -1,4 +1,5 @@
-﻿#nullable enable
+﻿#if !HAS_AVALONIA
+#nullable enable
 
 namespace H.ReactiveUI.Converters;
 
@@ -29,3 +30,4 @@ public class BooleanToVisibilityConverter : BaseConverter<bool, Visibility>
 
     #endregion
 }
+#endif

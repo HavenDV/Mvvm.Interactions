@@ -1,6 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Reactive;
-#if HAS_WPF
+#if HAS_AVALONIA
+using MessageBox.Avalonia;
+using MessageBox.Avalonia.DTO;
+using MessageBox.Avalonia.Enums;
+#elif HAS_WPF
 #else
 using Windows.UI.Popups;
 using Windows.Foundation.Metadata;
@@ -42,7 +46,15 @@ public partial class MessageInteractionManager : BaseManager
 
             Trace.WriteLine($"Message: {message}");
 
-#if HAS_WPF
+#if HAS_AVALONIA
+            _ = await MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentMessage = message,
+                ContentTitle = "Message:",
+                ButtonDefinitions = ButtonEnum.Ok,
+                Icon = Icon.Info,
+            }).Show().ConfigureAwait(true);
+#elif HAS_WPF
             _ = MessageBox.Show(
                 message,
                 "Message:",
@@ -58,7 +70,7 @@ public partial class MessageInteractionManager : BaseManager
 
             context.SetOutput(Unit.Default);
 
-#if !HAS_WPF
+#if !HAS_WPF && !HAS_AVALONIA
             _ = await dialog.ShowAsync();
 #endif
         });
@@ -75,7 +87,15 @@ public partial class MessageInteractionManager : BaseManager
 
             Trace.WriteLine($"Warning: {warning}");
 
-#if HAS_WPF
+#if HAS_AVALONIA
+            _ = await MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentMessage = warning,
+                ContentTitle = "Warning:",
+                ButtonDefinitions = ButtonEnum.Ok,
+                Icon = Icon.Warning,
+            }).Show().ConfigureAwait(true);
+#elif HAS_WPF
             _ = MessageBox.Show(
                 warning,
                 "Warning:",
@@ -91,7 +111,7 @@ public partial class MessageInteractionManager : BaseManager
 
             context.SetOutput(Unit.Default);
 
-#if !HAS_WPF
+#if !HAS_WPF && !HAS_AVALONIA
             _ = await dialog.ShowAsync();
 #endif
         });
@@ -106,7 +126,15 @@ public partial class MessageInteractionManager : BaseManager
 
             Trace.WriteLine($"Exception: {exception}");
 
-#if HAS_WPF
+#if HAS_AVALONIA
+            _ = await MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentMessage = $"{exception}",
+                ContentTitle = "Exception:",
+                ButtonDefinitions = ButtonEnum.Ok,
+                Icon = Icon.Error,
+            }).Show().ConfigureAwait(true);
+#elif HAS_WPF
             _ = MessageBox.Show(
                 $"{exception}",
                 "Exception:",
@@ -122,7 +150,7 @@ public partial class MessageInteractionManager : BaseManager
 
             context.SetOutput(Unit.Default);
 
-#if !HAS_WPF
+#if !HAS_WPF && !HAS_AVALONIA
             _ = await dialog.ShowAsync();
 #endif
         });
@@ -146,7 +174,16 @@ public partial class MessageInteractionManager : BaseManager
             Trace.WriteLine($@"Question: {title}
 {body}");
 
-#if HAS_WPF
+#if HAS_AVALONIA
+            var result = await MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentMessage = body,
+                ContentTitle = title,
+                ButtonDefinitions = ButtonEnum.YesNo,
+                EnterDefaultButton = ClickEnum.No,
+            }).Show().ConfigureAwait(true);
+            var output = result == ButtonResult.Yes;
+#elif HAS_WPF
             var result = MessageBox.Show(
                 body,
                 title,

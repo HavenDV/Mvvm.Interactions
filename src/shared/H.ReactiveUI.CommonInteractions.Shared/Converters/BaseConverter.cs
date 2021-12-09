@@ -1,5 +1,8 @@
 ﻿using ReactiveUI;
-#if HAS_WINUI
+#if HAS_AVALONIA
+using Avalonia.Data.Converters;
+using System.Globalization;
+#elif HAS_WINUI
 using Microsoft.UI.Xaml.Data;
 #elif HAS_WPF
 using System.Windows.Data;
@@ -50,7 +53,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
 
     #region Methods
 
-#if HAS_WPF
+#if HAS_WPF || HAS_AVALONIA
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
 #else
     public object? Convert(object? value, Type targetType, object? parameter, string language)
@@ -58,10 +61,14 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
     {
         return TryConvert(value, targetType, parameter, out var result)
             ? result
+#if HAS_AVALONIA
+            : null;
+#else
             : DependencyProperty.UnsetValue;
+#endif
     }
 
-#if HAS_WPF
+#if HAS_WPF || HAS_AVALONIA
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
 #else
     public object? ConvertBack(object? value, Type targetType, object? parameter, string language)
@@ -69,7 +76,11 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
     {
         return TryConvert(value, targetType, parameter, out var result)
             ? result
+#if HAS_AVALONIA
+            : null;
+#else
             : DependencyProperty.UnsetValue;
+#endif
     }
 
     public int GetAffinityForObjects(Type fromType, Type toType)
@@ -139,5 +150,5 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
         return false;
     }
 
-    #endregion
+#endregion
 }

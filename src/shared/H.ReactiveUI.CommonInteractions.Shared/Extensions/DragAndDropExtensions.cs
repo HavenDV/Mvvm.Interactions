@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿#if !HAS_AVALONIA
+using System.Windows.Input;
 #if HAS_WPF
 using System.IO;
 #else
@@ -415,3 +416,4 @@ public static class DragAndDropExtensions
 
     #endregion
 }
+#endif

@@ -1,5 +1,5 @@
 ﻿using System.Reactive;
-#if HAS_WPF
+#if HAS_WPF || HAS_AVALONIA
 using System.Diagnostics;
 #else
 using Windows.System;
@@ -26,14 +26,14 @@ public partial class WebInteractionManager : BaseManager
 #pragma warning restore CA1822 // Mark members as static
     {
         _ = WebInteractions.OpenUrl.RegisterHandler(
-#if !HAS_WPF
+#if !HAS_WPF && !HAS_AVALONIA
         async
 #endif
         static context =>
         {
             var url = context.Input;
 
-#if HAS_WPF
+#if HAS_WPF || HAS_AVALONIA
             _ = Process.Start(new ProcessStartInfo(url)
             {
                 UseShellExecute = true,

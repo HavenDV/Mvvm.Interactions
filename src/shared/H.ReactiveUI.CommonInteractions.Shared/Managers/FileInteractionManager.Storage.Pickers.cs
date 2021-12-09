@@ -1,4 +1,4 @@
-﻿#if !HAS_WPF
+﻿#if !HAS_WPF && !HAS_AVALONIA
 using System.Reactive;
 using Windows.Storage;
 using Windows.Storage.Pickers;

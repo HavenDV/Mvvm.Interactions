@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net4.6.1</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);HAS_AVALONIA</DefineConstants>
+    <NoWarn>$(NoWarn);CA5394</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="MessageBox.Avalonia" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\shared\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems" Label="Shared" />
+
+</Project>
