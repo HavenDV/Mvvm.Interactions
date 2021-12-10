@@ -2,21 +2,20 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace H.ReactiveUI.Apps.Views
-{
-    public partial class MainView : Window
-    {
-        public MainView()
-        {
-            InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
-        }
+namespace H.ReactiveUI.Apps.Views;
 
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+public partial class MainView : Window
+{
+    public MainView()
+    {
+        InitializeComponent();
+#if DEBUG
+        this.AttachDevTools();
+#endif
+    }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 }
