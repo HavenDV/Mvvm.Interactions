@@ -1,11 +1,20 @@
 ﻿namespace H.ReactiveUI;
 
+/// <summary>
+/// 
+/// </summary>
 public class QuestionData
 {
     #region Properties
 
+    /// <summary>
+    /// 
+    /// </summary>
     public string Message { get; init; } = string.Empty;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public string Title { get; init; } = "Question:";
 
     /// <summary>
@@ -17,10 +26,18 @@ public class QuestionData
 
     #region Constructors
 
+    /// <summary>
+    /// 
+    /// </summary>
     public QuestionData()
     {
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="message"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public QuestionData(string message)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));

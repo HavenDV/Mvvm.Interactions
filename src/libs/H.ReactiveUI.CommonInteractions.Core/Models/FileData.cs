@@ -2,23 +2,49 @@
 
 namespace H.ReactiveUI;
 
+/// <summary>
+/// 
+/// </summary>
 public class FileData
 {
     #region Properties
 
+    /// <summary>
+    /// 
+    /// </summary>
     public string FullPath { get; init; } = string.Empty;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public string FileName { get; init; } = string.Empty;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public string Extension { get; init; } = string.Empty;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public string FileNameWithoutExtension { get; init; } = string.Empty;
 
     #endregion
 
     #region Constructors
 
+    /// <summary>
+    /// 
+    /// </summary>
     public FileData()
     {
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="path"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public FileData(string path)
     {
         FullPath = path ?? throw new ArgumentNullException(nameof(path));
@@ -31,6 +57,11 @@ public class FileData
 
     #region Methods
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public async Task<byte[]> ReadBytesAsync(
         CancellationToken cancellationToken = default)
     {
@@ -45,6 +76,13 @@ public class FileData
         return memoryStream.ToArray();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="bytes"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task WriteBytesAsync(
         byte[] bytes,
         CancellationToken cancellationToken = default)
@@ -60,6 +98,12 @@ public class FileData
             cancellationToken).ConfigureAwait(false);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="encoding"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public async Task<string> ReadTextAsync(
         Encoding? encoding = null,
         CancellationToken cancellationToken = default)
@@ -71,6 +115,14 @@ public class FileData
         return encoding.GetString(bytes);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="text"></param>
+    /// <param name="encoding"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
     public async Task WriteTextAsync(
         string text,
         Encoding? encoding = null,
@@ -88,18 +140,33 @@ public class FileData
 
     #region Virtual Methods
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public virtual Task<Stream> OpenStreamForReadAsync(
         CancellationToken cancellationToken = default)
     {
         return Task.FromException<Stream>(new NotImplementedException());
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public virtual Task<Stream> OpenStreamForWriteAsync(
         CancellationToken cancellationToken = default)
     {
         return Task.FromException<Stream>(new NotImplementedException());
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public virtual Task LaunchAsync(
         CancellationToken cancellationToken = default)
     {

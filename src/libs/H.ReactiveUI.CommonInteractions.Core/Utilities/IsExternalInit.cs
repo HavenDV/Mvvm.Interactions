@@ -1,6 +1,7 @@
-﻿// ReSharper disable once CheckNamespace
-namespace System.Runtime.CompilerServices;
+﻿namespace System.Runtime.CompilerServices;
 
-public class IsExternalInit
+#pragma warning disable
+
+internal class IsExternalInit
 {
 }

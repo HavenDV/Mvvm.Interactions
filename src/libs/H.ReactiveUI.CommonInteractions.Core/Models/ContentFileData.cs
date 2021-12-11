@@ -2,16 +2,28 @@
 
 namespace H.ReactiveUI.CommonInteractions.Models;
 
+/// <summary>
+/// 
+/// </summary>
 public class ContentFileData : FileData
 {
     #region Properties
 
+    /// <summary>
+    /// 
+    /// </summary>
     public byte[] Bytes { get; }
 
     #endregion
 
     #region Constructors
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="bytes"></param>
+    /// <param name="fileName"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public ContentFileData(
         byte[] bytes,
         string? fileName = null) :
@@ -20,6 +32,13 @@ public class ContentFileData : FileData
         Bytes = bytes ?? throw new ArgumentNullException(nameof(bytes));
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="text"></param>
+    /// <param name="encoding"></param>
+    /// <param name="fileName"></param>
+    /// <exception cref="ArgumentNullException"></exception>
     public ContentFileData(
         string text,
         Encoding? encoding = null,
@@ -36,6 +55,11 @@ public class ContentFileData : FileData
 
     #region Methods
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     public override Task<Stream> OpenStreamForReadAsync(
         CancellationToken cancellationToken = default)
     {
