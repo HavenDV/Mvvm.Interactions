@@ -25,6 +25,24 @@ public partial class FileInteractionManager
 
     #region Methods
 
+#if HAS_AVALONIA
+    private static List<FileDialogFilter> ToFilters(string filterName, params string[] extensions)
+    {
+        if (!extensions.Any())
+        {
+            return new List<FileDialogFilter>();
+        }
+
+        return new List<FileDialogFilter>
+        {
+            new FileDialogFilter
+            {
+                Extensions = extensions.Select(static extension => extension.TrimStart('.')).ToList(),
+                Name = filterName,
+            }
+        };
+    }
+#else
     private string ToFilter(string filterName, params string[] extensions)
     {
         if (!extensions.Any())
@@ -39,6 +57,7 @@ public partial class FileInteractionManager
 
         return filter;
     }
+#endif
 
 #pragma warning disable CA1822 // Mark members as static
     public void Register()
@@ -55,14 +74,7 @@ public partial class FileInteractionManager
             var dialog = new OpenFileDialog
             {
 #if HAS_AVALONIA
-                Filters =
-                {
-                    new FileDialogFilter
-                    {
-                        Extensions = arguments.Extensions.ToList(),
-                        Name = arguments.FilterName,
-                    }
-                },
+                Filters = ToFilters(arguments.FilterName, arguments.Extensions),
                 InitialFileName = arguments.SuggestedFileName,
 #else
                 CheckFileExists = true,
@@ -104,14 +116,7 @@ public partial class FileInteractionManager
             var dialog = new OpenFileDialog
             {
 #if HAS_AVALONIA
-                Filters =
-                {
-                    new FileDialogFilter
-                    {
-                        Extensions = arguments.Extensions.ToList(),
-                        Name = arguments.FilterName,
-                    }
-                },
+                Filters = ToFilters(arguments.FilterName, arguments.Extensions),
                 InitialFileName = arguments.SuggestedFileName,
                 AllowMultiple = true,
 #else
@@ -158,14 +163,7 @@ public partial class FileInteractionManager
 #if HAS_AVALONIA
                 InitialFileName = arguments.SuggestedFileName,
                 DefaultExtension = arguments.Extension,
-                Filters =
-                {
-                    new FileDialogFilter
-                    {
-                        Extensions = new List<string>{ arguments.Extension },
-                        Name = arguments.FilterName,
-                    }
-                },
+                Filters = ToFilters(arguments.FilterName, arguments.Extension),
 #else
                 FileName = arguments.SuggestedFileName,
                 DefaultExt = arguments.Extension,
