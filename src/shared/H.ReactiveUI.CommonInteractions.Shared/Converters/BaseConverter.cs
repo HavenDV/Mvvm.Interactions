@@ -2,6 +2,7 @@
 #if HAS_AVALONIA
 using Avalonia.Data.Converters;
 using System.Globalization;
+using DependencyProperty = Avalonia.AvaloniaProperty;
 #elif HAS_WINUI
 using Microsoft.UI.Xaml.Data;
 #elif HAS_WPF
@@ -61,11 +62,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
     {
         return TryConvert(value, targetType, parameter, out var result)
             ? result
-#if HAS_AVALONIA
-            : null;
-#else
             : DependencyProperty.UnsetValue;
-#endif
     }
 
 #if HAS_WPF || HAS_AVALONIA
@@ -76,11 +73,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
     {
         return TryConvert(value, targetType, parameter, out var result)
             ? result
-#if HAS_AVALONIA
-            : null;
-#else
             : DependencyProperty.UnsetValue;
-#endif
     }
 
     public int GetAffinityForObjects(Type fromType, Type toType)
