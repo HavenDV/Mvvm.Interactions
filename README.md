@@ -7,7 +7,7 @@
 [![Requirements](https://img.shields.io/badge/Requirements-.NET%20Framework%204.5-blue.svg)](https://github.com/microsoft/dotnet/blob/master/releases/net45/README.md)
 [![Build Status](https://github.com/HavenDV/H.ReactiveUI.CommonInteractions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/HavenDV/H.ReactiveUI.CommonInteractions/actions/workflows/dotnet.yml)
 
-Common ReactiveUI MVVM Level Interactions(like open/save file) for WPF/UWP/Uno platform.
+Common ReactiveUI MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia platforms.
 
 ### NuGet
 
@@ -15,12 +15,16 @@ Common ReactiveUI MVVM Level Interactions(like open/save file) for WPF/UWP/Uno p
 [![NuGet](https://img.shields.io/nuget/dt/H.ReactiveUI.CommonInteractions.Wpf.svg?style=flat-square&label=H.ReactiveUI.CommonInteractions.Wpf)](https://www.nuget.org/packages/H.ReactiveUI.CommonInteractions.Wpf/)
 [![NuGet](https://img.shields.io/nuget/dt/H.ReactiveUI.CommonInteractions.Uno.svg?style=flat-square&label=H.ReactiveUI.CommonInteractions.Uno)](https://www.nuget.org/packages/H.ReactiveUI.CommonInteractions.Uno/)
 [![NuGet](https://img.shields.io/nuget/dt/H.ReactiveUI.CommonInteractions.Uwp.svg?style=flat-square&label=H.ReactiveUI.CommonInteractions.Uwp)](https://www.nuget.org/packages/H.ReactiveUI.CommonInteractions.Uwp/)
+[![NuGet](https://img.shields.io/nuget/dt/H.ReactiveUI.CommonInteractions.WinUI.svg?style=flat-square&label=H.ReactiveUI.CommonInteractions.WinUI)](https://www.nuget.org/packages/H.ReactiveUI.CommonInteractions.WinUI/)
+[![NuGet](https://img.shields.io/nuget/dt/H.ReactiveUI.CommonInteractions.Avalonia.svg?style=flat-square&label=H.ReactiveUI.CommonInteractions.Avalonia)](https://www.nuget.org/packages/H.ReactiveUI.CommonInteractions.Avalonia/)
 
 ```
 Install-Package H.ReactiveUI.CommonInteractions.Core
 Install-Package H.ReactiveUI.CommonInteractions.Wpf
 Install-Package H.ReactiveUI.CommonInteractions.Uno
 Install-Package H.ReactiveUI.CommonInteractions.Uwp
+Install-Package H.ReactiveUI.CommonInteractions.WinUI
+Install-Package H.ReactiveUI.CommonInteractions.Avalonia
 ```
 
 ## Usage
@@ -75,6 +79,12 @@ await file.WriteTextAsync(text).ConfigureAwait(false);
 ```
 
 ### MessageInteractions
+```cs
+await MessageInteractions.Message.Handle("Message");
+await MessageInteractions.Warning.Handle("Warning");
+await MessageInteractions.Exception.Handle(new InvalidOperationException("Exception"));
+bool question = await MessageInteractions.Question.Handle(new QuestionData("Are you sure?"));
+```
 
 WinUI requires a window to display the ContentDialog, so you'll need to set it explicitly in your App.OnLaunched:
 ```cs
@@ -87,6 +97,10 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 }
 ```
 
+### WebInteractions
+```cs
+await WebInteractions.OpenUrl.Handle("https://www.google.com/");
+```
 
 ### DragAndDropExtensions
 ```
