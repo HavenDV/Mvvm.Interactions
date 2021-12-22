@@ -128,21 +128,21 @@
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj">
+    <ProjectReference Include="..\..\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj">
       <Project>{af16b87d-ae3f-44af-8ab6-3c50cafc7813}</Project>
       <Name>H.ReactiveUI.Apps.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj">
+    <ProjectReference Include="..\..\..\libs\H.ReactiveUI.CommonInteractions.Core\H.ReactiveUI.CommonInteractions.Core.csproj">
       <Project>{25e33381-06c1-4ac0-b875-622f01b1359a}</Project>
       <Name>H.ReactiveUI.CommonInteractions.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\libs\H.ReactiveUI.CommonInteractions.Uwp\H.ReactiveUI.CommonInteractions.Uwp.csproj">
+    <ProjectReference Include="..\..\..\libs\H.ReactiveUI.CommonInteractions.Uwp\H.ReactiveUI.CommonInteractions.Uwp.csproj">
       <Project>{16a17957-6de3-4874-b0b6-08404c23fbbe}</Project>
       <Name>H.ReactiveUI.CommonInteractions.Uwp</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\..\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

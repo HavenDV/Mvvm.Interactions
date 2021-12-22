@@ -17,11 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\libs\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
-    <ProjectReference Include="..\..\..\libs\H.ReactiveUI.CommonInteractions.Uno\H.ReactiveUI.CommonInteractions.Uno.csproj" />
+    <ProjectReference Include="..\..\..\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\libs\H.ReactiveUI.CommonInteractions.Uno\H.ReactiveUI.CommonInteractions.Uno.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\..\shared\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\..\shared\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
 
 </Project>
