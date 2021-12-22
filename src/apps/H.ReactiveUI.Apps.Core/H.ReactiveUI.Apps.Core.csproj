@@ -2,18 +2,15 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net4.6.1</TargetFrameworks>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup Label="GlobalUsings">
+    <Using Remove="System.Net.Http" />
+    
     <Using Include="ReactiveUI" />
     <Using Include="System.Reactive" />
     <Using Include="System.Reactive.Linq" />
     <Using Include="ReactiveUI.Fody.Helpers" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Using Remove="System.Net.Http" />
   </ItemGroup>
 
   <ItemGroup>
