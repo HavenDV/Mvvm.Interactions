@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <PropertyGroup Label="Signing">
+    <!-- ReactiveUI doesn't have a strong name -->
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)src\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   
   <PropertyGroup Label="NuGet">
