@@ -42,7 +42,7 @@
     <ProjectReference Include="..\..\..\..\libs\H.ReactiveUI.CommonInteractions.Uno\H.ReactiveUI.CommonInteractions.Uno.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
   
 </Project>

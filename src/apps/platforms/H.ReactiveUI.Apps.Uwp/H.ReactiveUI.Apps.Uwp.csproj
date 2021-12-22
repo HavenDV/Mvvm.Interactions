@@ -141,8 +141,8 @@
       <Name>H.ReactiveUI.CommonInteractions.Uwp</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
-  <Import Project="..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
+  <Import Project="..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

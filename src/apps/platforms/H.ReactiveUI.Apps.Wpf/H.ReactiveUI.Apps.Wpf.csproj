@@ -16,6 +16,6 @@
     <ProjectReference Include="..\..\..\libs\H.ReactiveUI.CommonInteractions.Wpf\H.ReactiveUI.CommonInteractions.Wpf.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
+  <Import Project="..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
 
 </Project>
