@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI.Uno" Version="17.1.4" />
-    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.1.0-dev.32" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="4.1.0-dev.32" Condition="'$(Configuration)'=='Debug'" />
-    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.1.0-dev.32" />
+    <PackageReference Include="ReactiveUI.Uno" Version="17.1.9" />
+    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.1.0-dev.162" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.1.0-dev.162" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.1.0-dev.162" />
     <PackageReference Include="ReactiveMarbles.ObservableEvents.SourceGenerator" Version="1.1.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
