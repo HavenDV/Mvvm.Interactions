@@ -24,7 +24,7 @@
     <LinkerDescriptor Include="LinkerConfig.xml" />
     <EmbeddedResource Include="WasmCSS\Fonts.css" />
     <EmbeddedResource Include="WasmScripts\AppManifest.js" />
-    <UpToDateCheckInput Include="..\..\..\H.ReactiveUI.Apps.Uno.Shared\**\*.xaml" />
+    <UpToDateCheckInput Include="..\..\H.ReactiveUI.Apps.Uno.Shared\**\*.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,8 +39,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\libs\H.ReactiveUI.CommonInteractions.Uno.WinUI\H.ReactiveUI.CommonInteractions.Uno.WinUI.csproj" />
+    <ProjectReference Include="..\..\H.ReactiveUI.Apps.Core\H.ReactiveUI.Apps.Core.csproj" />
+    <ProjectReference Include="..\..\..\libs\H.ReactiveUI.CommonInteractions.Uno.WinUI\H.ReactiveUI.CommonInteractions.Uno.WinUI.csproj" />
   </ItemGroup>
 
   <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
