@@ -5,8 +5,6 @@ using Windows.System;
 
 namespace H.ReactiveUI;
 
-#pragma warning disable CA1822 // Mark members as static
-
 public partial class WebInteractionManager
 {
     public void Register()

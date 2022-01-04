@@ -4,7 +4,7 @@
     <TargetFrameworks>net4.6.1;net5.0-windows;net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <DefineConstants>$(DefineConstants);HAS_WPF</DefineConstants>
-    <NoWarn>$(NoWarn);CA5394</NoWarn>
+    <NoWarn>$(NoWarn);CA5394;CA1822</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net4.6.1</TargetFrameworks>
     <DefineConstants>$(DefineConstants);HAS_AVALONIA</DefineConstants>
-    <NoWarn>$(NoWarn);CA5394</NoWarn>
+    <NoWarn>$(NoWarn);CA5394;CA1822</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
