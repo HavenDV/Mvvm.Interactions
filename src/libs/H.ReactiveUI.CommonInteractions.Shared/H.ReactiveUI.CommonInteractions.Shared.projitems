@@ -15,9 +15,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\BaseManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.Storage.Pickers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.System.IO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Files\FileInteractionManager.Avalonia.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Files\FileInteractionManager.WinUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Files\FileInteractionManager.Wpf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Files\FileInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.WinUI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Wpf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Avalonia.cs" />
