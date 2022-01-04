@@ -34,6 +34,15 @@ public partial class MessageInteractionManager : BaseManager
         return warning;
     }
 
+    private string GetError(string text)
+    {
+        var error = Localize(text);
+
+        Trace.WriteLine($"Error: {error}");
+
+        return error;
+    }
+
     private static Exception GetException(Exception exception)
     {
         Trace.WriteLine($"Exception: {exception}");

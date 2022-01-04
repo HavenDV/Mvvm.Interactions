@@ -40,6 +40,21 @@ public partial class MessageInteractionManager : BaseManager
             context.SetOutput(Unit.Default);
         });
 
+        _ = MessageInteractions.Error.RegisterHandler(async context =>
+        {
+            var error = GetError(context.Input);
+
+            _ = await MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentMessage = error,
+                ContentTitle = "Error:",
+                ButtonDefinitions = ButtonEnum.Ok,
+                Icon = Icon.Error,
+            }).Show().ConfigureAwait(true);
+
+            context.SetOutput(Unit.Default);
+        });
+
         _ = MessageInteractions.Exception.RegisterHandler(async context =>
         {
             var exception = GetException(context.Input);

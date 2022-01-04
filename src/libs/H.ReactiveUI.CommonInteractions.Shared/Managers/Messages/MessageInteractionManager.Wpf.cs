@@ -33,6 +33,19 @@ public partial class MessageInteractionManager : BaseManager
             context.SetOutput(Unit.Default);
         });
 
+        _ = MessageInteractions.Error.RegisterHandler(context =>
+        {
+            var error = GetError(context.Input);
+
+            _ = MessageBox.Show(
+                error,
+                "Error:",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+
+            context.SetOutput(Unit.Default);
+        });
+
         _ = MessageInteractions.Exception.RegisterHandler(static context =>
         {
             var exception = GetException(context.Input);

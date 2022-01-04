@@ -18,6 +18,11 @@ public static class MessageInteractions
     /// <summary>
     /// 
     /// </summary>
+    public static Interaction<string, Unit> Error { get; } = new();
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static Interaction<Exception, Unit> Exception { get; } = new();
 
     /// <summary>

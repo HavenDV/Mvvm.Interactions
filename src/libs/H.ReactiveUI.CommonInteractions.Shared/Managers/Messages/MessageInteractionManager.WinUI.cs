@@ -43,6 +43,21 @@ public partial class MessageInteractionManager : BaseManager
             _ = await dialog.ShowAsync();
         });
 
+        _ = MessageInteractions.Error.RegisterHandler(async context =>
+        {
+            var error = GetError(context.Input);
+
+            var dialog = new MessageDialog(error, "Error:")
+#if HAS_WINUI && !HAS_UNO
+                .Initialize()
+#endif
+                ;
+
+            context.SetOutput(Unit.Default);
+
+            _ = await dialog.ShowAsync();
+        });
+
         _ = MessageInteractions.Exception.RegisterHandler(async static context =>
         {
             var exception = GetException(context.Input);
