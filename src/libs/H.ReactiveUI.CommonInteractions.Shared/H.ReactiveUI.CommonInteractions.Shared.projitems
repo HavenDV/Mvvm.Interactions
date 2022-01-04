@@ -21,9 +21,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.WinUI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Wpf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Avalonia.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\WebInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WinRTObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Web\WebInteractionManager.WinUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Web\WebInteractionManager.Avalonia.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Web\WebInteractionManager.Wpf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Web\WebInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\StorageApiFileData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SystemIOApiFileData.cs" />
   </ItemGroup>
