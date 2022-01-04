@@ -65,6 +65,8 @@ Global
 		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
 		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
 		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
 		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{418d1399-62c8-481b-a954-517b189eca70}*SharedItemsImports = 13
 		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5
 		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5

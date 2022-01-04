@@ -18,8 +18,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.Storage.Pickers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.System.IO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\FileInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.WinUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Wpf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.Avalonia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebInteractionManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Managers\MessageInteractionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\Messages\MessageInteractionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WinRTObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\StorageApiFileData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SystemIOApiFileData.cs" />
