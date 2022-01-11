@@ -27,7 +27,7 @@ public class OpenFolderArguments
 
     /// <summary>
     /// Default: <see cref="string.Empty"/>. <br/>
-    /// Supported platfroms: WPF, Avalonia.
+    /// Supported platfroms: WPF/Avalonia.
     /// </summary>
     public string SelectedPath { get; init; } = string.Empty;
 
