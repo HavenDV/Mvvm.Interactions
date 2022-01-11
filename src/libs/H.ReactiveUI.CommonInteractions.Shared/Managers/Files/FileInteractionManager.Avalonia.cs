@@ -38,6 +38,25 @@ public partial class FileInteractionManager
 
     public void Register()
     {
+        _ = FileInteractions.OpenFolder.RegisterHandler(async context =>
+        {
+            var arguments = context.Input;
+
+            var dialog = new OpenFolderDialog
+            {
+                Directory = arguments.SelectedPath,
+                Title = arguments.Title,
+            };
+
+            var path = await dialog.ShowAsync(RequiredWindow).ConfigureAwait(true);
+            if (path == null)
+            {
+                context.SetOutput(null);
+                return;
+            }
+
+            context.SetOutput(new SystemIOApiFolderData(path));
+        });
         _ = FileInteractions.OpenFile.RegisterHandler(async context =>
         {
             var arguments = context.Input;

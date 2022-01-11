@@ -8,6 +8,11 @@ public static class FileInteractions
     /// <summary>
     /// 
     /// </summary>
+    public static Interaction<OpenFolderArguments, FolderData?> OpenFolder { get; } = new();
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static Interaction<OpenFileArguments, FileData?> OpenFile { get; } = new();
 
     /// <summary>

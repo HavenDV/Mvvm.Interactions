@@ -16,6 +16,7 @@ public class FileInteractionsViewModel : ReactiveObject
 
     #region Commands
 
+    public ReactiveCommand<Unit, Unit> OpenFolder { get; }
     public ReactiveCommand<Unit, Unit> OpenFile { get; }
     public ReactiveCommand<Unit, Unit> OpenFiles { get; }
     public ReactiveCommand<Unit, Unit> SaveFile { get; }
@@ -35,6 +36,12 @@ public class FileInteractionsViewModel : ReactiveObject
 
     public FileInteractionsViewModel()
     {
+        OpenFolder = ReactiveCommand.CreateFromTask(async () =>
+        {
+            var _ = await FileInteractions.OpenFolder.Handle(new OpenFolderArguments
+            {
+            });
+        });
         OpenFile = ReactiveCommand.CreateFromTask(async () =>
         {
             var file = await FileInteractions.OpenFile.Handle(new OpenFileArguments

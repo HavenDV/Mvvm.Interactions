@@ -16,22 +16,44 @@
     h:DragAndDropExtensions.DropTextCommand="{Binding DropText}"
     >
     <UserControl.DataContext>
-        <viewModels:FileInteractionsViewModel/>
+        <viewModels:FileInteractionsViewModel />
     </UserControl.DataContext>
 
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <Button Content="OpenFile" Command="{Binding OpenFile}"/>
-                <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
-                <Button Content="SaveFile" Command="{Binding SaveFile}"/>
-                <Button Content="SaveFileAs" Command="{Binding SaveFileAs}"/>
-                <Button Content="CreateTemporaryFileAndLaunch" Command="{Binding CreateTemporaryFileAndLaunch}"/>
+                <Button
+                    Content="OpenFolder"
+                    Command="{Binding OpenFolder}"
+                    />
+                <Button
+                    Content="OpenFile"
+                    Command="{Binding OpenFile}"
+                    />
+                <Button
+                    Content="OpenFiles"
+                    Command="{Binding OpenFiles}"
+                    />
+                <Button
+                    Content="SaveFile"
+                    Command="{Binding SaveFile}"
+                    />
+                <Button
+                    Content="SaveFileAs"
+                    Command="{Binding SaveFileAs}"
+                    />
+                <Button
+                    Content="CreateTemporaryFileAndLaunch"
+                    Command="{Binding CreateTemporaryFileAndLaunch}"
+                    />
             </StackPanel>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Current File:"/>
-                    <TextBlock Text="{Binding SelectedFile.FileName}" d:Text="None"/>
+                    <TextBlock Text="Current File:" />
+                    <TextBlock
+                        Text="{Binding SelectedFile.FileName}"
+                        d:Text="None"
+                        />
                 </StackPanel>
                 <TextBox
                     TextWrapping="Wrap"
@@ -43,8 +65,6 @@
             </StackPanel>
         </StackPanel>
 
-        <views:PreviewDropView
-            DataContext="{Binding PreviewDropViewModel}"
-            />
+        <views:PreviewDropView DataContext="{Binding PreviewDropViewModel}" />
     </Grid>
 </UserControl>

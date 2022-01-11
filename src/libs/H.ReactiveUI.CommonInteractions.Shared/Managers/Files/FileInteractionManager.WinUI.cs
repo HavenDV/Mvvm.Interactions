@@ -12,6 +12,38 @@ public partial class FileInteractionManager
 
     public void Register()
     {
+        _ = FileInteractions.OpenFolder.RegisterHandler(async context =>
+        {
+            var arguments = context.Input;
+
+            var picker = new FolderPicker
+            {
+                SuggestedStartLocation =  arguments.StartFolder switch
+                {
+                    Environment.SpecialFolder.Desktop => PickerLocationId.Desktop,
+                    Environment.SpecialFolder.MyDocuments => PickerLocationId.DocumentsLibrary,
+                    Environment.SpecialFolder.MyPictures => PickerLocationId.PicturesLibrary,
+                    Environment.SpecialFolder.MyMusic => PickerLocationId.MusicLibrary,
+                    Environment.SpecialFolder.MyVideos => PickerLocationId.VideosLibrary,
+                    Environment.SpecialFolder.MyComputer => PickerLocationId.ComputerFolder,
+                    _ => PickerLocationId.Unspecified,
+                },
+                CommitButtonText = arguments.ButtonText,
+            }
+#if HAS_WINUI && !HAS_UNO
+                .Initialize()
+#endif
+                ;
+
+            var file = await picker.PickSingleFolderAsync();
+            if (file == null)
+            {
+                context.SetOutput(null);
+                return;
+            }
+
+            context.SetOutput(new StorageApiFolderData(file));
+        });
         _ = FileInteractions.OpenFile.RegisterHandler(async context =>
         {
             var arguments = context.Input;

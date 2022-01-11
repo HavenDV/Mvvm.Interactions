@@ -13,6 +13,7 @@
   <Grid>
     <StackPanel Orientation="Horizontal">
       <StackPanel>
+        <Button Content="OpenFolder" Command="{Binding OpenFolder}"/>
         <Button Content="OpenFile" Command="{Binding OpenFile}"/>
         <Button Content="OpenFiles" Command="{Binding OpenFiles}"/>
         <Button Content="SaveFile" Command="{Binding SaveFile}"/>

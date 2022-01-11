@@ -26,6 +26,28 @@ public partial class FileInteractionManager
 
     public void Register()
     {
+        _ = FileInteractions.OpenFolder.RegisterHandler(context =>
+        {
+            var arguments = context.Input;
+
+            var dialog = new System.Windows.Forms.FolderBrowserDialog
+            {
+                RootFolder = arguments.StartFolder,
+                Description = arguments.Description,
+                ShowNewFolderButton = arguments.ShowNewFolderButton,
+                SelectedPath = arguments.SelectedPath,
+            };
+
+            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                context.SetOutput(null);
+                return;
+            }
+
+            var path = dialog.SelectedPath;
+
+            context.SetOutput(new SystemIOApiFolderData(path));
+        });
         _ = FileInteractions.OpenFile.RegisterHandler(context =>
         {
             var arguments = context.Input;
