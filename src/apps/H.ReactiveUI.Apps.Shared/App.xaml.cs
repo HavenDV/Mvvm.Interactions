@@ -38,7 +38,7 @@ public sealed partial class App
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-#if HAS_WINUI
+#if HAS_WINUI && !HAS_UNO
         var window = new Window();
         MessageInteractionManager.Window = window;
 #else
