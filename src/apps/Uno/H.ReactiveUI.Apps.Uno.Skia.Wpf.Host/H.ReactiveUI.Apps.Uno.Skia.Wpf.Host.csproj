@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.1.0-dev.354" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="4.1.0-dev.354" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.1.0-dev.724" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.1.0-dev.724" Condition="'$(Configuration)'=='Debug'" />
   </ItemGroup>
 
   <ItemGroup>
