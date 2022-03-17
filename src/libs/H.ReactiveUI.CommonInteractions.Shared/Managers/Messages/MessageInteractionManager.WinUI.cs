@@ -1,6 +1,5 @@
 ﻿#if !HAS_AVALONIA && !HAS_WPF
 using System.Reactive;
-using Windows.UI.Popups;
 using Windows.Foundation.Metadata;
 
 namespace H.ReactiveUI;
@@ -29,25 +28,30 @@ public partial class MessageInteractionManager : BaseManager
                 dialog.XamlRoot = Window?.Content.XamlRoot;
             }
 #endif
+            _ = await dialog.ShowAsync();
 
             context.SetOutput(Unit.Default);
-
-            _ = await dialog.ShowAsync();
         });
 
         _ = MessageInteractions.Warning.RegisterHandler(async context =>
         {
             var warning = GetWarning(context.Input);
 
-            var dialog = new MessageDialog(warning, "Warning:")
-#if HAS_WINUI && !HAS_UNO
-                .Initialize()
+            var dialog = new ContentDialog
+            {
+                Title = "Warning:",
+                Content = warning,
+                CloseButtonText = "Close",
+            };
+#if HAS_WINUI
+            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+            {
+                dialog.XamlRoot = Window?.Content.XamlRoot;
+            }
 #endif
-                ;
+            _ = await dialog.ShowAsync();
 
             context.SetOutput(Unit.Default);
-
-            _ = await dialog.ShowAsync();
         });
 
         _ = MessageInteractions.Error.RegisterHandler(async context =>
@@ -66,10 +70,9 @@ public partial class MessageInteractionManager : BaseManager
                 dialog.XamlRoot = Window?.Content.XamlRoot;
             }
 #endif
+            _ = await dialog.ShowAsync();
 
             context.SetOutput(Unit.Default);
-
-            _ = await dialog.ShowAsync();
         });
 
         _ = MessageInteractions.Exception.RegisterHandler(async static context =>
@@ -88,10 +91,9 @@ public partial class MessageInteractionManager : BaseManager
                 dialog.XamlRoot = Window?.Content.XamlRoot;
             }
 #endif
+            _ = await dialog.ShowAsync();
 
             context.SetOutput(Unit.Default);
-
-            _ = await dialog.ShowAsync();
         });
 
         _ = MessageInteractions.Question.RegisterHandler(async context =>
