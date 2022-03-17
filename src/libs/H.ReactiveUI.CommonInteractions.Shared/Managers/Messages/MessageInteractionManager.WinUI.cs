@@ -17,11 +17,18 @@ public partial class MessageInteractionManager : BaseManager
         {
             var message = GetMessage(context.Input);
 
-            var dialog = new MessageDialog(message, "Message:")
-#if HAS_WINUI && !HAS_UNO
-                .Initialize()
+            var dialog = new ContentDialog
+            {
+                Title = "Message:",
+                Content = message,
+                CloseButtonText = "Close",
+            };
+#if HAS_WINUI
+            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+            {
+                dialog.XamlRoot = Window?.Content.XamlRoot;
+            }
 #endif
-                ;
 
             context.SetOutput(Unit.Default);
 
@@ -47,11 +54,18 @@ public partial class MessageInteractionManager : BaseManager
         {
             var error = GetError(context.Input);
 
-            var dialog = new MessageDialog(error, "Error:")
-#if HAS_WINUI && !HAS_UNO
-                .Initialize()
+            var dialog = new ContentDialog
+            {
+                Title = "Error:",
+                Content = error,
+                CloseButtonText = "Close",
+            };
+#if HAS_WINUI
+            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+            {
+                dialog.XamlRoot = Window?.Content.XamlRoot;
+            }
 #endif
-                ;
 
             context.SetOutput(Unit.Default);
 
@@ -62,11 +76,18 @@ public partial class MessageInteractionManager : BaseManager
         {
             var exception = GetException(context.Input);
 
-            var dialog = new MessageDialog($"{exception}", "Exception:")
-#if HAS_WINUI && !HAS_UNO
-                .Initialize()
+            var dialog = new ContentDialog
+            {
+                Title = "Exception:",
+                Content = $"{exception}",
+                CloseButtonText = "Close",
+            };
+#if HAS_WINUI
+            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
+            {
+                dialog.XamlRoot = Window?.Content.XamlRoot;
+            }
 #endif
-                ;
 
             context.SetOutput(Unit.Default);
 
