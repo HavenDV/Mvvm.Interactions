@@ -69,9 +69,9 @@ public class FileData
         using var memoryStream = new MemoryStream();
 
         await stream.CopyToAsync(
-            memoryStream,
-            81920,
-            cancellationToken).ConfigureAwait(false);
+            destination: memoryStream,
+            bufferSize: 81920,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
 
         return memoryStream.ToArray();
     }
@@ -93,9 +93,9 @@ public class FileData
         using var memoryStream = new MemoryStream(bytes);
 
         await memoryStream.CopyToAsync(
-            stream,
-            81920,
-            cancellationToken).ConfigureAwait(false);
+            destination: stream,
+            bufferSize: 81920,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
     }
 
     /// <summary>
