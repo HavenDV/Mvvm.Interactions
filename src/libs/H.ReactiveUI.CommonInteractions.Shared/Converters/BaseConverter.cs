@@ -24,6 +24,8 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
     protected Func<TTo, object?, TFrom>? ConvertBackFunc { get; set; }
 
     public int Affinity { get; set; } = 100;
+    public TTo? DefaultConvertValue { get; set; }
+    public TFrom? DefaultConvertBackValue { get; set; }
 
     #endregion
 
@@ -100,7 +102,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
         {
             if (from == null)
             {
-                result = null;
+                result = DefaultConvertValue;
                 return true;
             }
 
@@ -122,7 +124,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter, IBindingTypeConverter
         {
             if (from == null)
             {
-                result = null;
+                result = DefaultConvertBackValue;
                 return true;
             }
 
