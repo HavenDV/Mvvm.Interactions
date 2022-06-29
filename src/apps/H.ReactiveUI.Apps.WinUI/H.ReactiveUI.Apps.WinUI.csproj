@@ -7,17 +7,25 @@
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
     <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
-    <WindowsPackageType>None</WindowsPackageType>
+    <!--<WindowsPackageType>None</WindowsPackageType>-->
     <NoWarn>$(NoWarn);CS8785</NoWarn>
+    <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
   </PropertyGroup>
 
+  <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+       Tools extension to be activated for this project even if the Windows App SDK Nuget
+       package has not yet been restored -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.25145-preview" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ReactiveUI.WinUI" Version="17.1.50" />
-    <PackageReference Include="Uno.WinUI" Version="4.1.9" />
   </ItemGroup>
 
   <ItemGroup>

@@ -50,39 +50,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Uno", "Uno", "{962AF663-191
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.WebAssembly", "src\apps\Uno\H.ReactiveUI.Apps.Uno.WebAssembly\H.ReactiveUI.Apps.Uno.WebAssembly.csproj", "{1674F114-4BB0-4A0C-814F-336EF6638A22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.WinUI.WebAssembly", "src\apps\Uno\H.ReactiveUI.Apps.Uno.WinUI.WebAssembly\H.ReactiveUI.Apps.Uno.WinUI.WebAssembly.csproj", "{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.Skia.Wpf", "src\apps\Uno\H.ReactiveUI.Apps.Uno.Skia.Wpf\H.ReactiveUI.Apps.Uno.Skia.Wpf.csproj", "{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.ReactiveUI.Apps.Uno.Skia.Wpf.Host", "src\apps\Uno\H.ReactiveUI.Apps.Uno.Skia.Wpf.Host\H.ReactiveUI.Apps.Uno.Skia.Wpf.Host.csproj", "{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.ReactiveUI.Apps.Shared", "src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.shproj", "{B2C9A032-9670-421E-A413-7C7F504F5B55}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.ReactiveUI.Apps.Uno.Shared", "src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.shproj", "{418D1399-62C8-481B-A954-517B189ECA70}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{418d1399-62c8-481b-a954-517b189eca70}*SharedItemsImports = 13
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{612c6672-9991-4daa-ae72-1fd2194528cd}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{70b22142-13ed-444f-b6a7-4583505ec8db}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{70b22142-13ed-444f-b6a7-4583505ec8db}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{74ccd32d-dbcd-43c6-9de1-7148d09b4ecf}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{e84afc6c-df9c-44c6-8878-52560a351ec3}*SharedItemsImports = 5
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
-		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{fc4ec66f-8abb-40a0-87dc-13eb219ef166}*SharedItemsImports = 5
-		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{fc4ec66f-8abb-40a0-87dc-13eb219ef166}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -292,6 +266,7 @@ Global
 		{2B65E186-B9E6-4CEF-9AE6-478C6DE59BC4}.Release|x86.Deploy.0 = Release|x86
 		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|Any CPU.Build.0 = Debug|x64
+		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|ARM.ActiveCfg = Debug|x64
 		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|ARM.Build.0 = Debug|x64
 		{70B22142-13ED-444F-B6A7-4583505EC8DB}.Debug|arm64.ActiveCfg = Debug|arm64
@@ -350,26 +325,6 @@ Global
 		{1674F114-4BB0-4A0C-814F-336EF6638A22}.Release|x64.Build.0 = Release|Any CPU
 		{1674F114-4BB0-4A0C-814F-336EF6638A22}.Release|x86.ActiveCfg = Release|Any CPU
 		{1674F114-4BB0-4A0C-814F-336EF6638A22}.Release|x86.Build.0 = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|ARM.Build.0 = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|arm64.Build.0 = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|x64.Build.0 = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Debug|x86.Build.0 = Debug|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|ARM.ActiveCfg = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|ARM.Build.0 = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|arm64.ActiveCfg = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|arm64.Build.0 = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|x64.ActiveCfg = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|x64.Build.0 = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|x86.ActiveCfg = Release|Any CPU
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166}.Release|x86.Build.0 = Release|Any CPU
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -390,26 +345,6 @@ Global
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Release|x64.Build.0 = Release|Any CPU
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Release|x86.ActiveCfg = Release|Any CPU
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1}.Release|x86.Build.0 = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|ARM.Build.0 = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|arm64.Build.0 = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|x64.Build.0 = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Debug|x86.Build.0 = Debug|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|ARM.ActiveCfg = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|ARM.Build.0 = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|arm64.ActiveCfg = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|arm64.Build.0 = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|x64.ActiveCfg = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|x64.Build.0 = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|x86.ActiveCfg = Release|Any CPU
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -430,13 +365,31 @@ Global
 		{E84AFC6C-DF9C-44C6-8878-52560A351EC3} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{962AF663-1913-4273-A8FE-33483FE32178} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{1674F114-4BB0-4A0C-814F-336EF6638A22} = {962AF663-1913-4273-A8FE-33483FE32178}
-		{FC4EC66F-8ABB-40A0-87DC-13EB219EF166} = {962AF663-1913-4273-A8FE-33483FE32178}
 		{50CCAE34-90B0-44D9-975B-F892EDCFF9F1} = {962AF663-1913-4273-A8FE-33483FE32178}
-		{B8EC2D1F-29D0-4353-BCEE-4985B3B78771} = {962AF663-1913-4273-A8FE-33483FE32178}
 		{B2C9A032-9670-421E-A413-7C7F504F5B55} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{418D1399-62C8-481B-A954-517B189ECA70} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{1674f114-4bb0-4a0c-814f-336ef6638a22}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{2b65e186-b9e6-4cef-9ae6-478c6de59bc4}*SharedItemsImports = 4
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{418d1399-62c8-481b-a954-517b189eca70}*SharedItemsImports = 13
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{50ccae34-90b0-44d9-975b-f892edcff9f1}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{612c6672-9991-4daa-ae72-1fd2194528cd}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{70b22142-13ed-444f-b6a7-4583505ec8db}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems*{70b22142-13ed-444f-b6a7-4583505ec8db}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{74ccd32d-dbcd-43c6-9de1-7148d09b4ecf}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{a7ed566d-2e7e-4a3c-8a91-874b4dfab115}*SharedItemsImports = 5
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{b2c9a032-9670-421e-a413-7c7f504f5b55}*SharedItemsImports = 13
+		src\apps\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems*{e84afc6c-df9c-44c6-8878-52560a351ec3}*SharedItemsImports = 5
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f497b163-e46e-4ea6-9e41-bb0c25ca6272}*SharedItemsImports = 13
+		src\libs\H.ReactiveUI.CommonInteractions.Shared\H.ReactiveUI.CommonInteractions.Shared.projitems*{f5eb3a73-1d93-42f7-9757-26b486d74592}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
