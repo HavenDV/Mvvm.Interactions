@@ -1,4 +1,5 @@
 ﻿global using H.ReactiveUI.CommonInteractions.Models;
+global using DependencyPropertyGenerator;
 
 #if HAS_AVALONIA
 global using Avalonia;

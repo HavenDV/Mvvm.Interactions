@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup Label="Usings">
-    <Using Remove="System.Windows.Forms"/>
+    <Using Remove="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.33.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.33.0" />
   </ItemGroup>
 
   <ItemGroup>
