@@ -10,6 +10,7 @@
     <!--<WindowsPackageType>None</WindowsPackageType>-->
     <NoWarn>$(NoWarn);CS8785</NoWarn>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
