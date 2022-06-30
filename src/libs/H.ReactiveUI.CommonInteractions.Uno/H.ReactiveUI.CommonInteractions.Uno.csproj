@@ -9,12 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="4.4.5" />
-    <PackageReference Include="DependencyPropertyGenerator" Version="0.33.0">
+    <PackageReference Include="Uno.UI" Version="4.4.13" />
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.34.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.33.0" />
+    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.34.1" />
   </ItemGroup>
 
   <ItemGroup>

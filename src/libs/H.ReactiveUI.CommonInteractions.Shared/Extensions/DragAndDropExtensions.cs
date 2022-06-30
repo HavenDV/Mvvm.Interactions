@@ -25,7 +25,7 @@ public static partial class DragAndDropExtensions
 #if !HAS_WPF
     async
 #endif
-    void OnDragFilesEnterCommandEvent(object sender, DragEventArgs args)
+    void OnDragFilesEnterCommandChanged_DragEnter(object sender, DragEventArgs args)
     {
 #if !HAS_WPF
         args.AcceptedOperation = DataPackageOperation.Copy;
@@ -91,7 +91,7 @@ public static partial class DragAndDropExtensions
 #if !HAS_WPF
     async
 #endif
-    void OnDragTextEnterCommandEvent(object sender, DragEventArgs args)
+    void OnDragTextEnterCommandChanged_DragEnter(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
@@ -115,7 +115,7 @@ public static partial class DragAndDropExtensions
 
     #region DragLeaveCommand
 
-    private static void OnDragLeaveCommandEvent(object sender, DragEventArgs args)
+    private static void OnDragLeaveCommandChanged_DragLeave(object sender, DragEventArgs args)
     {
         if (sender is UIElement element &&
             GetDragLeaveCommand(element) is ICommand command)
@@ -132,7 +132,7 @@ public static partial class DragAndDropExtensions
 #if !HAS_WPF
     async
 #endif
-    void OnDropFilesCommandEvent(object sender, DragEventArgs args)
+    void OnDropFilesCommandChanged_Drop(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.FileDrop) &&
@@ -189,7 +189,7 @@ public static partial class DragAndDropExtensions
 #if !HAS_WPF
     async
 #endif
-    void OnDropTextCommandEvent(object sender, DragEventArgs args)
+    void OnDropTextCommandChanged_Drop(object sender, DragEventArgs args)
     {
 #if HAS_WPF
         if (args.Data.GetDataPresent(DataFormats.UnicodeText, true) &&
