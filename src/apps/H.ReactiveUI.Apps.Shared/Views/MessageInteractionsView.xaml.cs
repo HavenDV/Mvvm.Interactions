@@ -1,4 +1,4 @@
-﻿namespace H.ReactiveUI.Apps.Views;
+﻿namespace HReactiveUI.Apps.Views;
 
 public partial class MessageInteractionsView
 {

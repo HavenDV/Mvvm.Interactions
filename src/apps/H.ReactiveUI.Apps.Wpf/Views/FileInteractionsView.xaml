@@ -1,57 +1,56 @@
-﻿<UserControl
-    x:Class="H.ReactiveUI.Apps.Views.FileInteractionsView"
+﻿<rx:ReactiveUserControl
+    x:TypeArguments="viewModels:FileInteractionsViewModel"
+    x:Class="HReactiveUI.Apps.Views.FileInteractionsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rx="http://reactiveui.net"
+    xmlns:views="clr-namespace:HReactiveUI.Apps.Views"
     xmlns:viewModels="clr-namespace:H.ReactiveUI.Apps.ViewModels;assembly=H.ReactiveUI.Apps.Core"
-    xmlns:views="clr-namespace:H.ReactiveUI.Apps.Views"
     xmlns:h="clr-namespace:H.ReactiveUI;assembly=H.ReactiveUI.CommonInteractions.Wpf"
     mc:Ignorable="d"
     AllowDrop="True"
-    h:DragAndDropExtensions.DragFilesEnterCommand="{Binding DragFilesEnter}"
-    h:DragAndDropExtensions.DragTextEnterCommand="{Binding DragTextEnter}"
-    h:DragAndDropExtensions.DragLeaveCommand="{Binding DragLeave}"
-    h:DragAndDropExtensions.DropFilesCommand="{Binding DropFiles}"
-    h:DragAndDropExtensions.DropTextCommand="{Binding DropText}"
+    h:DragAndDropExtensions.DragFilesEnterCommand="{Binding ViewModel.DragFilesEnter, ElementName=Root, Mode=OneWay}"
+    h:DragAndDropExtensions.DragTextEnterCommand="{Binding ViewModel.DragTextEnter, ElementName=Root, Mode=OneWay}"
+    h:DragAndDropExtensions.DragLeaveCommand="{Binding ViewModel.DragLeave, ElementName=Root, Mode=OneWay}"
+    h:DragAndDropExtensions.DropFilesCommand="{Binding ViewModel.DropFiles, ElementName=Root, Mode=OneWay}"
+    h:DragAndDropExtensions.DropTextCommand="{Binding ViewModel.DropText, ElementName=Root, Mode=OneWay}"
+    x:Name="Root"
     >
-    <UserControl.DataContext>
-        <viewModels:FileInteractionsViewModel />
-    </UserControl.DataContext>
-
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
                 <Button
                     Content="OpenFolder"
-                    Command="{Binding OpenFolder}"
+                    Command="{Binding ViewModel.OpenFolder, ElementName=Root, Mode=OneWay}"
                     />
                 <Button
                     Content="OpenFile"
-                    Command="{Binding OpenFile}"
+                    Command="{Binding ViewModel.OpenFile, ElementName=Root, Mode=OneWay}"
                     />
                 <Button
                     Content="OpenFiles"
-                    Command="{Binding OpenFiles}"
+                    Command="{Binding ViewModel.OpenFiles, ElementName=Root, Mode=OneWay}"
                     />
                 <Button
                     Content="SaveFile"
-                    Command="{Binding SaveFile}"
+                    Command="{Binding ViewModel.SaveFile, ElementName=Root, Mode=OneWay}"
                     />
                 <Button
                     Content="SaveFileAs"
-                    Command="{Binding SaveFileAs}"
+                    Command="{Binding ViewModel.SaveFileAs, ElementName=Root, Mode=OneWay}"
                     />
                 <Button
                     Content="CreateTemporaryFileAndLaunch"
-                    Command="{Binding CreateTemporaryFileAndLaunch}"
+                    Command="{Binding ViewModel.CreateTemporaryFileAndLaunch, ElementName=Root, Mode=OneWay}"
                     />
             </StackPanel>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Current File:" />
                     <TextBlock
-                        Text="{Binding SelectedFile.FileName}"
+                        Text="{Binding ViewModel.SelectedFile.FileName, ElementName=Root, Mode=OneWay}"
                         d:Text="None"
                         />
                 </StackPanel>
@@ -60,11 +59,11 @@
                     AcceptsReturn="True"
                     Width="400"
                     Height="400"
-                    Text="{Binding Content, Mode=TwoWay}"
+                    Text="{Binding ViewModel.Content, Mode=TwoWay, ElementName=Root}"
                     />
             </StackPanel>
         </StackPanel>
 
-        <views:PreviewDropView DataContext="{Binding PreviewDropViewModel}" />
+        <views:PreviewDropView ViewModel="{Binding ViewModel.PreviewDropViewModel, ElementName=Root, Mode=OneWay}" />
     </Grid>
-</UserControl>
+</rx:ReactiveUserControl>

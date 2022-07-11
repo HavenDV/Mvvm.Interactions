@@ -1,7 +1,6 @@
-﻿namespace H.ReactiveUI.Apps.Views;
+﻿namespace HReactiveUI.Apps.Views;
 
-// https://github.com/unoplatform/uno/issues/7404
-public partial class PreviewDropView : UserControl
+public partial class PreviewDropView
 {
     #region Constructors
 

@@ -1,17 +1,18 @@
-﻿<UserControl
-    x:Class="H.ReactiveUI.Apps.Views.WebInteractionsView"
+﻿<views:WebInteractionsViewBase
+    x:Class="HReactiveUI.Apps.Views.WebInteractionsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:H.ReactiveUI.Apps.ViewModels"
+    xmlns:views="using:HReactiveUI.Apps.Views"
     mc:Ignorable="d"
+    d:RequestedTheme="Dark"
     >
-    <UserControl.DataContext>
-        <viewModels:WebInteractionsViewModel/>
-    </UserControl.DataContext>
-
     <StackPanel>
-        <Button Content="OpenUrl" Command="{Binding OpenUrl}"/>
+        <Button
+            Content="OpenUrl"
+            Command="{x:Bind ViewModel.OpenUrl, Mode=OneTime}"
+            />
     </StackPanel>
-</UserControl>
+</views:WebInteractionsViewBase>

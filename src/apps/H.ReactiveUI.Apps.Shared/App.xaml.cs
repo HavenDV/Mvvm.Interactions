@@ -1,4 +1,4 @@
-﻿using H.ReactiveUI.Apps.Views;
+﻿using HReactiveUI.Apps.Views;
 using Microsoft.Extensions.Logging;
 #if !HAS_WPF
 using Windows.ApplicationModel.Activation;
@@ -34,7 +34,17 @@ public sealed partial class App
 
     #region Event Handlers
 
-#if !HAS_WPF
+#if HAS_WPF
+
+    private void OnStartup(object sender, StartupEventArgs e)
+    {
+        new MainView
+        {
+            ViewModel = new MainViewModel(),
+        }.Show();
+    }
+
+#else
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
@@ -60,7 +70,10 @@ public sealed partial class App
 
         if (frame.Content is null)
         {
-            frame.Content = new MainView();
+            frame.Content = new MainView
+            {
+                ViewModel = new MainViewModel(),
+            };
         }
 
         window.Activate();
