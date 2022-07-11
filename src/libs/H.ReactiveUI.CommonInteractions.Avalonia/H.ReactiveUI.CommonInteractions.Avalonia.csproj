@@ -7,14 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.15" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.15" Condition="'$(Configuration)' == 'Debug'" />
+    <PackageReference Include="Avalonia" Version="0.10.16" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.16" Condition="'$(Configuration)' == 'Debug'" />
     <PackageReference Include="MessageBox.Avalonia" Version="2.0.1" />
-    <PackageReference Include="DependencyPropertyGenerator" Version="0.34.1">
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.36.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.34.1" />
+    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.36.3" />
   </ItemGroup>
 
   <ItemGroup>

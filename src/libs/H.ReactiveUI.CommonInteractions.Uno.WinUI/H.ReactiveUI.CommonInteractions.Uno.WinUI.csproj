@@ -10,11 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="Uno.WinUI" Version="4.4.13" />
-    <PackageReference Include="DependencyPropertyGenerator" Version="0.34.1">
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.36.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.34.1" />
+    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.36.3" />
   </ItemGroup>
 
   <ItemGroup>
