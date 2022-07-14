@@ -8,6 +8,15 @@ namespace H.ReactiveUI;
 
 public partial class FileInteractionManager
 {
+#if HAS_WINUI
+    public static Window? Window { get; set; }
+
+    private Window GetRequiredWindow()
+    {
+        return Window ?? throw new InvalidOperationException("FileInteractionManager.Window is required.");
+    }
+#endif
+
     #region Methods
 
     public void Register()
@@ -31,7 +40,7 @@ public partial class FileInteractionManager
                 CommitButtonText = arguments.ButtonText,
             }
 #if HAS_WINUI && !HAS_UNO
-                .Initialize()
+                .Initialize(GetRequiredWindow())
 #endif
                 ;
 
@@ -50,7 +59,7 @@ public partial class FileInteractionManager
 
             var picker = new FileOpenPicker()
 #if HAS_WINUI && !HAS_UNO
-                .Initialize()
+                .Initialize(GetRequiredWindow())
 #endif
                 ;
 
@@ -78,7 +87,7 @@ public partial class FileInteractionManager
 
             var picker = new FileOpenPicker()
 #if HAS_WINUI && !HAS_UNO
-                .Initialize()
+                .Initialize(GetRequiredWindow())
 #endif
                 ;
             var extensions = arguments.Extensions.Any()
@@ -117,7 +126,7 @@ public partial class FileInteractionManager
                 },
             }
 #if HAS_WINUI && !HAS_UNO
-                .Initialize()
+                .Initialize(GetRequiredWindow())
 #endif
                 ;
             var file = await picker.PickSaveFileAsync();

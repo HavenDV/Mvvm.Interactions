@@ -1,24 +1,19 @@
 ﻿#if HAS_WINUI && !HAS_UNO
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using WinRT;
+using WinRT.Interop;
 
 namespace H.ReactiveUI;
 
-[ComImport]
-[Guid("3E68D4BD-7135-4D10-8018-9FB6D9F33FA1")]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-public interface IInitializeWithWindow
-{
-    void Initialize(IntPtr hwnd);
-}
-
 public static class WinRTObjectExtensions
 {
-    public static T Initialize<T>(this T obj) where T : IWinRTObject
+    public static T Initialize<T>(this T obj, Window window) where T : IWinRTObject
     {
-        var initialize = obj.As<IInitializeWithWindow>();
-        initialize.Initialize(Process.GetCurrentProcess().MainWindowHandle);
+        obj = obj ?? throw new ArgumentNullException(nameof(obj));
+        window = window ?? throw new ArgumentNullException(nameof(window));
+
+        var hWnd = WindowNative.GetWindowHandle(window);
+
+        InitializeWithWindow.Initialize(obj, hWnd);
 
         return obj;
     }

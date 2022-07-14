@@ -50,6 +50,7 @@ public sealed partial class App
     {
 #if HAS_WINUI && !HAS_UNO
         var window = new Window();
+        FileInteractionManager.Window = window;
         MessageInteractionManager.Window = window;
 #else
         var window = Window.Current;
