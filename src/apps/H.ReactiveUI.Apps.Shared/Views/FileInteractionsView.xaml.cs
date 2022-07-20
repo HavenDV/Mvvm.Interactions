@@ -1,6 +1,6 @@
 ﻿namespace HReactiveUI.Apps.Views;
 
-public partial class FileInteractionsView
+public partial class FileInteractionsView : FileInteractionsViewBase
 {
     #region Constructors
 

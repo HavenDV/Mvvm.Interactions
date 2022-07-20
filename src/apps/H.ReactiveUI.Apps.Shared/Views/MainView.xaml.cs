@@ -1,6 +1,6 @@
 ﻿namespace HReactiveUI.Apps.Views;
 
-public partial class MainView
+public partial class MainView : MainViewBase
 {
     #region Constructors
 

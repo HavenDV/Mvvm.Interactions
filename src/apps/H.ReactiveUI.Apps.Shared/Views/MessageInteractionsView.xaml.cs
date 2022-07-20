@@ -1,6 +1,6 @@
 ﻿namespace HReactiveUI.Apps.Views;
 
-public partial class MessageInteractionsView
+public partial class MessageInteractionsView : MessageInteractionsViewBase
 {
     #region Constructors
 

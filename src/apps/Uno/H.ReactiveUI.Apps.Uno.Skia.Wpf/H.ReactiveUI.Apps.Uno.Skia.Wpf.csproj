@@ -38,9 +38,4 @@
   <Import Project="..\..\H.ReactiveUI.Apps.Shared\H.ReactiveUI.Apps.Shared.projitems" Label="Shared" />
   <Import Project="..\..\H.ReactiveUI.Apps.Uno.Shared\H.ReactiveUI.Apps.Uno.Shared.projitems" Label="Shared" />
 
-  <!-- Workaround for https://github.com/unoplatform/uno/issues/9241 -->
-  <ItemGroup Label="GlobalUsings">
-    <Using Include="H.ReactiveUI.Apps.Uno.Extensions" />
-  </ItemGroup>
-
 </Project>

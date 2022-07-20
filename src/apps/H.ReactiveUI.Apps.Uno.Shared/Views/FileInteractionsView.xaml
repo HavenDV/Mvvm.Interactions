@@ -58,7 +58,7 @@
                     AcceptsReturn="True"
                     Width="400"
                     Height="400"
-                    Text="{x:Bind ViewModel.Content, Mode=OneWay}"
+                    Text="{x:Bind ViewModel.Content, Mode=TwoWay}"
                     />
             </StackPanel>
         </StackPanel>
