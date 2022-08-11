@@ -10,11 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="Uno.UI" Version="4.4.13" />
-    <PackageReference Include="DependencyPropertyGenerator" Version="0.36.3">
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.52.2">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.36.3" />
   </ItemGroup>
 
   <ItemGroup>

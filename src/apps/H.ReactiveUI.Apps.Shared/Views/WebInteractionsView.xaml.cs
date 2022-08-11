@@ -1,6 +1,9 @@
 ﻿namespace HReactiveUI.Apps.Views;
 
-public partial class WebInteractionsView : WebInteractionsViewBase
+public partial class WebInteractionsView
+#if !HAS_WPF
+    : WebInteractionsViewBase
+#endif
 {
     #region Constructors
 
