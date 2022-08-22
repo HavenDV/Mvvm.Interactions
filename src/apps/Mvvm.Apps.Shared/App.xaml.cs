@@ -10,7 +10,7 @@ using Windows.ApplicationModel.Activation;
 
 namespace Mvvm.Apps;
 
-public sealed partial class App
+public sealed partial class App : Application
 {
     #region Properties
 
