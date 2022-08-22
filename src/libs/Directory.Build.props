@@ -10,7 +10,7 @@
 
   <PropertyGroup Label="Signing">
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)src\libs\key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   
   <PropertyGroup Label="NuGet">
