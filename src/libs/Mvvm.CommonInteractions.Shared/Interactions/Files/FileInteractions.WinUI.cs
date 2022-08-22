@@ -12,7 +12,7 @@ public partial class FileInteractions
 
     private Window GetRequiredWindow()
     {
-        return Window ?? throw new InvalidOperationException("FileInteractionManager.Window is required.");
+        return Window ?? throw new InvalidOperationException("FileInteractions.Window is required.");
     }
 #endif
 
