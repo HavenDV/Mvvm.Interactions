@@ -9,17 +9,17 @@
   </ItemGroup>
 
   <PropertyGroup Label="Signing">
-    <!-- ReactiveUI doesn't have a strong name -->
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)src\libs\key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   
   <PropertyGroup Label="NuGet">
-    <Description>Common ReactiveUI MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia platforms</Description>
+    <Description>Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia platforms</Description>
     <Description>
 $(Description)
 $(PACKAGE_RELEASE_NOTES)
     </Description>
-    <PackageTags>reactiveui, common, interactions, openfile, savefile, openfiledialog, savefiledialog, messages, uwp, uno, wpf</PackageTags>
+    <PackageTags>mvvm;dialogs;common;interactions;openfile;savefile;openfiledialog;savefiledialog;messages;drag-and-drop;uwp;uno;wpf;winui;avalonia</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
@@ -35,8 +35,8 @@ $(PACKAGE_RELEASE_NOTES)
   </PropertyGroup>
 
   <ItemGroup Label="Nuget">
-    <None Include="$(SolutionDir)assets\nuget_icon.png" Pack="true" PackagePath="\"/>
-    <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="\"/>
+    <None Include="$(SolutionDir)assets\nuget_icon.png" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="$(SolutionDir)README.md" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
   
   <ItemGroup Label="Source Link">

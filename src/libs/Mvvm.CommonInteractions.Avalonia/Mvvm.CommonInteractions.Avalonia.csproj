@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net4.6.1</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);HAS_AVALONIA</DefineConstants>
+    <NoWarn>$(NoWarn);CA5394;CA1822</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.18" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18" Condition="'$(Configuration)' == 'Debug'" />
+    <PackageReference Include="MessageBox.Avalonia" Version="2.1.0" />
+    <PackageReference Include="DependencyPropertyGenerator" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mvvm.CommonInteractions.Core\Mvvm.CommonInteractions.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\Mvvm.CommonInteractions.Shared\Mvvm.CommonInteractions.Shared.projitems" Label="Shared" />
+
+</Project>
