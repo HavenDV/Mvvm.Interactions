@@ -26,7 +26,7 @@ jobs:
     with:
       os: windows-2022
       project-path: src/apps/Uno/Mvvm.Apps.Uno.WebAssembly
-      additional-dotnet-version: 5.0.x
+      additional-dotnet-version: 6.0.x
       deploy-web-assembly-path: src/apps/Uno/Mvvm.Apps.Uno.WebAssembly/bin/Release/net6.0/dist
       generate-build-number: false
       workloads: android ios maccatalyst macos
