@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DragAndDropExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\HostBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MessageInteractionsExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\InteractionsBase.cs" />
