@@ -1,7 +1,5 @@
 ﻿#if HAS_AVALONIA
-using System.Reactive;
 using System.Diagnostics;
-using System.Reactive.Linq;
 
 namespace Mvvm.CommonInteractions;
 

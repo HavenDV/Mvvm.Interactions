@@ -34,9 +34,7 @@ public sealed partial class App : Application
             })
             .ConfigureServices(static services =>
             {
-                services.AddSingleton<IFileInteractions, FileInteractions>();
-                services.AddSingleton<IMessageInteractions, MessageInteractions>();
-                services.AddSingleton<IWebInteractions, WebInteractions>();
+                services.AddCommonInteractions();
             })
             .Build();
 

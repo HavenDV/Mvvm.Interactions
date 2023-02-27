@@ -22,6 +22,7 @@ internal class Program
             .Configure<App>()
             .UsePlatformDetect()
             .LogToTrace()
-            .UseReactiveUI();
+            .UseReactiveUI()
+            ;
     }
 }
