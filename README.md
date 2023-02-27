@@ -37,6 +37,10 @@ public sealed partial class App
             .CreateDefaultBuilder()
             .ConfigureServices(static services =>
             {
+                // All available interactions
+                services.AddCommonInteractions();
+                
+                // or add only what you need
                 services.AddSingleton<IFileInteractions, FileInteractions>();
                 services.AddSingleton<IMessageInteractions, MessageInteractions>();
                 services.AddSingleton<IWebInteractions, WebInteractions>();
