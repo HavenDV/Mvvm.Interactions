@@ -1,5 +1,5 @@
 # [Mvvm.CommonInteractions](https://github.com/HavenDV/Mvvm.CommonInteractions/) 
-Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia platforms.
+Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia/Maui platforms.
 Features:
 - Enables drag-and-drop support at the ViewModel level.
 - Wide choice of platforms
@@ -13,6 +13,7 @@ Features:
 [![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Uwp.svg?style=flat-square&label=Mvvm.CommonInteractions.Uwp)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Uwp/)
 [![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.WinUI.svg?style=flat-square&label=Mvvm.CommonInteractions.WinUI)](https://www.nuget.org/packages/Mvvm.CommonInteractions.WinUI/)
 [![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Avalonia.svg?style=flat-square&label=Mvvm.CommonInteractions.Avalonia)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Avalonia/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Maui.svg?style=flat-square&label=Mvvm.CommonInteractions.Maui)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Maui/)
 
 ```
 Install-Package Mvvm.CommonInteractions.Core
@@ -21,6 +22,7 @@ Install-Package Mvvm.CommonInteractions.Uno
 Install-Package Mvvm.CommonInteractions.Uwp
 Install-Package Mvvm.CommonInteractions.WinUI
 Install-Package Mvvm.CommonInteractions.Avalonia
+Install-Package Mvvm.CommonInteractions.Maui
 ```
 
 ## Usage
@@ -37,7 +39,7 @@ public sealed partial class App
             .CreateDefaultBuilder()
             .ConfigureServices(static services =>
             {
-                // All available interactions
+                // Add all available interactions
                 services.AddCommonInteractions();
                 
                 // or add only what you need
@@ -70,7 +72,7 @@ if (file == null)
 }
 var text = await file.ReadTextAsync().ConfigureAwait(true);
 
-// Save (you need to save file from previuos step)
+// Save (if you need to save file from previuos step)
 await file.WriteTextAsync(text).ConfigureAwait(false);
 
 // Save As
