@@ -1,6 +1,4 @@
-﻿#if !HAS_WPF && !HAS_AVALONIA && !HAS_MAUI
-using Windows.System;
-
+﻿#if HAS_MAUI
 namespace Mvvm.CommonInteractions;
 
 public partial class WebInteractions
@@ -9,11 +7,7 @@ public partial class WebInteractions
     {
         uri = uri ?? throw new ArgumentNullException(nameof(uri));
 
-        _ = await Launcher.LaunchUriAsync(uri)
-#if HAS_UNO
-            .ConfigureAwait(true)
-#endif
-            ;
+        _ = await Launcher.TryOpenAsync(uri).ConfigureAwait(true);
     }
 }
 #endif

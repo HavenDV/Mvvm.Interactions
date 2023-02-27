@@ -14,9 +14,11 @@ jobs:
         /target:libs\Mvvm_CommonInteractions_Uwp
         /target:libs\Mvvm_CommonInteractions_WinUI
         /target:libs\Mvvm_CommonInteractions_Wpf
+        /target:libs\Mvvm_CommonInteractions_Maui
         /target:libs\Mvvm_CommonInteractions_Avalonia
       use-msbuild: true
-      # workloads: android ios maccatalyst macos
+      workloads: maui
+      install-tizen: true
       windows-sdk-version: 18362
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}

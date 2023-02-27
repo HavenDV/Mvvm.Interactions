@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.IO;
 
 namespace Mvvm.CommonInteractions.Models;
 
@@ -28,6 +27,11 @@ public class SystemIOApiFileData : FileData
         return Task.FromResult<Stream>(File.OpenWrite(FullPath));
     }
 
+#if NET6_0_OR_GREATER
+    [System.Runtime.Versioning.UnsupportedOSPlatform("ios")]
+    [System.Runtime.Versioning.UnsupportedOSPlatform("tvos")]
+    [System.Runtime.Versioning.SupportedOSPlatform("maccatalyst")]
+#endif
     public override Task LaunchAsync(
         CancellationToken cancellationToken = default)
     {

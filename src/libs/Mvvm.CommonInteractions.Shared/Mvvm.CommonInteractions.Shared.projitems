@@ -15,6 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\HostBuilderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\MessageInteractionsExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\FileInteractions.Maui.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\MauiFileData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\MauiFolderData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\InteractionsBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\FileInteractions.Avalonia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\FileInteractions.WinUI.cs" />
@@ -22,11 +25,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\FileInteractions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\StorageApiFolderData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Files\SystemIOApiFolderData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Messages\MessageInteractions.Maui.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Messages\MessageInteractions.WinUI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Messages\MessageInteractions.Wpf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Messages\MessageInteractions.Avalonia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Messages\MessageInteractions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WinRTObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Web\WebInteractions.Maui.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Web\WebInteractions.WinUI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Web\WebInteractions.Avalonia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactions\Web\WebInteractions.Wpf.cs" />

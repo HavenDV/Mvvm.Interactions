@@ -1,4 +1,4 @@
-﻿#if !HAS_WPF && !HAS_AVALONIA
+﻿#if !HAS_WPF && !HAS_AVALONIA && !HAS_MAUI
 using Windows.Storage;
 using Windows.System;
 

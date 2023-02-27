@@ -1,4 +1,4 @@
-﻿#if !HAS_AVALONIA && !HAS_WPF
+﻿#if !HAS_AVALONIA && !HAS_WPF && !HAS_MAUI
 using System.Diagnostics;
 using Windows.Foundation.Metadata;
 

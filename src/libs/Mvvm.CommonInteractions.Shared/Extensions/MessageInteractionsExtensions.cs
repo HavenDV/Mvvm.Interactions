@@ -12,7 +12,7 @@ public static class MessageInteractionsExtensions
     {
         application = application ?? throw new ArgumentNullException(nameof(application));
 
-#if !HAS_AVALONIA
+#if !HAS_AVALONIA && !HAS_MAUI
 #if HAS_WPF
         application.DispatcherUnhandledException += (sender, args) =>
 #else

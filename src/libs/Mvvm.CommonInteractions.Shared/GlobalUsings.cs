@@ -10,6 +10,7 @@ global using System.Windows.Controls;
 #elif HAS_WINUI
 global using Microsoft.UI.Xaml;
 global using Microsoft.UI.Xaml.Controls;
+#elif HAS_MAUI
 #else
 global using Windows.UI.Xaml;
 global using Windows.UI.Xaml.Controls;

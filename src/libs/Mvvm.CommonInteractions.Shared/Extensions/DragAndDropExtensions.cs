@@ -1,7 +1,8 @@
-﻿#if !HAS_AVALONIA
+﻿#if !HAS_AVALONIA && !HAS_MAUI
 using System.Windows.Input;
 #if HAS_WPF
 using System.IO;
+#elif HAS_MAUI
 #else
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;

@@ -7,6 +7,9 @@ using Microsoft.UI.Xaml.Data;
 #elif HAS_WPF
 using System.Windows.Data;
 using System.Globalization;
+#elif HAS_MAUI
+using System.Globalization;
+using DependencyProperty = Microsoft.Maui.Controls.BindableProperty;
 #else
 using Windows.UI.Xaml.Data;
 #endif
@@ -54,7 +57,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter
 
     #region Methods
 
-#if HAS_WPF || HAS_AVALONIA
+#if HAS_WPF || HAS_AVALONIA || HAS_MAUI
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
 #else
     public object? Convert(object? value, Type targetType, object? parameter, string language)
@@ -65,7 +68,7 @@ public class BaseConverter<TFrom, TTo> : IValueConverter
             : DependencyProperty.UnsetValue;
     }
 
-#if HAS_WPF || HAS_AVALONIA
+#if HAS_WPF || HAS_AVALONIA || HAS_MAUI
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
 #else
     public object? ConvertBack(object? value, Type targetType, object? parameter, string language)
