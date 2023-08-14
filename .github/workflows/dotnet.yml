@@ -17,7 +17,7 @@ jobs:
         /target:libs\Mvvm_CommonInteractions_Maui
         /target:libs\Mvvm_CommonInteractions_Avalonia
       use-msbuild: true
-      workloads: maui
+      workloads: maui android ios maccatalyst macos
       install-tizen: true
       windows-sdk-version: 18362
     secrets:
