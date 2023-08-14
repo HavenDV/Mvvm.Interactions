@@ -1,6 +1,7 @@
 # [Mvvm.CommonInteractions](https://github.com/HavenDV/Mvvm.CommonInteractions/) 
 Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia/Maui platforms.
 Features:
+- Easy interactions with files, message boxes, web from MVVM level.
 - Enables drag-and-drop support at the ViewModel level.
 - Wide choice of platforms
 - Dependency injection friendly
