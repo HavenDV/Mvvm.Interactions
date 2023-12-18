@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-windows10.0.19041</TargetFrameworks>
+    <SignAssembly>false</SignAssembly>
+    <DefineConstants>$(DefineConstants);HAS_UNO;HAS_WINUI</DefineConstants>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-android'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-ios'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-maccatalyst'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <NoWarn>$(NoWarn);CA5394;CA1822;NETSDK1206</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.WinUI" Version="5.0.48" Condition="'$(TargetFramework)' != 'net8.0-windows10.0.19041'" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.231115000" Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041'" />
+    <PackageReference Include="DependencyPropertyGenerator" Version="1.4.0-alpha.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mvvm.Interactions.Core\Mvvm.Interactions.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\Mvvm.Interactions.Shared\Mvvm.Interactions.Shared.projitems" Label="Shared" />
+
+</Project>

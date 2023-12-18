@@ -1,0 +1,23 @@
+<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
+
+  <PropertyGroup>
+    <TargetFramework>uap10.0.18362</TargetFramework>
+    <DefineConstants>$(DefineConstants);HAS_UWP</DefineConstants>
+    <NoWarn>$(NoWarn);CA1822</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DependencyPropertyGenerator" Version="1.3.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mvvm.Interactions.Core\Mvvm.Interactions.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\Mvvm.Interactions.Shared\Mvvm.Interactions.Shared.projitems" Label="Shared" />
+
+</Project>

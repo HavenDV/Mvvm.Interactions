@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Mvvm.Apps.ViewModels;
-using Mvvm.CommonInteractions;
+using Mvvm.Interactions;
 
 namespace Mvvm.Apps.Maui;
 
@@ -14,7 +14,7 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
             .UseMauiCommunityToolkit()
-            .UseMvvmCommonInteractions()
+            .UseMvvmInteractions()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

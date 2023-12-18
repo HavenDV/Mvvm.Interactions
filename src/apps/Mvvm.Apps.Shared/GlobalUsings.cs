@@ -4,7 +4,7 @@ global using System.Linq;
 
 global using Mvvm;
 global using Mvvm.Converters;
-global using Mvvm.CommonInteractions;
+global using Mvvm.Interactions;
 
 global using Mvvm.Apps.ViewModels;
 

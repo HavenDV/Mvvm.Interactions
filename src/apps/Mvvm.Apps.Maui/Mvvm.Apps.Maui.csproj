@@ -55,7 +55,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Mvvm.Apps.Core\Mvvm.Apps.Core.csproj" />
-		<ProjectReference Include="..\..\libs\Mvvm.CommonInteractions.Maui\Mvvm.CommonInteractions.Maui.csproj" />
+		<ProjectReference Include="..\..\libs\Mvvm.Interactions.Maui\Mvvm.Interactions.Maui.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -9,18 +9,18 @@ jobs:
     name: Build abd test
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
-      os: windows-2022
+      os: windows-latest
       project-path:
-        /target:libs\Mvvm_CommonInteractions_Core
-        /target:libs\Mvvm_CommonInteractions_Uno
-        /target:libs\Mvvm_CommonInteractions_Uno_WinUI
-        /target:libs\Mvvm_CommonInteractions_Uwp
-        /target:libs\Mvvm_CommonInteractions_WinUI
-        /target:libs\Mvvm_CommonInteractions_Wpf
-        /target:libs\Mvvm_CommonInteractions_Maui
-        /target:libs\Mvvm_CommonInteractions_Avalonia
+        /target:libs\Mvvm_Interactions_Core
+        /target:libs\Mvvm_Interactions_Uno
+        /target:libs\Mvvm_Interactions_Uno_WinUI
+        /target:libs\Mvvm_Interactions_Uwp
+        /target:libs\Mvvm_Interactions_WinUI
+        /target:libs\Mvvm_Interactions_Wpf
+        /target:libs\Mvvm_Interactions_Maui
+        /target:libs\Mvvm_Interactions_Avalonia
       use-msbuild: true
-      workloads: maui android ios maccatalyst macos
+      workloads: maui
       install-tizen: true
       windows-sdk-version: 18362
       generate-build-number: false

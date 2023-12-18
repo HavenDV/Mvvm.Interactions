@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Mvvm.Apps.ViewModels;
 using Mvvm.Apps.Views;
-using Mvvm.CommonInteractions;
+using Mvvm.Interactions;
 
 namespace Mvvm.Apps;
 

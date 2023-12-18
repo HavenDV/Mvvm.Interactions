@@ -34,7 +34,7 @@ public sealed partial class App : Application
             })
             .ConfigureServices(static services =>
             {
-                services.AddCommonInteractions();
+                services.AddMvvmInteractions();
             })
             .Build();
 

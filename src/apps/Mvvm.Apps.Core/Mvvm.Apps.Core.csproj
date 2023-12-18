@@ -12,7 +12,7 @@
     <Using Include="CommunityToolkit.Mvvm.Input" />
     <Using Include="CommunityToolkit.Mvvm.ComponentModel" />
     
-    <Using Include="Mvvm.CommonInteractions" />
+    <Using Include="Mvvm.Interactions" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\libs\Mvvm.CommonInteractions.Core\Mvvm.CommonInteractions.Core.csproj" />
+    <ProjectReference Include="..\..\libs\Mvvm.Interactions.Core\Mvvm.Interactions.Core.csproj" />
   </ItemGroup>
 
 </Project>

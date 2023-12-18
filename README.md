@@ -1,4 +1,4 @@
-# [Mvvm.CommonInteractions](https://github.com/HavenDV/Mvvm.CommonInteractions/) 
+# [Mvvm.Interactions](https://github.com/HavenDV/Mvvm.Interactions/) 
 Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia/Maui platforms.
 Features:
 - Easy interactions with files, message boxes, web from MVVM level.
@@ -8,22 +8,22 @@ Features:
 
 ### NuGet
 
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Core.svg?style=flat-square&label=Mvvm.CommonInteractions.Core)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Core/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Wpf.svg?style=flat-square&label=Mvvm.CommonInteractions.Wpf)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Wpf/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Uno.svg?style=flat-square&label=Mvvm.CommonInteractions.Uno)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Uno/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Uwp.svg?style=flat-square&label=Mvvm.CommonInteractions.Uwp)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Uwp/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.WinUI.svg?style=flat-square&label=Mvvm.CommonInteractions.WinUI)](https://www.nuget.org/packages/Mvvm.CommonInteractions.WinUI/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Avalonia.svg?style=flat-square&label=Mvvm.CommonInteractions.Avalonia)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Avalonia/)
-[![NuGet](https://img.shields.io/nuget/dt/Mvvm.CommonInteractions.Maui.svg?style=flat-square&label=Mvvm.CommonInteractions.Maui)](https://www.nuget.org/packages/Mvvm.CommonInteractions.Maui/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Core.svg?style=flat-square&label=Mvvm.Interactions.Core)](https://www.nuget.org/packages/Mvvm.Interactions.Core/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Wpf.svg?style=flat-square&label=Mvvm.Interactions.Wpf)](https://www.nuget.org/packages/Mvvm.Interactions.Wpf/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Uno.svg?style=flat-square&label=Mvvm.Interactions.Uno)](https://www.nuget.org/packages/Mvvm.Interactions.Uno/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Uwp.svg?style=flat-square&label=Mvvm.Interactions.Uwp)](https://www.nuget.org/packages/Mvvm.Interactions.Uwp/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.WinUI.svg?style=flat-square&label=Mvvm.Interactions.WinUI)](https://www.nuget.org/packages/Mvvm.Interactions.WinUI/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Avalonia.svg?style=flat-square&label=Mvvm.Interactions.Avalonia)](https://www.nuget.org/packages/Mvvm.Interactions.Avalonia/)
+[![NuGet](https://img.shields.io/nuget/dt/Mvvm.Interactions.Maui.svg?style=flat-square&label=Mvvm.Interactions.Maui)](https://www.nuget.org/packages/Mvvm.Interactions.Maui/)
 
 ```
-Install-Package Mvvm.CommonInteractions.Core
-Install-Package Mvvm.CommonInteractions.Wpf
-Install-Package Mvvm.CommonInteractions.Uno
-Install-Package Mvvm.CommonInteractions.Uwp
-Install-Package Mvvm.CommonInteractions.WinUI
-Install-Package Mvvm.CommonInteractions.Avalonia
-Install-Package Mvvm.CommonInteractions.Maui
+Install-Package Mvvm.Interactions.Core
+Install-Package Mvvm.Interactions.Wpf
+Install-Package Mvvm.Interactions.Uno
+Install-Package Mvvm.Interactions.Uwp
+Install-Package Mvvm.Interactions.WinUI
+Install-Package Mvvm.Interactions.Avalonia
+Install-Package Mvvm.Interactions.Maui
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ public sealed partial class App
             .ConfigureServices(static services =>
             {
                 // Add all available interactions
-                services.AddCommonInteractions();
+                services.AddMvvmInteractions();
                 
                 // or add only what you need
                 services.AddSingleton<IFileInteractions, FileInteractions>();
@@ -116,9 +116,9 @@ await WebInteractions.OpenUrlAsync("https://www.google.com/");
 ### DragAndDropExtensions
 ```
 // WPF
-xmlns:dragAndDrop="clr-namespace:Mvvm.CommonInteractions;assembly=Mvvm.CommonInteractions.Wpf" 
+xmlns:dragAndDrop="clr-namespace:Mvvm.Interactions;assembly=Mvvm.Interactions.Wpf" 
 // UWP/Uno
-xmlns:dragAndDrop="using:Mvvm.CommonInteractions"
+xmlns:dragAndDrop="using:Mvvm.Interactions"
 ```
 ```xml
 <Element

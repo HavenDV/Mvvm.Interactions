@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:Mvvm.Apps.ViewModels"
     xmlns:views="using:Mvvm.Apps.Views"
-    xmlns:dragAndDrop="using:Mvvm.CommonInteractions"
+    xmlns:dragAndDrop="using:Mvvm.Interactions"
     mc:Ignorable="d"
     AllowDrop="True"
     dragAndDrop:DragAndDropExtensions.DragFilesEnterCommand="{x:Bind ViewModel.DragFilesEnterCommand, Mode=OneTime}"

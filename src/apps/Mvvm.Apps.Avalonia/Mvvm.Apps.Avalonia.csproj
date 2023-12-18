@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Mvvm.Apps.Core\Mvvm.Apps.Core.csproj" />
-    <ProjectReference Include="..\..\libs\Mvvm.CommonInteractions.Avalonia\Mvvm.CommonInteractions.Avalonia.csproj" />
+    <ProjectReference Include="..\..\libs\Mvvm.Interactions.Avalonia\Mvvm.Interactions.Avalonia.csproj" />
   </ItemGroup>
 
 </Project>

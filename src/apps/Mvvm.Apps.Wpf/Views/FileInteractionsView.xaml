@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:Mvvm.Apps.Views"
-    xmlns:dragAndDrop="clr-namespace:Mvvm.CommonInteractions;assembly=Mvvm.CommonInteractions.Wpf"
+    xmlns:dragAndDrop="clr-namespace:Mvvm.Interactions;assembly=Mvvm.Interactions.Wpf"
     mc:Ignorable="d"
     AllowDrop="True"
     dragAndDrop:DragAndDropExtensions.DragFilesEnterCommand="{Binding ViewModel.DragFilesEnterCommand, ElementName=Root, Mode=OneWay}"

@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Startup="OnStartup"
-    xmlns:hconverters="clr-namespace:Mvvm.Converters;assembly=Mvvm.CommonInteractions.Wpf"
+    xmlns:hconverters="clr-namespace:Mvvm.Converters;assembly=Mvvm.Interactions.Wpf"
     >
     <Application.Resources>
         <hconverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
