@@ -9,11 +9,7 @@ public partial class WebInteractions
     {
         uri = uri ?? throw new ArgumentNullException(nameof(uri));
 
-        _ = await Launcher.LaunchUriAsync(uri)
-#if HAS_UNO
-            .ConfigureAwait(true)
-#endif
-            ;
+        _ = await Launcher.LaunchUriAsync(uri);
     }
 }
 #endif

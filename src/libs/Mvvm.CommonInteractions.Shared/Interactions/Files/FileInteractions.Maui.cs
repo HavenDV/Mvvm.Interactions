@@ -1,5 +1,6 @@
 ﻿#if HAS_MAUI
 using System.Diagnostics;
+using System.Runtime.Versioning;
 using CommunityToolkit.Maui.Storage;
 
 namespace Mvvm.CommonInteractions;
@@ -8,7 +9,7 @@ public partial class FileInteractions
 {
     private string ToFilter(string filterName, params string[] extensions)
     {
-        if (!extensions.Any())
+        if (extensions.Length == 0)
         {
             return string.Empty;
         }
@@ -21,15 +22,26 @@ public partial class FileInteractions
         return filter;
     }
 
+    [SupportedOSPlatform("Android26.0")]
+    [SupportedOSPlatform("iOS14.0")]
+    [SupportedOSPlatform("MacCatalyst14.0")]
+    [SupportedOSPlatform("Tizen")]
+    [SupportedOSPlatform("Windows")]
     public async Task<FolderData?> OpenFolderAsync(OpenFolderArguments arguments, CancellationToken cancellationToken = default)
     {
         arguments = arguments ?? throw new ArgumentNullException(nameof(arguments));
 
         try
         {
-            var folder = await FolderPicker.Default.PickAsync(arguments.SelectedPath, cancellationToken).ConfigureAwait(true);
-
-            return new MauiFolderData(folder);
+            var folder = await FolderPicker.Default.PickAsync(
+                initialPath: arguments.SelectedPath,
+                cancellationToken: cancellationToken).ConfigureAwait(true);
+            if (!folder.IsSuccessful)
+            {
+                return null;
+            }
+            
+            return new MauiFolderData(folder.Folder);
         }
         catch (OperationCanceledException)
         {

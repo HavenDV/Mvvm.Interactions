@@ -58,7 +58,7 @@ public partial class FileInteractions
 #endif
             ;
 
-        var extensions = arguments.Extensions.Any()
+        var extensions = arguments.Extensions.Length != 0
             ? arguments.Extensions
             : new[] { "*" };
 
@@ -85,7 +85,7 @@ public partial class FileInteractions
             .Initialize(GetRequiredWindow())
 #endif
             ;
-        var extensions = arguments.Extensions.Any()
+        var extensions = arguments.Extensions.Length != 0
             ? arguments.Extensions
             : new[] { "*" };
 

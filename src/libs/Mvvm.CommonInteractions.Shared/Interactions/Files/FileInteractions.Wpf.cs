@@ -9,7 +9,7 @@ public partial class FileInteractions
 {
     private string ToFilter(string filterName, params string[] extensions)
     {
-        if (!extensions.Any())
+        if (extensions.Length == 0)
         {
             return string.Empty;
         }

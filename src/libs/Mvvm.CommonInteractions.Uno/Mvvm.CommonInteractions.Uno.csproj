@@ -1,13 +1,12 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <TargetFrameworks>$(TargetFrameworks);MonoAndroid12.0;xamarinios10;xamarinmac20</TargetFrameworks>
+    <TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
     <SignAssembly>false</SignAssembly>
     <DefineConstants>$(DefineConstants);HAS_UNO</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)' == 'MonoAndroid11.0'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)' == 'xamarinios10'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
-    <DefineConstants Condition="'$(TargetFramework)' == 'xamarinmac20'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-android'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-ios'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net8.0-maccatalyst'">$(DefineConstants);HAS_UNO_MOBILE</DefineConstants>
     <NoWarn>$(NoWarn);CA1822</NoWarn>
   </PropertyGroup>
 

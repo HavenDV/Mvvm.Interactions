@@ -9,7 +9,7 @@ jobs:
     name: Build, test and publish
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
-      os: windows-2022
+      os: windows-latest
       project-path: 
         /target:libs\Mvvm_CommonInteractions_Core
         /target:libs\Mvvm_CommonInteractions_Uno
@@ -20,18 +20,17 @@ jobs:
         /target:libs\Mvvm_CommonInteractions_Maui
         /target:libs\Mvvm_CommonInteractions_Avalonia
       use-msbuild: true
-      workloads: maui android ios maccatalyst macos
+      workloads: maui
       install-tizen: true
       windows-sdk-version: 18362
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
 
-  WebAssembly:
-    uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
-    with:
-      os: windows-2022
-      project-path: src/apps/Uno/Mvvm.Apps.Uno.WebAssembly
-      additional-dotnet-version: 6.0.x
-      deploy-web-assembly-path: src/apps/Uno/Mvvm.Apps.Uno.WebAssembly/bin/Release/net6.0/dist
-      generate-build-number: false
-      workloads: android ios maccatalyst macos
+#  WebAssembly:
+#    uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
+#    with:
+#      os: windows-latest
+#      project-path: src/apps/Mvvm.Apps.Uno
+#      deploy-web-assembly-path: src/apps/Mvvm.Apps.Uno/bin/Release/net8.0-webassembly/dist
+#      generate-build-number: false
+#      workloads: maui

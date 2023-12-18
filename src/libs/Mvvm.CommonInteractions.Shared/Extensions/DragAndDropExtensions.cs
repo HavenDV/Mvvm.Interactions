@@ -77,7 +77,7 @@ public static partial class DragAndDropExtensions
 
             if (sender is UIElement element &&
                 GetDragFilesEnterCommand(element) is ICommand command &&
-                files.Any())
+                files.Count != 0)
             {
                 command.Execute(files.ToArray());
             }
@@ -175,7 +175,7 @@ public static partial class DragAndDropExtensions
 #endif
             if (sender is UIElement element &&
                 GetDropFilesCommand(element) is ICommand command &&
-                files.Any())
+                files.Length != 0)
             {
                 command.Execute(files);
             }

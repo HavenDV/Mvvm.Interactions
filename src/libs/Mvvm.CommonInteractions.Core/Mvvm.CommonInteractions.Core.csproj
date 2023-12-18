@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net4.6.2;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <RootNamespace>Mvvm.CommonInteractions</RootNamespace>
     <NoWarn>$(NoWarn);CA1819;CA1014;CS8002</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -9,10 +9,6 @@
 
   <ItemGroup Label="GlobalUsings">
     <Using Remove="System.Net.Http" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net4.6.2' ">
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
