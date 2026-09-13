@@ -1,4 +1,11 @@
 # [Mvvm.Interactions](https://github.com/HavenDV/Mvvm.Interactions/) 
+
+> [!IMPORTANT]
+> This project is retired and no longer maintained. Its NuGet packages are
+> deprecated, but existing versions remain available for restore. New projects
+> should call the relevant platform APIs directly or keep thin adapters in the
+> consuming application.
+
 Common MVVM Level Interactions(like open/save file) for WPF/UWP/WinUI/Uno/Avalonia/Maui platforms.
 Features:
 - Easy interactions with files, message boxes, web from MVVM level.
